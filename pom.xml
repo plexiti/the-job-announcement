@@ -1,0 +1,245 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<name>camunda fox Job Announcement Example</name>
+	<groupId>examples</groupId>
+	<artifactId>job-announcement-fox</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	
+	<packaging>war</packaging>
+
+	<properties>
+		<fox.version>6.0.0</fox.version>
+		<fest.assert.version>1.4</fest.assert.version>
+		<h2.version>1.3.162</h2.version>
+
+        <!-- Avoid the message "[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!" -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        
+        <!-- The JBoss BOM's project provides Maven BOM files enhancing Jave EE 6 with deployment and test tooling -->
+        <jboss.bom.version>1.0.0.Final</jboss.bom.version>
+	</properties>
+
+    <dependencyManagement>
+        <!-- The JBoss BOM's project provides Maven BOM files enhancing Jave EE 6 with deployment and test tooling -->
+        <dependencies>
+            <dependency>
+                <groupId>org.jboss.bom</groupId>
+                <artifactId>jboss-javaee-6.0-with-tools</artifactId>
+                <version>${jboss.bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.bom</groupId>
+                <artifactId>jboss-javaee-6.0-with-hibernate</artifactId>
+                <version>${jboss.bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>com.camunda.fox.platform</groupId>
+			<artifactId>fox-platform-client</artifactId>
+			<version>${fox.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.camunda.fox.engine</groupId>
+			<artifactId>fox-engine</artifactId>
+			<version>${fox.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+        <!-- JSR-303 (Bean Validation) Implementation -->
+        <!-- Provides portable constraints such as @Email -->
+        <!-- Hibernate Validator is shipped in JBoss AS 7 -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+		<dependency>
+			<groupId>org.jboss.spec</groupId>
+			<artifactId>jboss-javaee-web-6.0</artifactId>
+			<version>2.0.0.Final</version>
+			<type>pom</type>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>xalan</artifactId>
+					<groupId>org.apache.xalan</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+   		<dependency>
+   			<groupId>org.easytesting</groupId>
+   			<artifactId>fest-assert</artifactId>
+   			<version>${fest.assert.version}</version>
+   			<scope>test</scope>
+   		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>${h2.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-email</artifactId>
+		    <version>1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tmatesoft.svnkit</groupId>
+			<artifactId>svnkit</artifactId>
+			<version>1.3.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4</version>
+		</dependency>
+		
+		<dependency>
+         <groupId>org.twitter4j</groupId>
+         <artifactId>twitter4j-core</artifactId>
+	     <version>2.2.5</version>
+      </dependency>
+
+	</dependencies>
+
+
+	<repositories>
+    <!--
+     Change fox-version property and repository to adjust showcase to the community edition, see
+     https://app.camunda.com/confluence/display/foxUserGuide/Download+and+run+examples
+     for more details
+     <repository>
+      <id>camunda-fox-ce</id>
+      <url>https://app.camunda.com/nexus/content/repositories/fox-ce/</url>
+    </repository>
+    -->
+        <repository>
+          <id>camunda-fox-ee</id>
+          <url>https://app.camunda.com/nexus/content/repositories/fox-ee/</url>
+          <!-- you will need credentials to access this repository! See https://app.camunda.com/confluence/display/foxUserGuide/Maven+configuration -->
+        </repository>
+	
+		<repository>
+			<id>jboss-public-repository</id>
+			<name>JBoss Repository</name>
+			<url>http://repository.jboss.org/nexus/content/groups/public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.1</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+				<configuration>
+					<!-- Java EE 6 doesn't require web.xml -->
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+            <!-- The JBoss AS plugin deploys your war to a local JBoss AS container -->
+            <!-- To use, run: mvn package jboss-as:deploy -->
+            <plugin>
+                <groupId>org.jboss.as.plugins</groupId>
+                <artifactId>jboss-as-maven-plugin</artifactId>
+                <version>7.1.1.Final</version>
+            </plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>default</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.4.3</version>
+						<configuration>
+					          <includes>
+					            <include>**/*Test.java</include>
+					          </includes>
+					          <excludes>
+					          	<exclude>**/activiti/test/**/*.java</exclude>
+					          </excludes>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>arq-jbossas-remote</id>
+			<dependencies>
+				<dependency>
+					<groupId>org.jboss.as</groupId>
+					<artifactId>jboss-as-arquillian-container-remote</artifactId>
+					<version>7.0.2.Final</version>
+					<scope>test</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
+
+</project>

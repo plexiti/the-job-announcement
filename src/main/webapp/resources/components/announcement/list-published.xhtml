@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+	<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:composite="http://java.sun.com/jsf/composite"
+	      xmlns:f="http://java.sun.com/jsf/core"
+	      	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+		<!-- INTERFACE -->
+		<composite:interface>
+			<composite:attribute name="id" required="true"/>
+			<composite:attribute name="items" required="true"/>
+		</composite:interface>
+
+		<!-- IMPLEMENTATION -->
+		<composite:implementation>
+			<h:dataTable id="#{cc.attrs.id}" value="#{cc.attrs.items}" var="announcement" rendered="#{cc.attrs.items.size() > 0}" styleClass="table table-striped table-bordered" columnClasses="column-narrow,column-narrow,,,,column-narrow">
+				<h:column headerClass="column-narrow">
+					<f:facet name="header">#{msg['column.owner']}</f:facet>
+					<h:graphicImage url="#{users.getImage(announcement.requester)}" width="40" styleClass="user-thumbnail" rendered="#{announcement.requester != null}"/>
+					<h:graphicImage url="#{users.getImage(announcement.editor)}" width="40" styleClass="user-thumbnail" rendered="#{announcement.editor != null}"/>
+				</h:column>
+				<h:column headerClass="column-narrow">
+					<f:facet name="header">#{msg['column.published']}</f:facet>
+					<h:outputText value="#{announcement.published}" >
+						<f:convertDateTime pattern="dd.MM. (HH:mm)" />
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">#{msg['column.jobtitle']}</f:facet>
+					#{announcement.jobTitle}
+				</h:column>	
+				<h:column>
+					<f:facet name="header">#{msg['column.facebook']}</f:facet>
+					#{announcement.facebookPost}
+				</h:column>
+				<h:column>
+					<f:facet name="header">#{msg['column.tweet']}</f:facet>
+					#{announcement.twitterMessage}
+				</h:column>
+				<h:column headerClass="column-narrow">
+					<f:facet name="header">#{msg['column.action']}</f:facet>
+					<h:commandButton value="#{msg['button.view']}" action="#{jobAnnouncements.showPublished}" class="btn btn-primary">
+						<f:param name="id" value="#{announcement.id}" />
+					</h:commandButton>
+        		</h:column>				
+			</h:dataTable>
+			<ui:fragment rendered="#{cc.attrs.items.size() == 0}">
+				<p>#{msg['table.nothingpublished']}</p>
+			</ui:fragment>
+		</composite:implementation>
+		
+</html>

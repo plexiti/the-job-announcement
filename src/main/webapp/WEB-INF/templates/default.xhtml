@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<h:head>
+	
+		<title>#{msg['app.name']}</title>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+
+		<link rel="shortcut icon" type="image/x-icon" href="resources/img/fox.ico" />
+	
+		<h:outputStylesheet name="css/bootswatch/united/bootstrap.min.css" />
+		<h:outputStylesheet name="css/DT_bootstrap.css" />
+		<h:outputStylesheet name="css/sticky-footer.css" />
+		<h:outputStylesheet name="css/job-announcements.css" />
+
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+	      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->
+	
+		<!-- Le fav and touch icons
+	    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+	    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+	    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+	    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+		-->
+	
+	</h:head>
+	
+	<h:body>
+	
+		<f:view locale="#{users.locale}"/>
+	
+		<h:form id="mainForm" styleClass="form-horizontal">
+            <ui:fragment rendered="#{!empty activeNavigationBarTab}"><div id="activeNavigationBarTab" value="#{activeNavigationBarTab}"/></ui:fragment>
+			<div class="navbar navbar-fixed-top">
+				<div class="navbar-inner">
+					<div class="container">
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> 
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</a> 
+						<h:commandLink action="/index.jsf" class="brand" immediate="true">#{msg['app.name']}</h:commandLink>
+						<div class="nav-collapse">
+							<ul class="nav">
+ 							    <li id="index"><h:commandLink action="/index.jsf" immediate="true">#{msg['menu.cast']}</h:commandLink></li>
+								<li id="start"><h:commandLink action="/start.jsf" immediate="true">#{msg['menu.play']}!</h:commandLink></li>
+								<li id="book"><a href="#book">#{msg['menu.book']}</a></li>
+								<li id="direction"><a href="#direction">#{msg['menu.direction']}</a></li>
+								<li id="production"><a href="#production">#{msg['menu.production']}</a></li>
+								<li id="credits"><a href="#credits">#{msg['menu.credits']}</a></li>
+							</ul>	
+							<ul class="nav pull-right">
+								<li class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown">#{users.loggedInUserName}<b class="caret"><!--//--></b><h:graphicImage url="#{users.image}" width="20" styleClass="user-header pull-right"/></a>
+									<ul class="dropdown-menu">
+										<ui:repeat var="user" value="${users.usersList}">
+											<li><h:commandLink action="#{users.doLogin(user.id)}">#{users.getFullName(user.id)}<h:graphicImage url="#{users.getImage(user.id)}" width="20" styleClass="user-header pull-right"/></h:commandLink></li>
+										</ui:repeat>
+									</ul>
+								</li>			       
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+        
+			<div id="main">
+				<div class="container clear-top">
+					<br/>
+					<ui:insert name="content">
+			                    [Template content will be inserted here]
+			         </ui:insert>
+				</div>
+				<div class="push"><!--//--></div>
+			</div>
+
+			<footer>
+				<div class="container">
+					<hr/>
+					<p class="pull-left">#{msg['app.language']}: 
+						<h:commandLink action="#{users.setLocale('en')}" immediate="true">#{msg['lang.en']}</h:commandLink>
+						<span> | </span>
+						<h:commandLink action="#{users.setLocale('de')}" immediate="true">#{msg['lang.de']}</h:commandLink>
+					</p>
+					<p class="pull-right" style="white-space: nowrap">Powered by
+						<a href="http://www.camunda.com/fox">camunda fox</a>
+						<a href="http://www.camunda.com/fox"><h:graphicImage url="/resources/img/fox-ico.png" style="vertical-align: text-bottom;"/></a>
+					</p>
+				</div>
+			</footer>
+			
+		</h:form>
+
+		<!-- Placed at the end of the document so the pages load faster -->
+		<h:outputScript name="js/jquery-1.7.2.min.js" />
+		<h:outputScript name="js/bootstrap.min.js" />
+		<h:outputScript name="js/jquery.dataTables.min.js" />
+		<h:outputScript name="js/DT_bootstrap.js" />
+
+		<script type="text/javascript">
+			/*
+			 * Select form fields that have produced a validation error
+			 */
+			var fieldsWithValidationError = $(".control-group > .controls > .help-inline").prev();
+			var controlGroupElements = fieldsWithValidationError.parent().parent();
+
+			/* 
+			 * Mark them in red 
+			 */
+			 controlGroupElements.addClass("error");			
+			
+			/* 
+			 * Attach events to each of the fields so once the user clicks on 
+			 * the field, we remove the "error" class from it.
+			 */ 
+			 fieldsWithValidationError.keydown(function() {
+				 $(this).parent().parent().removeClass("error");
+			 });
+
+			 /*
+			  * Retrieve the name of the active tab
+			  */
+			  var activeNavigationBarTabName = $("#activeNavigationBarTab").attr("value");
+
+			  // Set the corresponding tab to active
+			  $(".nav > #" + activeNavigationBarTabName).addClass("active");  
+
+			 /*
+			  * Preserve line breaks for Job Description.
+			  */
+			  $(".preserve-breaks").each(function(i) {
+				  var h = $(this).html();
+				  h = h.replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + '<br />' + '$2');
+				  $(this).html(h);
+			  });
+
+		  </script>
+	</h:body>
+	
+</html>

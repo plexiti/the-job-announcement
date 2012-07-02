@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+	<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:composite="http://java.sun.com/jsf/composite"
+	      xmlns:f="http://java.sun.com/jsf/core"
+	      	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+		<!-- INTERFACE -->
+		<composite:interface>
+			<composite:attribute name="id" required="true"/>
+			<composite:attribute name="items" required="true"/>
+		</composite:interface>
+
+		<!-- IMPLEMENTATION -->
+		<composite:implementation>
+			<h:dataTable id="#{cc.attrs.id}" value="#{cc.attrs.items}" var="announcement" rendered="#{cc.attrs.items.size() > 0}" styleClass="table table-striped table-bordered" columnClasses="column-narrow,column-narrow,,,column-narrow,column-narrow">
+				<h:column headerClass="column-narrow">
+					<f:facet name="header">#{msg['column.owner']}</f:facet>
+					<h:graphicImage url="#{users.getImage(announcement.requester)}" width="40" styleClass="user-thumbnail" rendered="#{announcement.requester != null}"/>
+					<h:graphicImage url="#{users.getImage(announcement.editor)}" width="40" styleClass="user-thumbnail" rendered="#{announcement.editor != null}"/>
+				</h:column>
+				<h:column headerClass="column-narrow">
+					<f:facet name="header">#{msg['column.create']}</f:facet>
+					<h:outputText value="#{announcement.task.createTime}" >
+						<f:convertDateTime pattern="dd.MM. (HH:mm)" />
+					</h:outputText>
+				</h:column>
+				<h:column>
+					<f:facet name="header">#{msg['column.need']}</f:facet>
+					#{announcement.need}
+				</h:column>
+				<h:column>
+					<f:facet name="header">#{msg['column.jobtitle']}</f:facet>
+					#{announcement.jobTitle}
+				</h:column>	
+				<h:column headerClass="column-narrow">
+					<f:facet name="header">#{msg['column.next']}</f:facet>
+					<h:graphicImage url="#{users.getImage(announcement.task.assignee)}" width="40" styleClass="user-thumbnail" rendered="#{announcement.task.assignee != null}"/>
+				</h:column>
+				<h:column headerClass="column-narrow">
+					<f:facet name="header">#{msg['column.action']}</f:facet>
+					<h:commandButton value="#{msg[jobAnnouncements.getButtonMessageKey(announcement.task.taskDefinitionKey)]}" action="#{jobAnnouncements.showForm(announcement.task.id, announcement.task.taskDefinitionKey)}" class="btn btn-primary" rendered="#{jobAnnouncements.isAssignable(announcement.task.id)}"/>
+					<ui:fragment rendered="#{!jobAnnouncements.isAssignable(announcement.task.id)}">
+						<button class="btn disabled" disabled="disabled">#{msg[jobAnnouncements.getButtonMessageKey(announcement.task.taskDefinitionKey)]}</button>
+					</ui:fragment>
+        		</h:column>					
+			</h:dataTable>
+			<ui:fragment rendered="#{cc.attrs.items.size() == 0}">
+				<p>#{msg['table.nothingtodo']}</p>
+			</ui:fragment>
+		</composite:implementation>
+		
+</html>

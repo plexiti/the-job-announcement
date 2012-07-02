@@ -1,0 +1,22 @@
+package com.plexiti.activiti.service;
+
+import java.util.List;
+
+import org.activiti.cdi.BusinessProcess;
+import org.activiti.engine.task.Task;
+
+import com.plexiti.activiti.model.TaskAware;
+import com.plexiti.persistence.service.EntityService;
+
+public interface ProcessAwareEntityService<E extends TaskAware> extends EntityService<E> {
+
+	void associate(BusinessProcess process, E entity);
+	
+	E find(BusinessProcess businessProcess);
+	E findOrNew(BusinessProcess businessProcess);
+
+	E associate(Task task);	
+	E associate(E entity);	
+	List<E> listAssociated(String assignee, String... taskDefinitionKey);
+	
+}

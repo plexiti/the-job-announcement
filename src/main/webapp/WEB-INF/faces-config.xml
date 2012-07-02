@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+	<application>
+		<resource-bundle>
+			<base-name>com.camunda.fox.showcase.jobannouncement.web.messages</base-name>
+			<var>msg</var>
+		</resource-bundle>
+		<locale-config>
+			<default-locale>en</default-locale>
+			<supported-locale>de</supported-locale>
+		 </locale-config>
+	</application>
+	<navigation-rule>
+		<from-view-id>/start.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>new</from-outcome>
+			<to-view-id>/announcement/new.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>edit</from-outcome>
+			<to-view-id>/announcement/edit.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>correct</from-outcome>
+			<to-view-id>/announcement/correct.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>review</from-outcome>
+			<to-view-id>/announcement/review.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>publish</from-outcome>
+			<to-view-id>/announcement/publish.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>published</from-outcome>
+			<to-view-id>/announcement/published.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/announcement/*</from-view-id>
+		<navigation-case>
+			<if>#{true}</if>
+			<to-view-id>/start.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+</faces-config>

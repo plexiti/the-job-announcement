@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<h:head>
+	
+		<title>We're hiring!</title>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="shortcut icon" type="image/x-icon" href="resources/img/fox.ico" />
+	
+		<h:outputStylesheet name="css/bootswatch/united/bootstrap.min.css" />
+		<h:outputStylesheet name="css/DT_bootstrap.css" />
+		<h:outputStylesheet name="css/job-announcements.css" />
+
+	</h:head>
+	
+	<h:body>
+	
+		<f:view locale="#{users.locale}"/>
+	
+		<div id="main">
+			<div class="container clear-top">
+				<br/>
+				<ui:insert name="content">
+		                    [Template content will be inserted here]
+		         </ui:insert>
+			</div>
+		</div>
+		
+		<!-- Placed at the end of the document so the pages load faster -->
+		<h:outputScript name="js/jquery-1.7.2.min.js" />
+		<h:outputScript name="js/bootstrap.min.js" />
+		<h:outputScript name="js/jquery.dataTables.min.js" />
+		<h:outputScript name="js/DT_bootstrap.js" />
+
+		<script>
+		
+			 /*
+			  * Preserve line breaks for Job Description.
+			  */
+			  $(".preserve-breaks").each(function(i) {
+				  var h = $(this).html();
+				  h = h.replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + '<br />' + '$2');
+				  $(this).html(h);
+			  });
+
+		</script>
+
+	</h:body>
+	
+</html>

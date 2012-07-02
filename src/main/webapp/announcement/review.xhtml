@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:job="http://java.sun.com/jsf/composite/components/job"
+	template="/WEB-INF/templates/default.xhtml">
+		
+<ui:param name="activeNavigationBarTab" value="start"/>
+<ui:define name="content">	
+	<h1>#{msg['title.review']}</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a purus vitae odio volutpat accumsan. Pellentesque id volutpat metus. Fusce eget dui eu libero interdum pellentesque. In ac est nec orci tincidunt rutrum. Etiam ultricies, sem vel viverra aliquam, libero arcu dictum eros, suscipit gravida lorem sapien sit amet orci. Donec dui leo, feugiat sit amet faucibus eu, luctus in metus. Mauris viverra venenatis risus non rutrum. Quisque dignissim neque id enim commodo pharetra. Donec suscipit aliquam arcu, id sodales nunc lacinia non.</p>
+	<br/>
+    <fieldset>
+		<job:need field="#{jobAnnouncement.need}" editable="true"/>
+		<hr/>		  
+		<job:title field="#{jobAnnouncement.jobTitle}" editable="false"/>
+		<job:description field="#{jobAnnouncement.jobDescription}" editable="false"/>
+		<job:tweet field="#{jobAnnouncement.twitterMessage}" editable="false"/>
+		<job:facebook field="#{jobAnnouncement.facebookPost}" editable="false"/>
+  	    <hr/>
+  	    <job:lastComment field="#{jobAnnouncements.lastComment}" user="#{jobAnnouncement.editor}" editable="false"/>
+  	    <job:comment field="#{jobAnnouncements.comment}" editable="true"/>
+		<div class="form-actions well">
+			<h:commandButton id="cancel" value="#{msg['button.cancel']}" action="#{jobAnnouncements.doCancel}" class="btn" immediate="true"/>
+			<h:commandButton action="#{jobAnnouncements.doSave}" value="#{msg['button.save']}" type="submit" class="btn btn-success"/>
+			<h:commandButton action="#{jobAnnouncements.doRequestCorrection}" value="#{msg['button.review.previous']}" type="submit" class="btn btn-primary"/>
+			<h:commandButton action="#{jobAnnouncements.doApprovePublication}" value="#{msg['button.review.next']}" type="submit" class="btn btn-primary"/>
+		</div>
+    </fieldset>
+</ui:define>
+</ui:composition>

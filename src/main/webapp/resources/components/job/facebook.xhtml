@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        
+	<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:composite="http://java.sun.com/jsf/composite"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+	      xmlns:f="http://java.sun.com/jsf/core">
+
+		<!-- INTERFACE -->
+		<composite:interface>
+			<composite:attribute name="field" required="true"/>
+			<composite:attribute name="editable" required="true"/>
+		</composite:interface>
+
+		<!-- IMPLEMENTATION -->
+		<composite:implementation>
+		 <div class="control-group">
+            <label class="control-label" for="facebook">#{msg['field.facebook']}:</label>
+            <div class="controls">
+			  <ui:fragment rendered="#{cc.attrs.editable == true}">
+	              <h:inputTextarea id="facebook" name="facebook" class="span8" rows="5" columns="40" value="#{jobAnnouncement.facebookPost}"/>
+	              <h:message for="facebook" errorClass="help-inline"/>
+				  </ui:fragment>
+			  <ui:fragment rendered="#{cc.attrs.editable == false }">
+				  <span class="span8 uneditable-input">#{cc.attrs.field}</span>
+			  </ui:fragment>              
+            </div>
+          </div>
+		</composite:implementation>
+</html>

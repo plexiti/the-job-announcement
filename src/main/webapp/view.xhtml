@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:job="http://java.sun.com/jsf/composite/components/job"
+	template="/WEB-INF/templates/external.xhtml">
+
+	<ui:define name="content">	
+		<h1>#{msg['title.view']}</h1>
+		<br/>
+		<job:post announcement="#{jobAnnouncement}"/>
+	</ui:define>
+	
+</ui:composition>

@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+		<!-- INTERFACE -->
+		<composite:interface>
+			<composite:attribute name="announcement" required="true"/>
+		</composite:interface>
+
+		<!-- IMPLEMENTATION -->
+		<composite:implementation>	
+			<h3>
+		      	<h:outputFormat value="#{msg['post.header']}" escape="false">
+					<f:param value="#{cc.attrs.announcement.jobTitle}" />
+				</h:outputFormat>
+			</h3>
+			<hr style="margin-top: 3px;"/>
+			<p>
+				<h:graphicImage url="#{users.getImage(cc.attrs.announcement.requester)}" width="38" styleClass="pull-left user-thumbnail"/>
+		      	<h:outputFormat value="#{msg['post.intro']}" escape="false">
+					<f:param value="#{msg[users.getJobMessageKey(cc.attrs.announcement.requester)]}" />
+					<f:param value="#{users.getFullName(cc.attrs.announcement.requester)}" />
+				</h:outputFormat>
+			</p>
+			<p style="margin-left: 5px; margin-top: 20px">
+		      	<h:outputFormat value="#{msg['post.requirements']}" escape="false"/>
+			</p>
+			<hr style="margin-top: 3px;"/>
+			<p style="margin: 5px" class="preserve-breaks">#{cc.attrs.announcement.jobDescription}</p>
+			<hr/>
+			<p class="pull-right">
+		      	<h:outputFormat value="#{msg['post.close']}" escape="false">
+					<f:param value="#{cc.attrs.announcement.editor}" />
+					<f:param value="#{users.getFullName(cc.attrs.announcement.editor)}" />
+					<f:param value="#{cc.attrs.announcement.id}" />
+				</h:outputFormat>
+				<h:graphicImage url="#{users.getImage(cc.attrs.announcement.editor)}" width="27" styleClass="user-thumbnail-chat"/>
+			</p>
+			<div style="clear: both"/>
+		</composite:implementation>
+
+</html>

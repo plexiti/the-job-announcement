@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:announcement="http://java.sun.com/jsf/composite/components/announcement"
+	template="/WEB-INF/templates/default.xhtml">
+		
+
+	<ui:param name="activeNavigationBarTab" value="start"/>
+
+	<ui:define name="content">	
+	
+		<h1>#{msg['menu.play']}</h1>
+	    <p>In this screen we can see... stuff for user #{users.loggedInUser}</p>
+	    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a purus vitae odio volutpat accumsan. Pellentesque id volutpat metus. Fusce eget dui eu libero interdum pellentesque. In ac est nec orci tincidunt rutrum. Etiam ultricies, sem vel viverra aliquam, libero arcu dictum eros, suscipit gravida lorem sapien sit amet orci. Donec dui leo, feugiat sit amet faucibus eu, luctus in metus. Mauris viverra venenatis risus non rutrum. Quisque dignissim neque id enim commodo pharetra. Donec suscipit aliquam arcu, id sodales nunc lacinia non.</p>
+	    
+	    <h:commandButton value="#{msg['button.new']}" action="#{jobAnnouncements.showNew()}" class="btn btn-primary pull-right" rendered="#{users.manager}" />
+	    
+		<p>
+		    <ul id="myTab" class="nav nav-tabs">
+		      <li class="active">
+			      <a href="#tab-own" data-toggle="tab">
+			      	<i class="tab-icon icon-inbox"> </i>
+			      	<h:outputFormat value="#{msg['tab.own']}">
+						<f:param value="#{jobAnnouncements.getJobAnnouncementsCount('own')}" />
+					</h:outputFormat>
+			      </a>
+		      </li>
+		      <li class="">
+			      <a href="#tab-edit" data-toggle="tab">
+			      	<i class="tab-icon icon-play"> </i>
+			      	<h:outputFormat value="#{msg['tab.edit']}">
+						<f:param value="#{jobAnnouncements.getJobAnnouncementsCount('edit')}" />
+					</h:outputFormat>
+			      </a>
+		      </li>
+		      <li class="">
+			      <a href="#tab-review" data-toggle="tab">
+			      	<i class="tab-icon icon-play"> </i>
+			      	<h:outputFormat value="#{msg['tab.review']}">
+						<f:param value="#{jobAnnouncements.getJobAnnouncementsCount('review')}" />
+					</h:outputFormat>
+			      </a>
+		      </li>
+		      <li class="">
+			      <a href="#tab-publish" data-toggle="tab">
+			      	<i class="tab-icon icon-play"> </i>
+			      	<h:outputFormat value="#{msg['tab.publish']}">
+						<f:param value="#{jobAnnouncements.getJobAnnouncementsCount('publish')}" />
+					</h:outputFormat>
+			      </a>
+		      </li>
+		      <li class="">
+			      <a href="#tab-published" data-toggle="tab">
+			      	<i class="tab-icon icon-globe"> </i>
+			      	<h:outputFormat value="#{msg['tab.published']}">
+						<f:param value="#{jobAnnouncements.getJobAnnouncementsCount('published')}" />
+					</h:outputFormat>
+			      </a>
+		      </li>
+		    </ul>
+		    <div id="myTabContent" class="tab-content">
+		      <div class="tab-pane fade active in" id="tab-own">
+		      	<announcement:list id="own" items="#{jobAnnouncements.getJobAnnouncements('own')}" />
+		      </div>
+		      <div class="tab-pane fade in" id="tab-edit">
+		      	<announcement:list id="edit" items="#{jobAnnouncements.getJobAnnouncements('edit')}" />
+		      </div>
+		      <div class="tab-pane fade" id="tab-review">
+		      	<announcement:list id="review" items="#{jobAnnouncements.getJobAnnouncements('review')}" />
+		      </div>
+		      <div class="tab-pane fade" id="tab-publish">
+		      	<announcement:list id="publish" items="#{jobAnnouncements.getJobAnnouncements('publish')}" />
+		      </div>
+		      <div class="tab-pane fade" id="tab-published">
+		      	<announcement:list-published id="published" items="#{jobAnnouncements.getJobAnnouncements('published')}" />
+		      </div>
+		    </div>
+		</p>
+	</ui:define>
+</ui:composition>
