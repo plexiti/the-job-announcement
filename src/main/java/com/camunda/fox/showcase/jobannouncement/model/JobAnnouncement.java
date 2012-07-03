@@ -164,4 +164,17 @@ public class JobAnnouncement implements TaskAware, Serializable {
 		this.facebookUrl = Strings.trimToNull(facebookUrl);
 	}
 
+	public String getWebsiteUrl() {
+		// TODO Construct correct URL here.
+		return "http://the-job-announcement.com:8080/job-announcement-fox/view.jsf?id=" + id;
+	}
+	
+	public String getTwitterMessageWithLink() {
+		return getTwitterMessage() + " " + getWebsiteUrl();
+	}
+	
+	public String getFacebookPostWithLink() {
+		return getFacebookPost() + " " + getWebsiteUrl();
+	}
+
 }

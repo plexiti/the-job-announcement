@@ -70,21 +70,31 @@ public class JobAnnouncementServiceImpl extends ProcessAwareJpaEntityServiceImpl
 	public void postToWebsite(Long jobAnnouncementId) {
 		JobAnnouncement announcement = find(jobAnnouncementId);
 		announcement.setPublished(new Date());
-		log.info("Job Announcement #[" + announcement.getId() + "] published to website.");
+		log.info("Job Announcement #[" + announcement.getId() + "] published to Website.");
 	}
 
 	@Override // #{jobAnnouncementService.postToTwitter(jobAnnouncementId)}
 	public void postToTwitter(Long jobAnnouncementId) {
 		JobAnnouncement announcement = find(jobAnnouncementId);
-		// TODO Construct correct URL here.
-		String twitterUrl = twitterPostingService.post(announcement.getTwitterMessage() + " http://the-job-announcement.com:8080/job-announcement-fox/view.jsf?id=" + jobAnnouncementId);
+		String twitterUrl = twitterPostingService.post(announcement.getTwitterMessageWithLink());
 		announcement.setTwitterUrl(twitterUrl);
+		log.info("Job Announcement #[" + announcement.getId() + "] posted to Twitter.");
 	}
 
 	@Override // #{jobAnnouncementService.postToFacebook(jobAnnouncementId)}
 	public void postToFacebook(Long jobAnnouncementId) {
 		JobAnnouncement announcement = find(jobAnnouncementId);
-		facebookPostingService.equals(new FacebookPosting().setText(announcement.getFacebookPost()));
+		User requester = identityService.createUserQuery().userId(announcement.getRequester()).singleResult();
+		String facebookUrl = facebookPostingService.post(
+			new FacebookPosting()
+				.setMessage(announcement.getFacebookPost())
+				.setLink(announcement.getWebsiteUrl())
+				.setName(announcement.getJobTitle() + " gesucht!")
+				.setDescription("Unser " + (announcement.getRequester().equals("gonzo") ? "Geschäftsführer" : "Chef der Personalabteilung") + " " + requester.getFirstName() + " " + requester.getLastName() + " eine neue Mitarbeiter/-in! Sind Sie interessiert?")
+				.setPicture("http://martin.schimak.at/wp-content/uploads/2012/07/" + announcement.getRequester() + ".png")
+			); // TODO MessageBundle abfragen, Picture URLs besser setzen.
+		announcement.setFacebookUrl(facebookUrl);
+		log.info("Job Announcement #[" + announcement.getId() + "] posted to Facebook.");
 	}
 
 	@Override // #{jobAnnouncementService.notifyAboutPostings(jobAnnouncementId)}

@@ -16,6 +16,18 @@
 		<job:post announcement="#{jobAnnouncement}"/>
 		<div class="form-actions well">
 			<h:commandButton id="cancel" value="#{msg['button.return']}" action="#{jobAnnouncements.doCancel}" class="btn" immediate="true"/>
+			<ui:fragment rendered="#{jobAnnouncement.twitterUrl != null}">
+				<a target="_blank" class="btn btn-success" href="#{jobAnnouncement.twitterUrl}">Twitter</a>
+			</ui:fragment>
+			<ui:fragment rendered="#{jobAnnouncement.twitterUrl == null}">
+				<button class="btn disabled" disabled="disabled">Twitter</button>
+			</ui:fragment>
+			<ui:fragment rendered="#{jobAnnouncement.facebookUrl != null}">
+				<a target="_blank" class="btn btn-success" href="#{jobAnnouncement.facebookUrl}">Facebook</a>
+			</ui:fragment>
+			<ui:fragment rendered="#{jobAnnouncement.facebookUrl == null}">
+				<button class="btn disabled" disabled="disabled">Facebook</button>
+			</ui:fragment>
 		</div>
     </fieldset>
 	

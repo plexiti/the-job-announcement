@@ -71,4 +71,8 @@ button.btn, input[type="submit"].btn {
 
 .tab-icon {
 	margin-right: 3px;
-}  
+}
+
+.connect_widget_like_button {
+	height: 20px;
+}

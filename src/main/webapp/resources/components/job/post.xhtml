@@ -14,12 +14,21 @@
 
 		<!-- IMPLEMENTATION -->
 		<composite:implementation>	
-			<h3>
+			<h3 class="pull-left">
 		      	<h:outputFormat value="#{msg['post.header']}" escape="false">
 					<f:param value="#{cc.attrs.announcement.jobTitle}" />
 				</h:outputFormat>
 			</h3>
-			<hr style="margin-top: 3px;"/>
+			<div style="text-align: right; position: relative; left: #{cc.attrs.announcement.twitterUrl != null ? '28' : '3'}px; top: 2px" >
+				<ui:fragment rendered="#{cc.attrs.announcement.twitterUrl != null}">
+					<a href="https://twitter.com/share" class="pull-right twitter-share-button" data-text="#{cc.attrs.announcement.twitterMessage}" data-url="#{cc.attrs.announcement.websiteUrl}" data-via="TheJobAnnouncer" data-lang="en">Tweet</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>			
+				</ui:fragment>
+				<ui:fragment rendered="#{cc.attrs.announcement.facebookUrl != null}">
+					<div style="left: 8px" class="fb-like pull-right" data-href="#{cc.attrs.announcement.websiteUrl}" data-send="false" data-layout="button_count" data-width="0" data-show-faces="false" data-action="like" data-font="Ubuntu, Tahoma, sans-serif;"></div>
+				</ui:fragment>
+			</div>
+			<hr style="clear: both"/>
 			<p>
 				<h:graphicImage url="#{users.getImage(cc.attrs.announcement.requester)}" width="38" styleClass="pull-left user-thumbnail"/>
 		      	<h:outputFormat value="#{msg['post.intro']}" escape="false">

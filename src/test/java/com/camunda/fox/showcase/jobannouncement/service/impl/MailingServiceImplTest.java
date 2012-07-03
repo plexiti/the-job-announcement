@@ -5,6 +5,7 @@ import javax.persistence.EntityManager;
 import org.activiti.engine.IdentityService;
 import org.activiti.engine.identity.User;
 import org.activiti.engine.identity.UserQuery;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -13,8 +14,6 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.camunda.fox.showcase.jobannouncement.model.JobAnnouncement;
-import com.camunda.fox.showcase.jobannouncement.service.impl.JobAnnouncementServiceImpl;
-import com.camunda.fox.showcase.jobannouncement.service.impl.MailingServiceImpl;
 
 @RunWith(MockitoJUnitRunner.class)
 public class MailingServiceImplTest {
@@ -29,20 +28,18 @@ public class MailingServiceImplTest {
 	@InjectMocks JobAnnouncementServiceImpl service = new JobAnnouncementServiceImpl();	
 	@InjectMocks MailingServiceImpl mailingService = new MailingServiceImpl();
 	
-	{
-		service.mailingService = mailingService;
-	}
-
-	@Test
-	public void test() {
+	@Before
+	public void init() {
 		
+		service.mailingService = mailingService;
+
 		JobAnnouncement announcement = new JobAnnouncement();
 		announcement.setId(1L);
 		announcement.setRequester("gonzo");
 		announcement.setEditor("fozzie");
 		announcement.setJobTitle("Software Developer");
 		announcement.setTwitterMessage("Software Developer");
-		
+
 		Mockito.when(requester.getId()).thenReturn("gonzo");
 		Mockito.when(requester.getFirstName()).thenReturn("Gonzo");
 		Mockito.when(requester.getLastName()).thenReturn("The Great");
@@ -58,8 +55,11 @@ public class MailingServiceImplTest {
 		Mockito.when(identityService.createUserQuery().userId(announcement.getEditor())).thenReturn(userQueryEditor);
 		Mockito.when(identityService.createUserQuery().userId(announcement.getEditor()).singleResult()).thenReturn(editor);
 		
-		service.notifyAboutPostings(1L);
-		
+	}
+
+	@Test
+	public void test() {
+//		service.notifyAboutPostings(1L);
 	}
 
 }

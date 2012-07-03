@@ -21,7 +21,8 @@
 		<h:outputStylesheet name="css/DT_bootstrap.css" />
 		<h:outputStylesheet name="css/sticky-footer.css" />
 		<h:outputStylesheet name="css/job-announcements.css" />
-
+		<h:outputScript name="js/facebook.js" />
+		
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
 	      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -37,6 +38,8 @@
 	</h:head>
 	
 	<h:body>
+
+		<div id="fb-root"></div>
 	
 		<f:view locale="#{users.locale}"/>
 	
@@ -145,7 +148,7 @@
 				  $(this).html(h);
 			  });
 
-		  </script>
+			  </script>
 	</h:body>
 	
 </html>

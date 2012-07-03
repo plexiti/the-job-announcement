@@ -8,7 +8,7 @@
 
 	<h:head>
 	
-		<title>We're hiring!</title>
+		<title>#{msg['title.view']}</title>
 
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,11 +18,14 @@
 		<h:outputStylesheet name="css/bootswatch/united/bootstrap.min.css" />
 		<h:outputStylesheet name="css/DT_bootstrap.css" />
 		<h:outputStylesheet name="css/job-announcements.css" />
+		<h:outputScript name="js/facebook.js" />
 
 	</h:head>
 	
 	<h:body>
 	
+		<div id="fb-root"></div>
+		
 		<f:view locale="#{users.locale}"/>
 	
 		<div id="main">
@@ -51,7 +54,7 @@
 				  $(this).html(h);
 			  });
 
-		</script>
+		  </script>
 
 	</h:body>
 	
