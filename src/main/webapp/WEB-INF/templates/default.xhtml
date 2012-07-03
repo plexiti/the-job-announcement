@@ -143,8 +143,8 @@
 			  * Preserve line breaks for Job Description.
 			  */
 			  $(".preserve-breaks").each(function(i) {
-				  var h = $(this).html();
-				  h = h.replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + '<br />' + '$2');
+				  var h = $(this.firstChild).html();
+				  h = h.replace(/\n/g, '<br />');
 				  $(this).html(h);
 			  });
 
