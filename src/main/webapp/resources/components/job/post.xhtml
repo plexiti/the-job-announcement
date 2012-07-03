@@ -39,9 +39,13 @@
 			<p style="margin-left: 5px; margin-top: 20px">
 		      	<h:outputFormat value="#{msg['post.requirements']}" escape="false"/>
 			</p>
+			<div class="well preserve-breaks">
+				<pre>#{cc.attrs.announcement.jobDescription}</pre>
+			</div>
+			<!-- 
 			<hr style="margin-top: 3px;"/>
-			<p style="margin: 5px" class="preserve-breaks"><pre>#{cc.attrs.announcement.jobDescription}</pre></p>
 			<hr/>
+			 -->
 			<p class="pull-right">
 		      	<h:outputFormat value="#{msg['post.close']}" escape="false">
 					<f:param value="#{cc.attrs.announcement.editor}" />

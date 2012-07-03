@@ -143,7 +143,7 @@
 			  * Preserve line breaks for Job Description.
 			  */
 			  $(".preserve-breaks").each(function(i) {
-				  var h = $(this.firstChild).html();
+				  var h = $(this.getElementsByTagName('pre')[0]).html();
 				  h = h.replace(/\n/g, '<br />');
 				  $(this).html(h);
 			  });

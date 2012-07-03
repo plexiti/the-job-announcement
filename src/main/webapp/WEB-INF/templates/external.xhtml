@@ -43,13 +43,13 @@
 		<h:outputScript name="js/jquery.dataTables.min.js" />
 		<h:outputScript name="js/DT_bootstrap.js" />
 
-		<script>
+		<script type="text/javascript">
 		
 		 /*
 		  * Preserve line breaks for Job Description.
 		  */
 		  $(".preserve-breaks").each(function(i) {
-			  var h = $(this.firstChild).html();
+			  var h = $(this.getElementsByTagName('pre')[0]).html();
 			  h = h.replace(/\n/g, '<br />');
 			  $(this).html(h);
 		  });
