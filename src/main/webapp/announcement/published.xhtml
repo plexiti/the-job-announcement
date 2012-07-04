@@ -17,16 +17,16 @@
 		<div class="form-actions well">
 			<h:commandButton id="cancel" value="#{msg['button.return']}" action="#{jobAnnouncements.doCancel}" class="btn" immediate="true"/>
 			<ui:fragment rendered="#{jobAnnouncement.twitterUrl != null}">
-				<a target="_blank" class="btn btn-success" href="#{jobAnnouncement.twitterUrl}">Twitter</a>
+				<a target="_blank" class="btn btn-success" href="#{jobAnnouncement.twitterUrl}">#{msg['button.published.twitter']}</a>
 			</ui:fragment>
 			<ui:fragment rendered="#{jobAnnouncement.twitterUrl == null}">
-				<button class="btn disabled" disabled="disabled">Twitter</button>
+				<button class="btn disabled" disabled="disabled">#{msg['button.published.twitter']}</button>
 			</ui:fragment>
 			<ui:fragment rendered="#{jobAnnouncement.facebookUrl != null}">
-				<a target="_blank" class="btn btn-success" href="#{jobAnnouncement.facebookUrl}">Facebook</a>
+				<a target="_blank" class="btn btn-success" href="#{jobAnnouncement.facebookUrl}">#{msg['button.published.facebook']}</a>
 			</ui:fragment>
 			<ui:fragment rendered="#{jobAnnouncement.facebookUrl == null}">
-				<button class="btn disabled" disabled="disabled">Facebook</button>
+				<button class="btn disabled" disabled="disabled">#{msg['button.published.facebook']}</button>
 			</ui:fragment>
 		</div>
     </fieldset>
