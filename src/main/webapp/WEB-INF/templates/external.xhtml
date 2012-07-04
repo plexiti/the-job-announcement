@@ -17,7 +17,10 @@
 	
 		<h:outputStylesheet name="css/bootswatch/united/bootstrap.min.css" />
 		<h:outputStylesheet name="css/DT_bootstrap.css" />
+
 		<h:outputStylesheet name="css/job-announcements.css" />
+		<h:outputStylesheet name="css/job-announcements-ie.css" rendered="#{users.browser == 'ie'}"/>
+		<h:outputScript name="http://html5shim.googlecode.com/svn/trunk/html5.js" rendered="#{users.browser == 'ie'}"/>
 		<h:outputScript name="js/facebook.js" />
 
 	</h:head>

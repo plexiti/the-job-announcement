@@ -1,0 +1,17 @@
+/* Eventually for both - very much related - issues there is a better solution out there. Basically I have to convince IE 
+that a picture next to some right-aligned (floating) text, div or span must not be displayed in the next line, even when 
+the parent container is suggesting a container size collapsing to the minimum */
+
+/* Fixes the IE issue that the image of the user gets wrapped into the next line */
+li.dropdown {
+	margin-left: -15%;
+	width: 115%;
+	min-width: 110px;
+}
+
+/* Fixes the IE issue that the image of the user gets wrapped into the next line in the footer of a published announcement */
+#published-announcement-footer {
+	white-space: nowrap;
+	position: relative;
+	left: -27px; /* related to the image size used in the footer */
+}

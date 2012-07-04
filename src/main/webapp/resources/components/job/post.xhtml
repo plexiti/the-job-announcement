@@ -14,46 +14,46 @@
 
 		<!-- IMPLEMENTATION -->
 		<composite:implementation>	
-			<h3 class="pull-left">
-		      	<h:outputFormat value="#{msg['post.header']}" escape="false">
-					<f:param value="#{cc.attrs.announcement.jobTitle}" />
-				</h:outputFormat>
-			</h3>
-			<div style="text-align: right; position: relative; left: #{cc.attrs.announcement.twitterUrl != null ? '28' : '3'}px; top: 2px" >
+			<div id="published-announcement-header-title">
+				<h3>
+			      	<h:outputFormat value="#{msg['post.header']}" escape="false">
+						<f:param value="#{cc.attrs.announcement.jobTitle}" />
+					</h:outputFormat>
+				</h3>
+			</div>
+			<div id="published-announcement-header-networks" style="#{cc.attrs.announcement.twitterUrl != null ? 'left: 28px;' : ''}">
 				<ui:fragment rendered="#{cc.attrs.announcement.twitterUrl != null}">
-					<a href="https://twitter.com/share" class="pull-right twitter-share-button" data-text="#{cc.attrs.announcement.twitterMessage}" data-url="#{cc.attrs.announcement.websiteUrl}" data-via="TheJobAnnouncer" data-lang="en">Tweet</a>
+					<a href="https://twitter.com/share" class="pull-right twitter-share-button" data-text="#{cc.attrs.announcement.twitterMessage}" data-url="#{cc.attrs.announcement.websiteUrl}" data-via="TheJobAnnouncer" data-lang="en"/>
 					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>			
 				</ui:fragment>
 				<ui:fragment rendered="#{cc.attrs.announcement.facebookUrl != null}">
 					<div style="left: 8px" class="fb-like pull-right" data-href="#{cc.attrs.announcement.websiteUrl}" data-send="false" data-layout="button_count" data-width="0" data-show-faces="false" data-action="like" data-font="Ubuntu, Tahoma, sans-serif;"></div>
 				</ui:fragment>
 			</div>
-			<hr style="clear: both"/>
-			<p>
+			<div id="published-announcement-header-manager">
+				<hr/>
 				<h:graphicImage url="#{users.getImage(cc.attrs.announcement.requester)}" width="38" styleClass="pull-left user-thumbnail"/>
 		      	<h:outputFormat value="#{msg['post.intro']}" escape="false">
 					<f:param value="#{msg[users.getJobMessageKey(cc.attrs.announcement.requester)]}" />
 					<f:param value="#{users.getFullName(cc.attrs.announcement.requester)}" />
 				</h:outputFormat>
-			</p>
-			<p style="margin-left: 5px; margin-top: 20px">
+			</div>
+			<div id="published-announcement-header-requirements">
 		      	<h:outputFormat value="#{msg['post.requirements']}" escape="false"/>
-			</p>
-			<div class="well preserve-breaks">
+			</div>
+			<div id="published-announcement-requirements" class="well preserve-breaks">
 				<pre>#{cc.attrs.announcement.jobDescription}</pre>
 			</div>
-			<!-- 
-			<hr style="margin-top: 3px;"/>
-			<hr/>
-			 -->
-			<p class="pull-right">
-		      	<h:outputFormat value="#{msg['post.close']}" escape="false">
-					<f:param value="#{cc.attrs.announcement.editor}" />
-					<f:param value="#{users.getFullName(cc.attrs.announcement.editor)}" />
-					<f:param value="#{cc.attrs.announcement.id}" />
-				</h:outputFormat>
-				<h:graphicImage url="#{users.getImage(cc.attrs.announcement.editor)}" width="27" styleClass="user-thumbnail-chat"/>
-			</p>
+			<div id="published-announcement-footer" class=" pull-right">
+				<span>
+			      	<h:outputFormat value="#{msg['post.close']}" escape="false">
+						<f:param value="#{cc.attrs.announcement.editor}" />
+						<f:param value="#{users.getFullName(cc.attrs.announcement.editor)}" />
+						<f:param value="#{cc.attrs.announcement.id}" />
+					</h:outputFormat>
+				</span>
+				<h:graphicImage styleClass="user-thumbnail-chat" width="27" url="#{users.getImage(cc.attrs.announcement.editor)}" />
+			</div>
 			<div style="clear: both"/>
 		</composite:implementation>
 
