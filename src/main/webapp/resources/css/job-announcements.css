@@ -76,3 +76,7 @@ button.btn, input[type="submit"].btn {
 .connect_widget_like_button {
 	height: 20px;
 }
+
+.preserve-breaks pre {
+	display: none;
+}
