@@ -55,10 +55,10 @@
 							</ul>	
 							<ul class="nav pull-right">
 								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown">#{users.loggedInUserName}<b class="caret"><!--//--></b><h:graphicImage url="#{users.image}" width="20" styleClass="user-header pull-right"/></a>
+									<a class="dropdown-toggle" data-toggle="dropdown"><h:graphicImage url="#{users.image}" width="20" styleClass="user-header pull-right"/>#{users.loggedInUserName}<b class="caret"><!--//--></b></a>
 									<ul class="dropdown-menu">
 										<ui:repeat var="user" value="${users.usersList}">
-											<li><h:commandLink action="#{users.doLogin(user.id)}">#{users.getFullName(user.id)}<h:graphicImage url="#{users.getImage(user.id)}" width="20" styleClass="user-header pull-right"/></h:commandLink></li>
+											<li><h:commandLink action="#{users.doLogin(user.id)}"><h:graphicImage url="#{users.getImage(user.id)}" width="20" styleClass="user-header pull-right"/>#{users.getFullName(user.id)}</h:commandLink></li>
 										</ui:repeat>
 									</ul>
 								</li>			       
