@@ -11,8 +11,11 @@ import javax.enterprise.context.ContextNotActiveException;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
 
 import org.activiti.engine.identity.User;
+
+import com.plexiti.helper.Servlets;
 
 
 @Named("users")
@@ -24,6 +27,7 @@ public class UserBean extends AbstractBean implements Serializable {
 	private String loggedInUser = "gonzo";
 	private User loggedInUserDetails;
 	private String locale;
+	private String browser = initBrowser();
 	private boolean manager;
 	private List<User> usersList;
 	
@@ -96,6 +100,14 @@ public class UserBean extends AbstractBean implements Serializable {
 	
 	public String getJobMessageKey(String userId) {
 		return "job." + userId;
+	}
+	
+	public String initBrowser() {
+		return Servlets.browser((HttpServletRequest) getFacesContext().getExternalContext().getRequest());
+	}
+
+	public String getBrowser() {
+		return browser;
 	}
 
 }
