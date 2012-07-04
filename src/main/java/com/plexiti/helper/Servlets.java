@@ -24,7 +24,7 @@ public final class Servlets {
     public static String browser(HttpServletRequest request) {
         String userAgent= request.getHeader("user-agent");
         log.info("Logging request from User agent [" + userAgent + "]");
-        String[] browsers = {"opera", "netscape", "firefox", "chrome", "msie"};
+        String[] browsers = {"chrome", "safari", "firefox", "opera", "msie"};
         userAgent = userAgent.toLowerCase();
         for (String shortCut: browsers) {
             if (userAgent.indexOf(shortCut) != -1 ) {
