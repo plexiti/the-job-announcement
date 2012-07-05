@@ -17,6 +17,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import com.camunda.fox.showcase.jobannouncement.model.JobAnnouncement;
 
+@SuppressWarnings("unused")
 @RunWith(MockitoJUnitRunner.class)
 public class FacebookServiceImplTest {
 	
