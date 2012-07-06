@@ -35,6 +35,8 @@
 	
 		<h:form id="mainForm" styleClass="form-horizontal">
             <ui:fragment rendered="#{!empty activeNavigationBarTab}"><div id="activeNavigationBarTab" value="#{activeNavigationBarTab}"/></ui:fragment>
+			<h:inputHidden id="activeSubTab" name="activeSubTab" value="#{subTab.activeSubTabForUser}" />
+			
 			<div class="navbar navbar-fixed-top">
 				<div class="navbar-inner">
 					<div class="container">
@@ -129,6 +131,19 @@
 			  // Set the corresponding tab to active
 			  $(".nav > #" + activeNavigationBarTabName).addClass("active");  
 
+			  /*
+			   * Set the active sub tab from the hidden field value
+ 			   */
+			  var activeSubTabField = $("#mainForm\\\:activeSubTab");
+			  var activeSubTabId = activeSubTabField.attr("value");
+			  $('#myTab a[href="#' + activeSubTabId + '"]').tab('show');
+
+              $('a[data-toggle="tab"]').on('shown', function (e) {
+                      // Set the id of the selected tab into the hidden field that keeps track of it
+                      var selectedTabId = this.hash.substring(1);
+                      activeSubTabField.attr("value", selectedTabId);
+              })
+				  			  
 			 /*
 			  * Preserve line breaks for Job Description.
 			  */
