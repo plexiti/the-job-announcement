@@ -106,3 +106,9 @@ button.btn, input[type="submit"].btn {
 #published-announcement-requirements {
 	padding: 10px;
 }
+
+.badge-important {
+	color: black;
+	background-color: rgba(0, 0, 0, 0.1);
+	vertical-align: text-top;
+}

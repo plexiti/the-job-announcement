@@ -21,42 +21,27 @@
 		    <ul id="myTab" class="nav nav-tabs">
 		      <li>
 			      <a href="#tab-own" data-toggle="tab">
-			      	<i class="tab-icon icon-inbox"> </i>
-			      	<h:outputFormat value="#{msg['tab.own']}">
-						<f:param value="#{jobAnnouncements.getJobAnnouncementsCount('own')}" />
-					</h:outputFormat>
+			      	<i class="tab-icon icon-inbox"> </i>#{msg['tab.own']} <h:outputText value="#{jobAnnouncements.getJobAnnouncementsCount('own')}" styleClass="badge badge-important" rendered="#{jobAnnouncements.getJobAnnouncementsCount('own') > 0}"/>
 			      </a>
 		      </li>
 		      <li>
 			      <a href="#tab-edit" data-toggle="tab">
-			      	<i class="tab-icon icon-play"> </i>
-			      	<h:outputFormat value="#{msg['tab.edit']}">
-						<f:param value="#{jobAnnouncements.getJobAnnouncementsCount('edit')}" />
-					</h:outputFormat>
+			      	<i class="tab-icon icon-play"> </i>#{msg['tab.edit']} <h:outputText value="#{jobAnnouncements.getJobAnnouncementsCount('edit')}" styleClass="badge badge-important" rendered="#{jobAnnouncements.getJobAnnouncementsCount('edit') > 0}"/>
 			      </a>
 		      </li>
 		      <li>
 			      <a href="#tab-review" data-toggle="tab">
-			      	<i class="tab-icon icon-play"> </i>
-			      	<h:outputFormat value="#{msg['tab.review']}">
-						<f:param value="#{jobAnnouncements.getJobAnnouncementsCount('review')}" />
-					</h:outputFormat>
+			      	<i class="tab-icon icon-play"> </i>#{msg['tab.review']} <h:outputText value="#{jobAnnouncements.getJobAnnouncementsCount('review')}" styleClass="badge badge-important" rendered="#{jobAnnouncements.getJobAnnouncementsCount('review') > 0}"/>
 			      </a>
 		      </li>
 		      <li>
 			      <a href="#tab-publish" data-toggle="tab">
-			      	<i class="tab-icon icon-play"> </i>
-			      	<h:outputFormat value="#{msg['tab.publish']}">
-						<f:param value="#{jobAnnouncements.getJobAnnouncementsCount('publish')}" />
-					</h:outputFormat>
+			      	<i class="tab-icon icon-play"> </i>#{msg['tab.publish']} <h:outputText value="#{jobAnnouncements.getJobAnnouncementsCount('publish')}" styleClass="badge badge-important" rendered="#{jobAnnouncements.getJobAnnouncementsCount('publish') > 0}"/>
 			      </a>
 		      </li>
 		      <li>
 			      <a href="#tab-published" data-toggle="tab">
-			      	<i class="tab-icon icon-globe"> </i>
-			      	<h:outputFormat value="#{msg['tab.published']}">
-						<f:param value="#{jobAnnouncements.getJobAnnouncementsCount('published')}" />
-					</h:outputFormat>
+			      	<i class="tab-icon icon-globe"> </i>#{msg['tab.published']} <h:outputText value="#{jobAnnouncements.getJobAnnouncementsCount('published')}" styleClass="badge badge-important" rendered="#{jobAnnouncements.getJobAnnouncementsCount('published') > 0}"/>
 			      </a>
 		      </li>
 		    </ul>
