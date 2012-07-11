@@ -15,6 +15,30 @@
 	    <p>In this screen we can see... stuff for user #{users.loggedInUser}</p>
 	    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a purus vitae odio volutpat accumsan. Pellentesque id volutpat metus. Fusce eget dui eu libero interdum pellentesque. In ac est nec orci tincidunt rutrum. Etiam ultricies, sem vel viverra aliquam, libero arcu dictum eros, suscipit gravida lorem sapien sit amet orci. Donec dui leo, feugiat sit amet faucibus eu, luctus in metus. Mauris viverra venenatis risus non rutrum. Quisque dignissim neque id enim commodo pharetra. Donec suscipit aliquam arcu, id sodales nunc lacinia non.</p>
 	    
+	    <div class="row">
+        <div class="span2">
+          <h3>Tooltips</h3>
+          <p>A new take on the jQuery Tipsy plugin, Tooltips don't rely on images—they use CSS3 for animations and data-attributes for local title storage.</p>
+        </div>
+<div class="span2">
+          <h3><a href="./javascript.html#tooltips">Tooltips</a></h3>
+          <p>A new take on the jQuery Tipsy plugin, Tooltips don't rely on images—they use CSS3 for animations and data-attributes for local title storage.</p>
+        </div>
+        <div class="span2">
+          <h3><a href="./javascript.html#popovers">Popovers</a> <small class="muted">*</small></h3>
+          <p>Add small overlays of content, like those on the iPad, to any element for housing secondary information.</p>
+          <p class="muted"><strong>*</strong> Requires <a href="#tooltips">Tooltips</a> to be included</p>
+        </div>
+        <div class="span2">
+          <h3><a href="./javascript.html#alerts">Alert messages</a></h3>
+          <p>The alert plugin is a tiny class for adding close functionality to alerts.</p>
+        </div>
+        <div class="span2">
+          <h3><a href="./javascript.html#buttons">Buttons</a></h3>
+          <p>Do more with buttons. Control button states or create groups of buttons for more components like toolbars.</p>
+        </div>
+      </div>
+      
 	    <h:commandButton value="#{msg['button.new']}" action="#{jobAnnouncements.showNew()}" class="btn btn-primary pull-right" rendered="#{users.manager}" />
 	    
 		<p>
