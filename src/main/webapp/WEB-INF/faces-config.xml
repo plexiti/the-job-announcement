@@ -4,8 +4,12 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
 	<application>
 		<resource-bundle>
-			<base-name>com.camunda.fox.showcase.jobannouncement.web.messages</base-name>
+			<base-name>GeneralMessages</base-name>
 			<var>msg</var>
+		</resource-bundle>
+		<resource-bundle>
+			<base-name>HelpMessages</base-name>
+			<var>help</var>
 		</resource-bundle>
 		<locale-config>
 			<default-locale>en</default-locale>

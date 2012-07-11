@@ -88,6 +88,10 @@ public class UserBean extends AbstractBean implements Serializable {
 		return ctx;
 	}
 	
+	public String getFullName() {
+		return getFullName(loggedInUser);
+	}
+	
 	public String getFullName(String userId) {
 		User user = identityService.createUserQuery().userId(userId).singleResult();
 		return user.getFirstName() + " " + user.getLastName();
