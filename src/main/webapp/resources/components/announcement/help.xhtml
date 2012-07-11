@@ -15,16 +15,18 @@
 
 		<!-- IMPLEMENTATION -->
 		<composite:implementation>
-            <div class="accordion" id="#{cc.attrs.id}">
-                <div class="accordion-group">
-                  <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="##{cc.attrs.id}" href="#collapseOne">#{cc.attrs.title}</a></div>
-                  <div id="collapseOne" class="accordion-body collapse" style="height: 0px; ">
-                    <div class="accordion-inner">
-                        <composite:insertChildren/>
-                    </div>
+            <div class="row">
+              <div class="span1 pull-right">
+                <a class="btn btn-small" data-toggle="collapse" data-target="##{cc.attrs.id}"><i class="icon-info-sign"></i> #{cc.attrs.title}</a>
+              </div>
+            </div>
+            <div class="row collapse" id="#{cc.attrs.id}">
+              <div class="span12">
+                  <br/>
+                  <div class="alert alert-info">
+                     <composite:insertChildren/>
                   </div>
-                </div>
+              </div>
             </div>
 		</composite:implementation>
 </html>

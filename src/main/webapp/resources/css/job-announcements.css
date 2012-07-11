@@ -112,3 +112,9 @@ button.btn, input[type="submit"].btn {
 	background-color: rgba(0, 0, 0, 0.1);
 	vertical-align: text-top;
 }
+
+.alert-info {
+    color: #3A87AD;
+    background-color: #EFFAFF;
+    border-color: #BCE8F1;
+}

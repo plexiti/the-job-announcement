@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:job="http://java.sun.com/jsf/composite/components/job"
+    xmlns:announcement="http://java.sun.com/jsf/composite/components/announcement"
 	template="/WEB-INF/templates/default.xhtml">
 		
 <ui:param name="activeNavigationBarTab" value="start"/>
-<ui:define name="content">	
+<ui:define name="content">
+    <announcement:help id="help" title="Help">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a purus vitae odio volutpat accumsan. Pellentesque id volutpat metus. Fusce eget dui eu libero interdum pellentesque. In ac est nec orci tincidunt rutrum. Etiam ultricies, sem vel viverra aliquam, libero arcu dictum eros, suscipit gravida lorem sapien sit amet orci. Donec dui leo, feugiat sit amet faucibus eu, luctus in metus. Mauris viverra venenatis risus non rutrum. Quisque dignissim neque id enim commodo pharetra. Donec suscipit aliquam arcu, id sodales nunc lacinia non.</p>
+    </announcement:help>
+
 	<h1>#{msg['title.published']}</h1>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a purus vitae odio volutpat accumsan. Pellentesque id volutpat metus. Fusce eget dui eu libero interdum pellentesque. In ac est nec orci tincidunt rutrum. Etiam ultricies, sem vel viverra aliquam, libero arcu dictum eros, suscipit gravida lorem sapien sit amet orci. Donec dui leo, feugiat sit amet faucibus eu, luctus in metus. Mauris viverra venenatis risus non rutrum. Quisque dignissim neque id enim commodo pharetra. Donec suscipit aliquam arcu, id sodales nunc lacinia non.</p>
-	<br/>
-	
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     <fieldset>
 		<job:post announcement="#{jobAnnouncement}"/>
 		<div class="form-actions well">
