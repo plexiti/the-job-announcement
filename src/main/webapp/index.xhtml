@@ -4,18 +4,73 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	template="/WEB-INF/templates/default.xhtml">
-		
-	<ui:param name="activeNavigationBarTab" value="index"/>
-	<ui:define name="content">	
-		<h1>#{msg['menu.cast']}</h1>
-		<h:graphicImage url="http://files.hanser.de/hanser/pics/978-3-446-42986-4_2122714399-110.jpg" width="200" styleClass="camunda-book"/>
-		<p>The book. BPMN, Activiti, Fox, etc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a purus vitae odio volutpat accumsan. Pellentesque id volutpat metus. Fusce eget dui eu libero interdum pellentesque. In ac est nec orci tincidunt rutrum. Etiam ultricies, sem vel viverra aliquam, libero arcu dictum eros, suscipit gravida lorem sapien sit amet orci. Donec dui leo, feugiat sit amet faucibus eu, luctus in metus. Mauris viverra venenatis risus non rutrum. Quisque dignissim neque id enim commodo pharetra. Donec suscipit aliquam arcu, id sodales nunc lacinia non.</p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		<h:graphicImage url="#{users.getImage('gonzo')}" width="100" styleClass="user-intro"/>
-		<p>Gonzo, the great manager. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		<h:graphicImage url="#{users.getImage('kermit')}" width="100" styleClass="user-intro"/>
-		<p>Kermit, the frog. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		<h:graphicImage url="#{users.getImage('fozzie')}" width="100" styleClass="user-intro"/>
-		<p>Fozzie the bear. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+	<ui:param name="activeNavigationBarTab" value="index" />
+	<ui:define name="content">
+		<div class="marketing">
+			<h1>
+				<h:outputFormat value="#{index['showcase']}" escape="false">
+                	<f:param value="#{msg['app.name']}" />
+	            </h:outputFormat>
+			</h1>
+			<p class="marketing-byline">
+				<h:outputFormat value="#{index['byline']}" escape="false">
+                	<f:param value="#{msg['app.name']}" />
+	            </h:outputFormat>
+			</p>
+			<div class="row">
+				<div class="span4">
+					<h:graphicImage url="resources/img/glyphicons/glyphicons_294_coffe_cup.png" width="27" styleClass="bs-icon pull-left"/>
+					<h2>#{index['humans.title']}</h2>
+					<p>#{index['humans.text']}</p>
+				</div>
+				<div class="span4">
+					<h:graphicImage url="#{users.getImage('kermit')}" width="24" styleClass="bs-icon pull-left"/>
+					<h2>#{index['business.title']}</h2>
+					<p>#{index['business.text']}</p>
+				</div>
+				<div class="span4">
+					<h:graphicImage url="resources/img/glyphicons/glyphicons_040_stats.png" width="24" styleClass="bs-icon pull-left"/>
+					<h2>#{index['growing.title']}</h2>
+					<p>#{index['growing.text']}</p>
+				</div>
+			</div>
+			<!--/row-->
+			<div class="row">
+				<div class="span4">
+					<h:graphicImage url="resources/img/glyphicons/glyphicons_244_conversation.png" width="24" styleClass="bs-icon pull-left"/>
+					<h2>#{index['communication.title']}</h2>
+					<p>#{index['communication.text']}</p>
+				</div>
+				<div class="span4">
+					<h:graphicImage url="resources/img/glyphicons/glyphicons_023_cogwheels.png" width="24" styleClass="bs-icon pull-left"/>
+					<h2>#{index['integration.title']}</h2>
+					<p>#{index['integration.text']}</p>
+				</div>
+				<div class="span4">
+					<h:graphicImage url="resources/img/glyphicons/glyphicons_051_eye_open.png" width="34" styleClass="bs-icon pull-left"/>
+					<h2>#{index['auditing.title']}</h2>
+					<p>#{index['auditing.text']}</p>
+				</div>
+			</div>
+			<!--/row-->
+			<div class="row">
+				<div class="span4">
+					<h:graphicImage url="resources/img/fox.png" width="25" styleClass="bs-icon pull-left"/>
+					<h2>#{index['fox.title']}</h2>
+					<p>#{index['fox.text']}</p>
+				</div>
+				<div class="span4">
+					<h:graphicImage url="resources/img/duke.png" width="24" styleClass="bs-icon pull-left"/>
+					<h2>#{index['jee.title']}</h2>
+					<p>#{index['jee.text']}</p>
+				</div>
+				<div class="span4">
+					<h:graphicImage url="resources/img/bootstrap.png" width="24" styleClass="bs-icon pull-left"/>
+					<h2>#{index['bootstrap.title']}</h2>
+					<p>#{index['bootstrap.text']}</p>
+				</div>
+			</div>
+		</div>
 	</ui:define>
 </ui:composition>

@@ -43,11 +43,11 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</a> 
-						<h:commandLink action="/index.jsf" class="brand" immediate="true">#{msg['app.name']}</h:commandLink>
+						<h:commandLink action="#{jobAnnouncements.doMenu('index')}" class="brand" immediate="true">#{msg['app.name']}</h:commandLink>
 						<div class="nav-collapse">
 							<ul class="nav">
- 							    <li id="index"><h:commandLink action="/index.jsf" immediate="true">#{msg['menu.cast']}</h:commandLink></li>
-								<li id="start"><h:commandLink action="/start.jsf" immediate="true">#{msg['menu.play']}!</h:commandLink></li>
+								<li id="start"><h:commandLink action="#{jobAnnouncements.doMenu('start')}" immediate="true">#{msg['menu.play']}!</h:commandLink></li>
+ 							    <li id="contents"><h:commandLink action="#{jobAnnouncements.doMenu('contents')}" immediate="true">#{msg['menu.contents']}</h:commandLink></li>
 								<li id="book"><a href="#book">#{msg['menu.book']}</a></li>
 								<li id="direction"><a href="#direction">#{msg['menu.direction']}</a></li>
 								<li id="production"><a href="#production">#{msg['menu.production']}</a></li>
@@ -140,7 +140,7 @@
                       // Set the id of the selected tab into the hidden field that keeps track of it
                       var selectedTabId = this.hash.substring(1);
                       activeSubTabField.attr("value", selectedTabId);
-              })
+              });
 				  			  
 			 /*
 			  * Preserve line breaks for Job Description.

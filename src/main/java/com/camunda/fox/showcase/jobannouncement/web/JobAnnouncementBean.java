@@ -90,16 +90,17 @@ public class JobAnnouncementBean extends AbstractBean implements Serializable {
 		return phase;
 	}
 
-	public void doSendToEditing() {
+	public String doSendToEditing() {
 	    log.info("Starting process with key '" + JOBANNOUNCEMENT_PROCESS + "'");
 		jobAnnouncementService.associate(businessProcess, jobAnnouncement);
 		getJobAnnouncement().setRequester(userBean.getLoggedInUser()); 
 	    businessProcess.startProcessByKey(JOBANNOUNCEMENT_PROCESS);
 		saveEntity();
 		endConversation();
+		return "start";
 	}
 
-	public void doRequestReview() {
+	public String doRequestReview() {
 		log.info("doRequestR");
 		log.info("Saving 'comment' to process variable 'last_comment': " + comment);
 		businessProcess.setVariable(JOBANNOUNCEMENT_PROCESS_VARIABLE_LAST_COMMENT, comment);
@@ -113,32 +114,36 @@ public class JobAnnouncementBean extends AbstractBean implements Serializable {
 		businessProcess.completeTask();
 		saveEntity();
 		endConversation();
+		return "start";
 	}
 
-	public void doApprovePublication() {
+	public String doApprovePublication() {
 		businessProcess.setVariable(JOBANNOUNCEMENT_PROCESS_VARIABLE_APPROVED, true);
 		businessProcess.completeTask();
 		endConversation();
+		return "start";
 	}
 
-	public void doRequestCorrection() {
+	public String doRequestCorrection() {
 		businessProcess.setVariable(JOBANNOUNCEMENT_PROCESS_VARIABLE_APPROVED, false);
 		businessProcess.setVariable(JOBANNOUNCEMENT_PROCESS_VARIABLE_LAST_COMMENT, comment);
 		runtimeService.setVariable(businessProcess.getExecutionId(), JOBANNOUNCEMENT_PROCESS_VARIABLE_COMMENT, null);
 		businessProcess.completeTask();
 		saveEntity();
 		endConversation();
+		return "start";
 	}
 
-	public void doPublish() {
+	public String doPublish() {
 		taskService.claim(businessProcess.getTaskId(), userBean.getLoggedInUser());
 		businessProcess.setVariable(JOBANNOUNCEMENT_PROCESS_VARIABLE_TWITTER, jobAnnouncement.getTwitterMessage() != null);
 		businessProcess.setVariable(JOBANNOUNCEMENT_PROCESS_VARIABLE_FACEBOOK, jobAnnouncement.getFacebookPost() != null);
 		businessProcess.completeTask();
 		endConversation();
+		return "start";
 	}
 
-	public void doSave() {
+	public String doSave() {
 		log.info("doSave: 'comment'" + this.comment);
 		log.info("doSave: 'lastComment'" + this.lastComment);
 		log.info("Saving 'comment' to process variable: " + comment);
@@ -148,6 +153,7 @@ public class JobAnnouncementBean extends AbstractBean implements Serializable {
 		runtimeService.setVariable(businessProcess.getExecutionId(), JOBANNOUNCEMENT_PROCESS_VARIABLE_COMMENT, comment);
 		saveEntity();
 		endConversation();
+		return "start";
 	}
 		
 	private void saveEntity() {
@@ -155,14 +161,21 @@ public class JobAnnouncementBean extends AbstractBean implements Serializable {
 		jobAnnouncementService.merge(jobAnnouncement);
 	}
 
-	public void doCancel() {
+	public String doCancel() {
 		endConversation();
+		return "start";
 	}
 
-	public void doDelete() {
+	public String doDelete() {
 		runtimeService.deleteProcessInstance(businessProcess.getProcessInstanceId(), "Process canceled as requested by user '" + userBean.getLoggedInUser() + "'");
 		jobAnnouncementService.delete(jobAnnouncement);
 		endConversation();
+		return "start";
+	}
+	
+	public String doMenu(String menu) {
+		endConversation();
+		return menu;
 	}
 	
 	@Inject

@@ -12,7 +12,7 @@
 
         <announcement:help id="help" title="Help">
         	<p>
-	            <h:outputFormat value="#{help['start']}" escape="false">
+	            <h:outputFormat value="#{help['start.top']}" escape="false">
                 	<f:param value="#{users.getFullName()}" />
 	            </h:outputFormat>
         	</p>
@@ -29,45 +29,57 @@
                     <h:outputFormat value="#{msg['tab.edit']}" escape="false"/>
                 </dt>
                 <dd>
-	                <h:outputFormat value="#{help['tab.edit']}" escape="false">
-	                	<f:param value="#{users.getFullName()}" />
-	                </h:outputFormat>
+	                <h:outputFormat value="#{help['tab.edit']}" escape="false"/>
                 </dd>
                 <dt>
                     <h:outputFormat value="#{msg['tab.review']}" escape="false"/>
                 </dt>
                 <dd>
-	                <h:outputFormat value="#{help['tab.review']}" escape="false">
-	                	<f:param value="#{users.getFullName()}" />
-	                </h:outputFormat>
+	                <h:outputFormat value="#{help['tab.review']}" escape="false"/>
                 </dd>
                 <dt>
                     <h:outputFormat value="#{msg['tab.publish']}" escape="false"/>
                 </dt>
                 <dd>
-	                <h:outputFormat value="#{help['tab.publish']}" escape="false">
-	                	<f:param value="#{users.getFullName()}" />
-	                </h:outputFormat>
+	                <h:outputFormat value="#{help['tab.publish']}" escape="false"/>
                 </dd>
                 <dt>
                     <h:outputFormat value="#{msg['tab.published']}" escape="false"/>
                 </dt>
                 <dd>
-	                <h:outputFormat value="#{help['tab.published']}" escape="false">
-	                	<f:param value="#{users.getFullName()}" />
-	                </h:outputFormat>
+	                <h:outputFormat value="#{help['tab.published']}" escape="false"/>
                 </dd>
             </dl>
+	    	<p>
+	            <h:outputFormat value="#{help['actions']}" escape="false"/>
+		    </p>
+		    <dl class="dl-horizontal">
+		    	<dt><h:outputFormat value="#{msg['button.new']}" escape="false"/></dt>
+		    	<dd><h:outputFormat value="#{help['button.new']}" escape="false"/></dd>
+		    	<dt><h:outputFormat value="#{msg['button.edit']}" escape="false"/></dt>
+		    	<dd><h:outputFormat value="#{help['button.edit']}" escape="false"/></dd>
+		    	<dt><h:outputFormat value="#{msg['button.review']}" escape="false"/></dt>
+		    	<dd><h:outputFormat value="#{help['button.review']}" escape="false"/></dd>
+		    	<dt><h:outputFormat value="#{msg['button.correct']}" escape="false"/></dt>
+		    	<dd><h:outputFormat value="#{help['button.correct']}" escape="false"/></dd>
+		    	<dt><h:outputFormat value="#{msg['button.publish']}" escape="false"/></dt>
+		    	<dd><h:outputFormat value="#{help['button.publish']}" escape="false"/></dd>
+		    	<dt><h:outputFormat value="#{msg['button.view']}" escape="false"/></dt>
+		    	<dd><h:outputFormat value="#{help['button.view']}" escape="false"/></dd>
+		    </dl>
             <p>
-	            <h:outputFormat value="#{help['start.2']}" escape="false">
+	            <h:outputFormat value="#{help['bottom']}" escape="false">
                 	<f:param value="#{users.getFullName()}" />
 	            </h:outputFormat>
         	</p>
-        </announcement:help>
+	    </announcement:help>
 
-        <h1>#{msg['menu.play']}</h1>
+        <h1>#{msg['title.play']}</h1>
 
 	    <h:commandButton value="#{msg['button.new']}" action="#{jobAnnouncements.showNew()}" class="btn btn-primary pull-right" rendered="#{users.manager}" />
+		<ui:fragment rendered="#{!users.manager}">
+			<button class="btn disabled pull-right" disabled="disabled">#{msg['button.new']}</button>
+		</ui:fragment>
 
 		<p class="pull-left">
 		

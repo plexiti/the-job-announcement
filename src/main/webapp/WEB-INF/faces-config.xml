@@ -11,13 +11,32 @@
 			<base-name>HelpMessages</base-name>
 			<var>help</var>
 		</resource-bundle>
+		<resource-bundle>
+			<base-name>IndexMessages</base-name>
+			<var>index</var>
+		</resource-bundle>
 		<locale-config>
 			<default-locale>en</default-locale>
 			<supported-locale>de</supported-locale>
 		 </locale-config>
 	</application>
 	<navigation-rule>
-		<from-view-id>/start.xhtml</from-view-id>
+		<from-view-id>/*</from-view-id>
+		<navigation-case>
+			<from-outcome>index</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>start</from-outcome>
+			<to-view-id>/start.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>contents</from-outcome>
+			<to-view-id>/contents.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
 		<navigation-case>
 			<from-outcome>new</from-outcome>
 			<to-view-id>/announcement/new.xhtml</to-view-id>
@@ -46,14 +65,6 @@
 		<navigation-case>
 			<from-outcome>published</from-outcome>
 			<to-view-id>/announcement/published.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
-	</navigation-rule>
-	<navigation-rule>
-		<from-view-id>/announcement/*</from-view-id>
-		<navigation-case>
-			<if>#{true}</if>
-			<to-view-id>/start.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>

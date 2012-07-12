@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:job="http://java.sun.com/jsf/composite/components/job"
     xmlns:announcement="http://java.sun.com/jsf/composite/components/announcement"
@@ -8,12 +9,57 @@
 		
 <ui:param name="activeNavigationBarTab" value="start"/>
 <ui:define name="content">	
+
     <announcement:help id="help" title="Help">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a purus vitae odio volutpat accumsan. Pellentesque id volutpat metus. Fusce eget dui eu libero interdum pellentesque. In ac est nec orci tincidunt rutrum. Etiam ultricies, sem vel viverra aliquam, libero arcu dictum eros, suscipit gravida lorem sapien sit amet orci. Donec dui leo, feugiat sit amet faucibus eu, luctus in metus. Mauris viverra venenatis risus non rutrum. Quisque dignissim neque id enim commodo pharetra. Donec suscipit aliquam arcu, id sodales nunc lacinia non.</p>
+    	<p>
+            <h:outputFormat value="#{help['review.top']}" escape="false">
+               	<f:param value="#{users.getFullName()}" />
+            </h:outputFormat>
+	    </p>
+	    <dl class="dl-horizontal">
+	    	<dt><h:outputFormat value="#{msg['field.need']}" escape="false"/></dt>
+	    	<dd><h:outputFormat value="#{help['field.need']}" escape="false"/></dd>
+	    	<dt><h:outputFormat value="#{msg['field.title']}" escape="false"/></dt>
+	    	<dd><h:outputFormat value="#{help['field.title']}" escape="false"/></dd>
+	    	<dt><h:outputFormat value="#{msg['field.description']}" escape="false"/></dt>
+	    	<dd><h:outputFormat value="#{help['field.description']}" escape="false"/></dd>
+	    	<dt><h:outputFormat value="#{msg['field.twitter']}" escape="false"/></dt>
+	    	<dd><h:outputFormat value="#{help['field.twitter']}" escape="false"/></dd>
+	    	<dt><h:outputFormat value="#{msg['field.facebook']}" escape="false"/></dt>
+	    	<dd><h:outputFormat value="#{help['field.facebook']}" escape="false"/></dd>
+	    	<dt>
+		    	<h:outputFormat value="#{msg['field.lastComment']}" escape="false">
+		    		<f:param value="#{jobAnnouncement.editor}"></f:param>
+		    	</h:outputFormat>
+		    </dt>
+	    	<dd><h:outputFormat value="#{help['field.lastComment']}" escape="false"/></dd>
+	    	<dt><h:outputFormat value="#{msg['field.comment']}" escape="false"/></dt>
+	    	<dd><h:outputFormat value="#{help['field.comment']}" escape="false"/></dd>
+	    </dl>
+    	<p>
+            <h:outputFormat value="#{help['actions']}" escape="false"/>
+	    </p>
+	    <dl class="dl-horizontal">
+	    	<dt><h:outputFormat value="#{msg['button.cancel']}" escape="false"/></dt>
+	    	<dd><h:outputFormat value="#{help['button.cancel']}" escape="false"/></dd>
+	    	<dt><h:outputFormat value="#{msg['button.save']}" escape="false"/></dt>
+	    	<dd><h:outputFormat value="#{help['button.save']}" escape="false"/></dd>
+	    	<dt><h:outputFormat value="#{msg['button.review.previous']}" escape="false"/></dt>
+	    	<dd><h:outputFormat value="#{help['button.review.previous']}" escape="false"/></dd>
+	    	<dt><h:outputFormat value="#{msg['button.review.next']}" escape="false"/></dt>
+	    	<dd><h:outputFormat value="#{help['button.review.next']}" escape="false"/></dd>
+	    </dl>
+        <p>
+            <h:outputFormat value="#{help['bottom']}" escape="false">
+               	<f:param value="#{users.getFullName()}" />
+            </h:outputFormat>
+       	</p>
     </announcement:help>
+    
 	<h1>#{msg['title.review']}</h1>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+
     <fieldset>
+		<legend>#{msg['legend.review']}:</legend>
 		<job:need field="#{jobAnnouncement.need}" editable="true"/>
 		<hr/>		  
 		<job:title field="#{jobAnnouncement.jobTitle}" editable="false"/>
@@ -30,5 +76,6 @@
 			<h:commandButton action="#{jobAnnouncements.doApprovePublication}" value="#{msg['button.review.next']}" type="submit" class="btn btn-primary"/>
 		</div>
     </fieldset>
+    
 </ui:define>
 </ui:composition>
