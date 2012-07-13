@@ -29,7 +29,7 @@
 	    	<dd><h:outputFormat value="#{help['field.facebook']}" escape="false"/></dd>
 	    	<dt>
 		    	<h:outputFormat value="#{msg['field.lastComment']}" escape="false">
-		    		<f:param value="#{jobAnnouncement.editor}"></f:param>
+		    		<f:param value="#{users.getFirstName(jobAnnouncement.editor)}"></f:param>
 		    	</h:outputFormat>
 		    </dt>
 	    	<dd><h:outputFormat value="#{help['field.lastComment']}" escape="false"/></dd>

@@ -48,7 +48,7 @@
 							<ul class="nav">
 								<li id="start"><h:commandLink action="#{jobAnnouncements.doMenu('start')}" immediate="true">#{msg['menu.play']}!</h:commandLink></li>
  							    <li id="contents"><h:commandLink action="#{jobAnnouncements.doMenu('contents')}" immediate="true">#{msg['menu.contents']}</h:commandLink></li>
-								<li id="book"><a href="#book">#{msg['menu.book']}</a></li>
+								<li id="book"><h:commandLink action="#{jobAnnouncements.doMenu('book')}" immediate="true">#{msg['menu.book']}</h:commandLink></li>
 								<li id="direction"><a href="#direction">#{msg['menu.direction']}</a></li>
 								<li id="production"><a href="#production">#{msg['menu.production']}</a></li>
 								<li id="credits"><a href="#credits">#{msg['menu.credits']}</a></li>
