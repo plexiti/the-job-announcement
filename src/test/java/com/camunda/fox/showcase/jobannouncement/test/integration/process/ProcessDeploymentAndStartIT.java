@@ -41,6 +41,7 @@ public class ProcessDeploymentAndStartIT {
     }
 
     @Inject
+    @SuppressWarnings("cdi-ambiguous-dependency")
     private RuntimeService runtimeService;
 
     @Test
