@@ -5,6 +5,7 @@ import static com.camunda.fox.showcase.jobannouncement.process.ProcessConstants.
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.List;
+import java.util.TimeZone;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ContextNotActiveException;
@@ -27,6 +28,7 @@ public class UserBean extends AbstractBean implements Serializable {
 	private String loggedInUser = "gonzo";
 	private User loggedInUserDetails;
 	private String locale;
+	private TimeZone timeZone = TimeZone.getDefault();
 	private String browser = initBrowser();
 	private boolean manager;
 	private List<User> usersList;
@@ -71,6 +73,11 @@ public class UserBean extends AbstractBean implements Serializable {
 	public void doLogin(String loggedInUser) {
 		this.loggedInUser = loggedInUser;
 		init();
+	}
+
+	public TimeZone getTimeZone() {
+		// TODO needs to be read from the browser
+		return timeZone;
 	}
 
 	public String getLocale() {

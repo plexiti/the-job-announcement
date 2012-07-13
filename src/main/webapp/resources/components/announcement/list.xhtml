@@ -24,7 +24,7 @@
 				<h:column headerClass="column-narrow">
 					<f:facet name="header">#{msg['column.create']}</f:facet>
 					<h:outputText value="#{announcement.task.createTime}" >
-						<f:convertDateTime pattern="dd.MM. (HH:mm)" />
+						<f:convertDateTime pattern="dd.MM. (HH:mm)" timeZone="#{users.timeZone}" />
 					</h:outputText>
 				</h:column>
 				<h:column>
