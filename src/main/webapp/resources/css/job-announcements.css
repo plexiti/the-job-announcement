@@ -161,6 +161,10 @@ h2 {
 
 .marketing p {
 	margin-right: 10px;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+ 	-ms-hyphens: auto;
+ 	hyphens: auto;
 }
 
 .marketing-byline {
