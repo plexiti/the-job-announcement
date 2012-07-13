@@ -250,24 +250,31 @@
 						<artifactId>maven-surefire-plugin</artifactId>
 						<version>2.12</version>
 					</plugin>
-                    <!-- Plugin for integration tests. Defaults to in include all "**/*IT.java" -->
-                    <!-- See http://maven.apache.org/plugins/maven-failsafe-plugin/examples/inclusion-exclusion.html -->
-                    <plugin>
-                      <groupId>org.apache.maven.plugins</groupId>
-                      <artifactId>maven-failsafe-plugin</artifactId>
-                      <version>2.12</version>
-                      <executions>
-                       <execution>
-                         <goals>
-                           <goal>integration-test</goal>
-                           <goal>verify</goal>
-                         </goals>
-                       </execution>
-                      </executions>
-                    </plugin>
 				</plugins>
 			</build>
 		</profile>
+        <profile>
+            <id>integration</id>
+            <build>
+                <plugins>
+                      <!-- Plugin for integration tests. Defaults to in include all "**/*IT.java" -->
+                      <!-- See http://maven.apache.org/plugins/maven-failsafe-plugin/examples/inclusion-exclusion.html -->
+                      <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <version>2.12</version>
+                        <executions>
+                         <execution>
+                           <goals>
+                             <goal>integration-test</goal>
+                             <goal>verify</goal>
+                           </goals>
+                         </execution>
+                        </executions>
+                      </plugin>
+                </plugins>
+            </build>
+        </profile>
 	</profiles>
 
 </project>

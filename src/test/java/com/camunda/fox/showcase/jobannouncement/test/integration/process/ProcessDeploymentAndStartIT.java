@@ -20,7 +20,7 @@ import java.util.List;
 //import static org.junit.Assert.assertEquals;
 
 @RunWith(Arquillian.class)
-public class ProcessDeploymentAndStartTestIT {
+public class ProcessDeploymentAndStartIT {
 
     @Deployment
     public static WebArchive createDeployment() {
