@@ -38,6 +38,11 @@
 			<redirect />
 		</navigation-case>
 		<navigation-case>
+			<from-outcome>book</from-outcome>
+			<to-view-id>/book.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
 			<from-outcome>new</from-outcome>
 			<to-view-id>/announcement/new.xhtml</to-view-id>
 			<redirect />
