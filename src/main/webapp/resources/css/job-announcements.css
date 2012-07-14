@@ -109,8 +109,9 @@ button.btn, input[type="submit"].btn {
 
 .badge-important {
 	color: black;
-	background-color: rgba(0, 0, 0, 0.1);
-	vertical-align: text-top;
+	background-color: rgb(235, 235, 235);
+	position: relative;
+	top: -1px;
 }
 
 h1 {

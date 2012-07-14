@@ -15,3 +15,7 @@ li.dropdown {
 	position: relative;
 	left: -27px; /* related to the image size used in the footer */
 }
+
+.badge-important {
+	top: 1px;
+}
