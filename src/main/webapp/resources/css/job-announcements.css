@@ -160,8 +160,12 @@ h2 {
 	text-align: center;
 }
 
+/* http://blog.kenneth.io/blog/2012/03/04/word-wrapping-hypernation-using-css/ */
 .marketing p {
 	margin-right: 10px;
+	-ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
 	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
  	-ms-hyphens: auto;
