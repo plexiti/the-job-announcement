@@ -43,6 +43,21 @@
 			<redirect />
 		</navigation-case>
 		<navigation-case>
+			<from-outcome>direction</from-outcome>
+			<to-view-id>/direction.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>production</from-outcome>
+			<to-view-id>/production.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>credits</from-outcome>
+			<to-view-id>/credits.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+		<navigation-case>
 			<from-outcome>new</from-outcome>
 			<to-view-id>/announcement/new.xhtml</to-view-id>
 			<redirect />
