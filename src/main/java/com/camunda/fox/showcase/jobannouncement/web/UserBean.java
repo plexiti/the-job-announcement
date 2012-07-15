@@ -29,6 +29,7 @@ public class UserBean extends AbstractBean implements Serializable {
 	private User loggedInUserDetails;
 	private String locale;
 	private TimeZone timeZone = TimeZone.getDefault();
+	private String activeSubTab = "tab-own";
 	private String browser = initBrowser();
 	private boolean manager;
 	private List<User> usersList;
@@ -119,6 +120,14 @@ public class UserBean extends AbstractBean implements Serializable {
 
 	public String getBrowser() {
 		return browser;
+	}
+
+	public String getActiveSubTab() {
+		return activeSubTab;
+	}
+
+	public void setActiveSubTab(String activeSubTab) {
+		this.activeSubTab = activeSubTab;
 	}
 
 }

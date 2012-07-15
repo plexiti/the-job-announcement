@@ -33,7 +33,7 @@
 	
 		<h:form id="mainForm" styleClass="form-horizontal">
             <ui:fragment rendered="#{!empty activeNavigationBarTab}"><div id="activeNavigationBarTab" value="#{activeNavigationBarTab}"/></ui:fragment>
-			<h:inputHidden id="activeSubTab" name="activeSubTab" value="#{subTab.activeSubTabForUser}" />
+			<h:inputHidden id="activeSubTab" name="activeSubTab" value="#{users.activeSubTab}" />
 			
 			<div class="navbar navbar-fixed-top">
 				<div class="navbar-inner">
