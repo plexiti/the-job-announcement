@@ -81,15 +81,19 @@
 			<footer>
 				<div class="container">
 					<hr/>
-					<p class="pull-left">#{msg['app.language']}: 
-						<h:commandLink action="#{users.setLocale('en')}" immediate="true">#{msg['lang.en']}</h:commandLink>
-						<span> | </span>
-						<h:commandLink action="#{users.setLocale('de')}" immediate="true">#{msg['lang.de']}</h:commandLink>
-					</p>
-					<p class="pull-right" style="white-space: nowrap">Powered by
-						<a href="http://www.camunda.com/fox">camunda fox</a>
-						<a href="http://www.camunda.com/fox"><h:graphicImage url="/resources/img/fox-ico.png" style="vertical-align: text-bottom;"/></a>
-					</p>
+					<div class="row">
+						<div class="span4">
+				            <h:outputFormat value="#{msg['app.implementedby']}" escape="false"/>
+						</div>
+						<div class="span4" style="text-align: center;">#{msg['app.language']}: 
+							<h:commandLink action="#{users.setLocale('en')}" immediate="true">#{msg['lang.en']}</h:commandLink>
+							<span> | </span>
+							<h:commandLink action="#{users.setLocale('de')}" immediate="true">#{msg['lang.de']}</h:commandLink>
+						</div>
+						<div class="span4" style="white-space: nowrap; text-align: right">
+				            <h:outputFormat value="#{msg['app.poweredby']}" escape="false"/> <a href="http://www.camunda.com/fox"><h:graphicImage url="/resources/img/fox-ico.png" style="vertical-align: text-bottom;"/></a>
+						</div>
+					</div>
 				</div>
 			</footer>
 			
