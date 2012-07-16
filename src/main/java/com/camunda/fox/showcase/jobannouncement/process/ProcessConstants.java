@@ -1,8 +1,6 @@
 package com.camunda.fox.showcase.jobannouncement.process;
 
-import javax.inject.Named;
 
-@Named
 public abstract class ProcessConstants {
 
   public static final String JOBANNOUNCEMENT_PROCESS = "job-announcement";
