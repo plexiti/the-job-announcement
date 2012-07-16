@@ -16,7 +16,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import com.camunda.fox.showcase.jobannouncement.model.JobAnnouncement;
 
 @RunWith(MockitoJUnitRunner.class)
-public class MailingServiceImplTest {
+public class MailingServiceImplIT {
 	
 	@Mock EntityManager entityManager;
 	@Mock IdentityService identityService;
@@ -59,7 +59,7 @@ public class MailingServiceImplTest {
 
 	@Test
 	public void test() {
-//		service.notifyAboutPostings(1L);
+		service.notifyAboutPostings(1L);
 	}
 
 }

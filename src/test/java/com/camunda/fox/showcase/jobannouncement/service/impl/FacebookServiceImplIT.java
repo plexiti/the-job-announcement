@@ -17,9 +17,8 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import com.camunda.fox.showcase.jobannouncement.model.JobAnnouncement;
 
-@SuppressWarnings("unused")
 @RunWith(MockitoJUnitRunner.class)
-public class FacebookServiceImplTest {
+public class FacebookServiceImplIT {
 	
 	@Mock EntityManager entityManager;
 	@Mock IdentityService identityService;
@@ -47,9 +46,8 @@ public class FacebookServiceImplTest {
 	
 	@Test
 	public void test() {
-//		service.postToFacebook(1L);
-//		assertThat(announcement.getFacebookUrl()).isNotNull();
-//		postingService.accessToken();
+		service.postToFacebook(1L);
+		assertThat(announcement.getFacebookUrl()).isNotNull();
 	}
 
 }
