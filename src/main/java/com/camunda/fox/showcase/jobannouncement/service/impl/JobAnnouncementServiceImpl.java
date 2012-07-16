@@ -137,8 +137,9 @@ public class JobAnnouncementServiceImpl extends ProcessAwareJpaEntityServiceImpl
 			message.setMsg(text.toString());
 			mailingService.post(message);
 		} catch (EmailException e) {
-		    log.info("Failed to mail Notification with subject '" + message.getSubject() + "'.");
-			log.throwing(getClass().getName(), "post", e);
+		    log.warning("Failed to mail Notification with subject '" + message.getSubject() + "'.");
+			log.throwing(getClass().getName(), "notifyAboutPostings", e);
+		    throw new RuntimeException(e);
 		}
 	}
 

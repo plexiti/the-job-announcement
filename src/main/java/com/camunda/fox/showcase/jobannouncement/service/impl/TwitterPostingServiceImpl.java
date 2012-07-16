@@ -37,9 +37,9 @@ public class TwitterPostingServiceImpl implements PostingService<String> {
 		    log.info("Successfully tweeted [" + status.getText() + "] at [" + tweetUrl + "].");
 		    return tweetUrl;
 		} catch (TwitterException e) {
-		    log.info("Failed to tweet [" + tweet + "].");
+		    log.warning("Failed to tweet [" + tweet + "].");
 			log.throwing(getClass().getName(), "post", e);
-			return null;
+			throw new RuntimeException(e);
 		}
 	}
 

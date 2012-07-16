@@ -27,11 +27,13 @@ public class MailingServiceImpl implements PostingService<Email> {
 		    message.setTLS(true);
 		    message.send();
 			log.info("Mailed Notification with subject '" + message.getSubject() + "'.");
+			return message.toString();
 		} catch (EmailException e) {
-		    log.info("Failed to mail Notification with subject '" + message.getSubject() + "'.");
+		    log.warning("Failed to mail Notification with subject '" + message.getSubject() + "'.");
 			log.throwing(getClass().getName(), "post", e);
+			throw new RuntimeException(e);
 		}
-		return null;
+		
 	}
 
 }
