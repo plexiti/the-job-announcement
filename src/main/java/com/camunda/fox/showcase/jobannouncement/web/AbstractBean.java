@@ -2,6 +2,7 @@ package com.camunda.fox.showcase.jobannouncement.web;
 
 import java.util.logging.Logger;
 
+import javax.enterprise.context.ContextNotActiveException;
 import javax.enterprise.context.Conversation;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -55,6 +56,13 @@ public abstract class AbstractBean {
 	public String getParameter(String key) {
 		FacesContext context = FacesContext.getCurrentInstance();
 		return context != null ? context.getExternalContext().getRequestParameterMap().get(key) : null;
+	}
+	
+	public FacesContext getFacesContext() {
+		FacesContext ctx = FacesContext.getCurrentInstance();
+		if (ctx == null)
+			throw new ContextNotActiveException("FacesContext is not active");
+		return ctx;
 	}
 
 }

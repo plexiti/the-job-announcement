@@ -8,9 +8,7 @@ import java.util.List;
 import java.util.TimeZone;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.ContextNotActiveException;
 import javax.enterprise.context.SessionScoped;
-import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 
@@ -25,15 +23,20 @@ public class UserBean extends AbstractBean implements Serializable {
 
 	private static final long serialVersionUID = 1495492136976861302L;
 
+	// Users
+	private List<User> usersList;	
+	
+	// Current Sample User
 	private String loggedInUser = "gonzo";
 	private User loggedInUserDetails;
-	private String locale;
-	private TimeZone timeZone = TimeZone.getDefault();
-	private String activeSubTab = "tab-own";
-	private String browser = initBrowser();
 	private boolean manager;
-	private List<User> usersList;
-	
+
+	// Session info
+	private String browser = Servlets.browser((HttpServletRequest) getFacesContext().getExternalContext().getRequest());
+	private String locale;
+	private TimeZone timeZone = TimeZone.getDefault(); // TODO needs to be read from the browser
+	private String activeSubTab = "tab-own";
+
 	@PostConstruct
 	public void init() {
 		manager = identityService.createGroupQuery().groupMember(loggedInUser).groupId(ROLE_MANAGER).count() > 0;
@@ -45,6 +48,11 @@ public class UserBean extends AbstractBean implements Serializable {
 				it.remove(); break;
 			}
 		}
+	}
+
+	public void doLogin(String loggedInUser) {
+		this.loggedInUser = loggedInUser;
+		init();
 	}
 
 	public String getLoggedInUser() {
@@ -71,13 +79,7 @@ public class UserBean extends AbstractBean implements Serializable {
 		return usersList;
 	}
 
-	public void doLogin(String loggedInUser) {
-		this.loggedInUser = loggedInUser;
-		init();
-	}
-
 	public TimeZone getTimeZone() {
-		// TODO needs to be read from the browser
 		return timeZone;
 	}
 
@@ -87,13 +89,6 @@ public class UserBean extends AbstractBean implements Serializable {
 
 	public void setLocale(String locale) {
 		this.locale = locale;
-	}
-	
-	public FacesContext getFacesContext() {
-		FacesContext ctx = FacesContext.getCurrentInstance();
-		if (ctx == null)
-			throw new ContextNotActiveException("FacesContext is not active");
-		return ctx;
 	}
 	
 	public String getFullName() {
@@ -114,10 +109,6 @@ public class UserBean extends AbstractBean implements Serializable {
 		return "job." + userId;
 	}
 	
-	public String initBrowser() {
-		return Servlets.browser((HttpServletRequest) getFacesContext().getExternalContext().getRequest());
-	}
-
 	public String getBrowser() {
 		return browser;
 	}
