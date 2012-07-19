@@ -10,6 +10,7 @@
 /.settings
 /.DS_Store
 /.bpmn
+/facebook-api-secret.txt
 
 # /src/main/webapp/WEB-INF/
 /src/main/webapp/WEB-INF/*.jsfdia
