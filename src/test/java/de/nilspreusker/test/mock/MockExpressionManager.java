@@ -24,7 +24,6 @@ import org.activiti.engine.impl.javax.el.MapELResolver;
 
 /*
  * @author nils.preusker@camunda.com
- * @author martin@schimak.at
  */
 public class MockExpressionManager extends ExpressionManager {
 

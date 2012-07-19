@@ -8,7 +8,6 @@ import org.activiti.engine.impl.javax.el.ELResolver;
 
 /*
  * @author nils.preusker@camunda.com
- * @author martin@schimak.at
  */
 public class MockElResolver extends ELResolver {
 
