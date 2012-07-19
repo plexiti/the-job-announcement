@@ -1,0 +1,15 @@
+
+# /
+/target
+/*.iml
+/*.ipr
+/*.iws
+/.idea
+/.classpath
+/.project
+/.settings
+/.DS_Store
+/.bpmn
+
+# /src/main/webapp/WEB-INF/
+/src/main/webapp/WEB-INF/*.jsfdia
