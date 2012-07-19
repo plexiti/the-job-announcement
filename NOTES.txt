@@ -1,9 +1,0 @@
-Camunda Typeface
-----------------
-
-Camunda's logo is done with "VolkswagenTS-Medium" or "VolkswagenTS-Regular" as found in the document properties of this document
-http://www.camunda.com/wp-content/uploads/2012/06/flightright_mail_en.pdf
-
-Some background on the typeface: http://en.wikipedia.org/wiki/VAG_Rounded
-
-The closest font I have found is http://www.fonts.com/font/linotype/vag-rounded/light/web-font
