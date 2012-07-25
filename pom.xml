@@ -4,7 +4,7 @@
 	
 	<name>camunda fox Job Announcement Example</name>
 	<groupId>examples</groupId>
-	<artifactId>${deployment.war.name}-fox</artifactId>
+	<artifactId>the-job-announcement-fox</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	
 	<packaging>war</packaging>
