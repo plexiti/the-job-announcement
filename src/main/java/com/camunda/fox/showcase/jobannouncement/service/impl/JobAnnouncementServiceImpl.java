@@ -13,6 +13,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+import com.camunda.fox.showcase.jobannouncement.service.camel.CamelBasedService;
 import org.activiti.engine.IdentityService;
 import org.activiti.engine.identity.User;
 import org.apache.commons.mail.Email;
@@ -32,7 +33,8 @@ public class JobAnnouncementServiceImpl extends ProcessAwareJpaEntityServiceImpl
 	private static final long serialVersionUID = -876313470772353619L;
 	
 	@Inject PostingService<FacebookPosting> facebookPostingService;
-	@Inject PostingService<String> twitterPostingService;
+	@Inject @CamelBasedService
+    PostingService<String> twitterPostingService;
 	@Inject PostingService<Email> mailingService;
 
 	@SuppressWarnings("cdi-ambiguous-dependency")
