@@ -4,6 +4,7 @@ The Job Announcement is a web application which we have built with the aim to be
 application built around JEE technologies and the [camunda fox BPM Platform](http://www.camunda.com/fox).
 
 The main business process this application supports can be seen in the following BPMN 2.0 model diagram:
+
 <script type="text/javascript" src="https://editor.signavio.com/mashup/signavio.js"></script>
 <script type="text/plain">
 {
@@ -17,6 +18,7 @@ The main business process this application supports can be seen in the following
 </script>
 
 The main points we wanted to make with this showcase are:
+
 * [Business process-centric applications](TODO: reference needed) should be a pleasure for the eyes and have the user in the center, i.e. not be a PIA to use!
 We have therefore focused not only on the looks (with [Twitter Bootstrap](http://twitter.github.com/bootstrap/)) but also
 on the usability of the application by hiding as much as possible the nonessential aspects of the business process that backs
@@ -26,11 +28,12 @@ the application.
 we are also strong believers in using the right tool for the job and have thus we leverage the [Apache Camel
 integration framework](http://camel.apache.org/) to integrate with external systems like [Twitter](https://twitter.com/TheJobAnnouncer).
 
-* Focus on testability: we provide readable unit tests, ... TODO
+* Focus on testability: we provide readable unit tests, ... TODO: expand with specific references to code.
 
 # Getting Started
 
 In order to be in a position to play with the showcase yourself you will need to do the following steps:
+
 1. Request a trial version of camunda fox ee platform by filling up [this form]().
 
 # Technologies Used
