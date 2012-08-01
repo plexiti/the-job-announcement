@@ -34,12 +34,6 @@ In order to be in a position to play with the showcase yourself you will need to
 
 1. Request a trial version of camunda fox EE platform by filling up [this form](http://www.camunda.com/fox/trial/?).
 
-# Screenshots
-
----------------------------------------------------------------------------------------------------------------------------------------------------------
-| ![The Job Announcement Publish job announcement BPMN 2.0 diagram][3]		| ![The Job Announcement Publish job announcement BPMN 2.0 diagram][3]		|
----------------------------------------------------------------------------------------------------------------------------------------------------------
-
 # Credits
 
 This are the people, projects and tools that helped us build this showcase:
