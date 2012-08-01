@@ -6,20 +6,6 @@ and the [camunda fox BPM Platform](http://www.camunda.com/fox) running on the [J
 
 ![The Job Announcement Splash Screen][1]
 
-The main points we wanted to make with this showcase are:
-
-* Business process-centric applications should be a pleasure for the eyes and have the user in the center, i.e. not be a PIA to use!
-We have therefore focused not only on the looks (with [Twitter Bootstrap](http://twitter.github.com/bootstrap/)) but also
-on the usability of the application by hiding as much as possible the nonessential aspects of the business process that backs
-the application.
-
-* While we consider the business process engine as the main building block of a process-centric application,
-we are also strong believers in using the right tool for the job and have thus we leverage the [Apache Camel
-integration framework](http://camel.apache.org/) to integrate with external systems like [Twitter](https://twitter.com/TheJobAnnouncer).
-
-* Focus on testability: we provide [readable business process unit tests](https://bitbucket.org/plexiti/the-job-announcement-fox/src/64c9cfc28413/src/test/java/com/camunda/fox/showcase/jobannouncement/process/JobAnnouncementTest.java)
-and [integration tests](https://bitbucket.org/plexiti/the-job-announcement-fox/src/64c9cfc28413/src/test/java/com/camunda/fox/showcase/jobannouncement/process/ProcessDeploymentAndStartIT.java) based on [JBoss Arquillian](http://www.jboss.org/arquillian.html).
-
 # Supporting Process
 
 The application supports the process of creating a job position announcement starting from the need of
