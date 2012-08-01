@@ -44,9 +44,9 @@ In order to be able to "play" with the showcase yourself you will need to do the
 1. Install it, start it with `$FOX_PLATFORM_HOME/server/jboss-as-7.1.0.Final/bin$ ./standalone.sh`
 1. Make sure JBoss AS 7 is running by pointing your browser to `http://localhost:8080/`
 1. Make sure you have the following installed *and working*:
-  * [Java Platform (*JDK*) 1.6.x](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-  * [Maven](http://maven.apache.org/) 3.0.x
-  * [Git](http://git-scm.com/) 1.7.x
+  ** [Java Platform (*JDK*) 1.6.x](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+  ** [Maven](http://maven.apache.org/) 3.0.x
+  ** [Git](http://git-scm.com/) 1.7.x
 1. Clone this repository with `git clone git@bitbucket.org:plexiti/the-job-announcement-fox.git`
 1. Build the application with `mvn package` and deploy it with `mvn jboss-as:deploy`
 1. Point your browser to `http://localhost:8080/the-job-announcement/` and enjoy!
