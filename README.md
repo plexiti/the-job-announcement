@@ -1,13 +1,14 @@
 # Introduction
 
 The Job Announcement is a web application we have built in order to showcase a business process-centric
-application based on Java EE technologies and the [camunda fox BPM Platform](http://www.camunda.com/fox).
+application based on the [Java EE 6](http://www.oracle.com/technetwork/java/javaee/overview/index.html) technology stack
+and the [camunda fox BPM Platform](http://www.camunda.com/fox) running on the [JBoss Application Server 7](http://www.jboss.org/jbossas/).
 
 ![The Job Announcement Splash Screen][1]
 
 The main points we wanted to make with this showcase are:
 
-* [Business process-centric applications](TODO: reference needed) should be a pleasure for the eyes and have the user in the center, i.e. not be a PIA to use!
+* Business process-centric applications should be a pleasure for the eyes and have the user in the center, i.e. not be a PIA to use!
 We have therefore focused not only on the looks (with [Twitter Bootstrap](http://twitter.github.com/bootstrap/)) but also
 on the usability of the application by hiding as much as possible the nonessential aspects of the business process that backs
 the application.
@@ -43,7 +44,7 @@ You will need [Maven](http://maven.apache.org/) 3.0.3 or higher.
 
 # Credits
 
-This are the people, projects and tools that helped us build this showcase:
+This application was developed by Martin Schimak and Rafael Cordones Marcos. Furthermore, these are the people, projects and tools that helped us build this showcase:
 
 * [camunda fox showcases](https://bitbucket.org/camunda/fox-showcases/) from [camunda services GmbH](http://www.camunda.com/)
 * [JSF 2 + Twitter Bootstrap](http://rkovacevic.blogspot.co.at/2012/05/jsf-2-twitter-bootstrap.html)
