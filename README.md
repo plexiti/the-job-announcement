@@ -3,6 +3,8 @@
 The Job Announcement is a web application which we have built with the aim to be have a showcase of a business process-centric
 application built around JEE technologies and the [camunda fox BPM Platform](http://www.camunda.com/fox).
 
+![The Job Announcement Splas Screen][1]
+
 The main business process this application supports can be seen in the following BPMN 2.0 model diagram:
 
 <script type="text/javascript" src="https://editor.signavio.com/mashup/signavio.js"></script>
@@ -61,3 +63,5 @@ we intend to implement and publish. Send you feedback to us at <TODO@TODO.COM>
 # License
 
 This software is licensed under the terms you may find in the file named "LICENSE.txt" in the root directory.
+
+[1]: https://bitbucket.org/plexiti/the-job-announcement-fox/downloads/the-job-announcement-showcase-splash-screen.png
