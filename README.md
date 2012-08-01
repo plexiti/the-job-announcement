@@ -1,23 +1,9 @@
 # Introduction
 
-The Job Announcement is a web application which we have built with the aim to be have a showcase of a business process-centric
-application built around JEE technologies and the [camunda fox BPM Platform](http://www.camunda.com/fox).
+The Job Announcement is a web application we have built in order to showcase a business process-centric
+application based on Java EE technologies and the [camunda fox BPM Platform](http://www.camunda.com/fox).
 
-![The Job Announcement Splas Screen][1]
-
-The main business process this application supports can be seen in the following BPMN 2.0 model diagram:
-
-<script type="text/javascript" src="https://editor.signavio.com/mashup/signavio.js"></script>
-<script type="text/plain">
-{
-    url: "https://editor.signavio.com/p/model/9708839e17224f738a799e2ae133c461",
-    authToken: "9fbe01266d678077e1c68911796aebc13e5bf3c2e6047e232bfac9b328bb_36a85752ab518d88d47651a3472aeee9ab1fc26fb5394fc88a5e2aad2d161_62ec9f231ca522ffd238d725c8156851f2c86d2f7433306cce9fe828367e45",
-    overflowX: "fit",
-    overflowY: "fit",
-    zoomSlider: true,
-    linkSubProcesses: false
-}
-</script>
+![The Job Announcement Splash Screen][1]
 
 The main points we wanted to make with this showcase are:
 
@@ -31,6 +17,15 @@ we are also strong believers in using the right tool for the job and have thus w
 integration framework](http://camel.apache.org/) to integrate with external systems like [Twitter](https://twitter.com/TheJobAnnouncer).
 
 * Focus on testability: we provide readable unit tests, ... TODO: expand with specific references to code.
+
+# Business Processes
+
+Two business processes are implemented in the showcase.
+
+* The Job Announcement
+![The Job Announcement BPMN 2.0 diagram][2]
+* The Job Announcement: Publish job announcement
+![The Job Announcement Publish job announcement BPMN 2.0 diagram][3]
 
 # Getting Started
 
@@ -65,3 +60,5 @@ we intend to implement and publish. Send you feedback to us at <TODO@TODO.COM>
 This software is licensed under the terms you may find in the file named "LICENSE.txt" in the root directory.
 
 [1]: https://bitbucket.org/plexiti/the-job-announcement-fox/downloads/the-job-announcement-showcase-splash-screen.png
+[2]: https://bitbucket.org/plexiti/the-job-announcement-fox/downloads/the-job-announcement-process-diagram.png
+[3]: https://bitbucket.org/plexiti/the-job-announcement-fox/downloads/the-job-announcement-publish-job-announcement-process-diagram.png
