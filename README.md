@@ -24,9 +24,9 @@ and [integration tests](https://bitbucket.org/plexiti/the-job-announcement-fox/s
 
 Two business processes are implemented in the showcase.
 
-* The Job Announcement
+## The Job Announcement
 ![The Job Announcement BPMN 2.0 diagram][2]
-* The Job Announcement: Publish job announcement
+## The Job Announcement: Publish job announcement
 ![The Job Announcement Publish job announcement BPMN 2.0 diagram][3]
 
 # Getting Started
@@ -58,7 +58,7 @@ This application was developed by Martin Schimak and Rafael Cordones Marcos. Fur
 # Feedback and Future Work
 
 We see this project as a permanent work in progress, we already have several features in the pipeline which
-we intend to implement and publish. In the meantime send us your feedback to <TODO@TODO.COM>
+we intend to implement and publish. In the meantime send us your feedback to [martin@schimak.at](mailto:martin@schimak.at)
 
 # License
 
