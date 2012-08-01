@@ -16,7 +16,8 @@ the application.
 we are also strong believers in using the right tool for the job and have thus we leverage the [Apache Camel
 integration framework](http://camel.apache.org/) to integrate with external systems like [Twitter](https://twitter.com/TheJobAnnouncer).
 
-* Focus on testability: we provide readable unit tests, ... TODO: expand with specific references to code.
+* Focus on testability: we provide [readable business process unit tests](https://bitbucket.org/plexiti/the-job-announcement-fox/src/64c9cfc28413/src/test/java/com/camunda/fox/showcase/jobannouncement/process/JobAnnouncementTest.java)
+and [integration tests](https://bitbucket.org/plexiti/the-job-announcement-fox/src/64c9cfc28413/src/test/java/com/camunda/fox/showcase/jobannouncement/process/ProcessDeploymentAndStartIT.java) based on [JBoss Arquillian](http://www.jboss.org/arquillian.html).
 
 # Business Processes
 
@@ -31,11 +32,7 @@ Two business processes are implemented in the showcase.
 
 In order to be in a position to play with the showcase yourself you will need to do the following steps:
 
-1. Request a trial version of camunda fox ee platform by filling up [this form]().
-
-# Technologies Used
-
-* A user interface implemented with [JavaServer Faces 2.1+Facelets](http://javaserverfaces.java.net/) and [Twitter Bootstrap](http://twitter.github.com/bootstrap/) with a customized version provided by [Bootswatch](http://bootswatch.com/).
+1. Request a trial version of camunda fox EE platform by filling up [this form](http://www.camunda.com/fox/trial/?).
 
 # Credits
 
@@ -57,7 +54,7 @@ we intend to implement and publish. Send you feedback to us at <TODO@TODO.COM>
 
 # License
 
-This software is licensed under the terms you may find in the file named "LICENSE.txt" in the root directory.
+This software is licensed under the terms you may find in the file named `LICENSE.txt` in the root directory.
 
 [1]: https://bitbucket.org/plexiti/the-job-announcement-fox/downloads/the-job-announcement-showcase-splash-screen.png
 [2]: https://bitbucket.org/plexiti/the-job-announcement-fox/downloads/Stellenausschreibung-Ebene-Engine.png
