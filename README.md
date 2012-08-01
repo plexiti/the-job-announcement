@@ -44,8 +44,9 @@ You will need [Maven](http://maven.apache.org/) 3.0.3 or higher.
 
 # Credits
 
-This application was developed by Martin Schimak and Rafael Cordones Marcos. Furthermore, these are the people, projects and tools that helped us build this showcase:
+This application was developed by Martin Schimak and Rafael Cordones Marcos. Furthermore, these people, projects and tools helped us build this showcase:
 
+* [The Signavio Process Editor](http://www.signavio.com/en/products/overview.html) by [Signavio](http://www.signavio.com/)
 * [camunda fox showcases](https://bitbucket.org/camunda/fox-showcases/) from [camunda services GmbH](http://www.camunda.com/)
 * [JSF 2 + Twitter Bootstrap](http://rkovacevic.blogspot.co.at/2012/05/jsf-2-twitter-bootstrap.html)
 * [Nils Preusker](http://www.nilspreusker.de/)
@@ -53,7 +54,6 @@ This application was developed by Martin Schimak and Rafael Cordones Marcos. Fur
 * Icons by [GLYPHICONS](http://glyphicons.com/)
 * [Validate different validation groups depending on different buttons](http://www.dirkreske.de/button-based-bean-validation/)
 * [Sticky Footer with Bootstrap](https://gist.github.com/1855032)
-* [The Signavio Process Editor](http://www.signavio.com/en/products/overview.html) by [Signavio](http://www.signavio.com/)
 
 # Feedback and Future Work
 
