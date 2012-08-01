@@ -20,13 +20,20 @@ integration framework](http://camel.apache.org/) to integrate with external syst
 * Focus on testability: we provide [readable business process unit tests](https://bitbucket.org/plexiti/the-job-announcement-fox/src/64c9cfc28413/src/test/java/com/camunda/fox/showcase/jobannouncement/process/JobAnnouncementTest.java)
 and [integration tests](https://bitbucket.org/plexiti/the-job-announcement-fox/src/64c9cfc28413/src/test/java/com/camunda/fox/showcase/jobannouncement/process/ProcessDeploymentAndStartIT.java) based on [JBoss Arquillian](http://www.jboss.org/arquillian.html).
 
-# Business Processes
+# Supporting Process
 
-Two business processes are implemented in the showcase.
+The application supports the process of creating a job position announcement starting from the need of
+finding a new employee. A manager can start the process by requesting a new job announcement giving a
+brief description of her needs. She will then submit her request to the Human Resources department which
+will review and create a detailed job announcement with an optional Twitter and/or Facebook post. The job
+announcement can be reviewed and approved (or not) by the original manager. Eventually, the job announcement
+is published to Twitter and Facebook.
+
+Two BPMN 2.0 business processes definitions implemented the abovementioned process (see below).
 
 ## The Job Announcement
 ![The Job Announcement BPMN 2.0 diagram][2]
-## The Job Announcement: Publish job announcement
+## The Job Announcement: Publish Job Announcement
 ![The Job Announcement Publish job announcement BPMN 2.0 diagram][3]
 
 # Getting Started
