@@ -40,14 +40,16 @@ Two BPMN 2.0 business processes definitions implemented the abovementioned proce
 
 In order to be able to "play" with the showcase yourself you will need to do the following steps:
 
-1. Request a trial version of camunda fox EE platform by filling up [this form](http://www.camunda.com/fox/trial/?).
-1. Download the camunda fox EE platform, install it locally and start it.
-1. Once you have received your credentials to access the camunda fox enterprise repository,
-configure your Maven settings.xml as explained [here](https://app.camunda.com/confluence/display/foxUserGuide/Maven+configuration#Mavenconfiguration-Credentialsforcamundafoxenterpriserepository).
-You will need [Maven](http://maven.apache.org/) 3.0.3 or higher.
+1. Download the camunda fox Platform Community Edition (version 1.26.0 or higher) from [here](https://app.camunda.com/confluence/display/foxUserGuide/Getting+Started).
+1. Install it, start it with `<FOX_PLATFORM_HOME>/server/jboss-as-7.1.0.Final/bin$ ./standalone.sh`
+1. Make sure JBoss AS 7 is running by pointing your browser to `http://localhost:8080/`
+1. Make sure you have the following installed *and working*:
+    * [Java Platform (*JDK*) 1.6.x](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+    * [Maven](http://maven.apache.org/) 3.0.x
+    * [Git](http://git-scm.com/) 1.7.x
 1. Clone this repository with `git clone git@bitbucket.org:plexiti/the-job-announcement-fox.git`
-1. Build the application with `mvn package` and deploy it with `mvn jboss-as:deploy
-1. Point your browser to `http://localhost:8080/the-job-announcement/`
+1. Build the application with `mvn package` and deploy it with `mvn jboss-as:deploy`
+1. Point your browser to `http://localhost:8080/the-job-announcement/` and enjoy!
 
 # Credits
 
