@@ -181,21 +181,10 @@
 
 
 	<repositories>
-    <!--
-     Change fox-version property and repository to adjust showcase to the community edition, see
-     https://app.camunda.com/confluence/display/foxUserGuide/Download+and+run+examples
-     for more details
-     <repository>
-      <id>camunda-fox-ce</id>
-      <url>https://app.camunda.com/nexus/content/repositories/fox-ce/</url>
-    </repository>
-    -->
         <repository>
-          <id>camunda-fox-ee</id>
-          <url>https://app.camunda.com/nexus/content/repositories/fox-ee/</url>
-          <!-- you will need credentials to access this repository! See https://app.camunda.com/confluence/display/foxUserGuide/Maven+configuration -->
+          <id>camunda-fox-ce</id>
+          <url>https://app.camunda.com/nexus/content/repositories/fox-ce/</url>
         </repository>
-	
 		<repository>
 			<id>jboss-public-repository</id>
 			<name>JBoss Repository</name>
