@@ -40,7 +40,7 @@ This are the people, projects and tools that helped us build this showcase:
 
 * [camunda fox showcases](https://bitbucket.org/camunda/fox-showcases/) from [camunda services GmbH](http://www.camunda.com/)
 * [JSF 2 + Twitter Bootstrap](http://rkovacevic.blogspot.co.at/2012/05/jsf-2-twitter-bootstrap.html)
-* Nils Preusker: http://www.nilspreusker.de/
+* [Nils Preusker](http://www.nilspreusker.de/)
 * [Bootstrap 2.0 Tabs JQuery Ajax Example](http://www.mightywebdeveloper.com/coding/bootstrap-2-tabs-jquery-load-content/)
 * Icons by [GLYPHICONS](http://glyphicons.com/)
 * [Validate different validation groups depending on different buttons](http://www.dirkreske.de/button-based-bean-validation/)
