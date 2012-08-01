@@ -38,7 +38,8 @@ In order to be able to "play" with the showcase yourself you will need to do the
 configure your Maven settings.xml as explained [here](https://app.camunda.com/confluence/display/foxUserGuide/Maven+configuration#Mavenconfiguration-Credentialsforcamundafoxenterpriserepository).
 You will need [Maven](http://maven.apache.org/) 3.0.3 or higher.
 1. Clone this repository with `git clone git@bitbucket.org:plexiti/the-job-announcement-fox.git`
-1. Build the application with `mvn package` and deploy it with `mvn jboss-as:deploy`
+1. Build the application with `mvn package` and deploy it with `mvn jboss-as:deploy
+1. Point your browser to `http://localhost:8080/the-job-announcement/`
 
 # Credits
 
