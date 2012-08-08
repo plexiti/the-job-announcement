@@ -15,13 +15,8 @@ import javax.inject.Named;
 @CamelBasedService
 public class TwitterPostingServiceCamelImpl implements PostingService<String> {
 
-    @EndpointInject(uri="direct:twitter")
-    ProducerTemplate producer;
-
     @Override
     public String post(String posting) {
-        producer.sendBody(posting);
-
-        return posting;
+        return "";
     }
 }

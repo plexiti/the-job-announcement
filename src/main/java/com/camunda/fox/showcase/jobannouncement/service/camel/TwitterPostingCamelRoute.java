@@ -13,11 +13,6 @@ public class TwitterPostingCamelRoute extends RouteBuilder {
 
     Logger logger = Logger.getLogger(TwitterPostingCamelRoute.class.getName());
 
-    private String consumerKey;
-    private String consumerSecret;
-    private String accessToken;
-    private String accessTokenSecret;
-
     public TwitterPostingCamelRoute() {
         System.out.println(">> TwitterPostingCamelRoute instantiated");
     }
@@ -25,7 +20,7 @@ public class TwitterPostingCamelRoute extends RouteBuilder {
     @Override
     public void configure() throws Exception {
 
-        from("direct:twitter")
+        from("direct:tweets")
             .log(">> Started")
             // Set Body with text "Bean Injected"
             .setBody().simple("Bean Injected")
@@ -34,21 +29,5 @@ public class TwitterPostingCamelRoute extends RouteBuilder {
             // Display response received in log when calling HelloWorld
             .log(">> Response : ${body}");
 
-    }
-
-    public void setConsumerKey(String consumerKey) {
-        this.consumerKey = consumerKey;
-    }
-
-    public void setConsumerSecret(String consumerSecret) {
-        this.consumerSecret = consumerSecret;
-    }
-
-    public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
-    }
-
-    public void setAccessTokenSecret(String accessTokenSecret) {
-        this.accessTokenSecret = accessTokenSecret;
     }
 }
