@@ -82,10 +82,13 @@
 				<div class="container">
 					<hr/>
 					<div class="row">
-						<div class="span4">#{msg['app.language']}: 
-							<h:commandLink action="#{users.setLocale('en')}" immediate="true">#{msg['lang.en']}</h:commandLink>
+                        <!-- Language switcher -->
+						<div class="span4">#{msg['app.language']}:
+                            <h:outputText value="#{msg['lang.en']}" rendered="#{users.locale == 'en'}"/>
+							<h:commandLink action="#{users.setLocale('en')}" immediate="true" rendered="#{users.locale != 'en'}">#{msg['lang.en']}</h:commandLink>
 							<span> | </span>
-							<h:commandLink action="#{users.setLocale('de')}" immediate="true">#{msg['lang.de']}</h:commandLink>
+                            <h:outputText value="#{msg['lang.de']}" rendered="#{users.locale == 'de'}"/>
+							<h:commandLink action="#{users.setLocale('de')}" immediate="true" rendered="#{users.locale != 'de'}">#{msg['lang.de']}</h:commandLink>
 						</div>
 						<div class="span4" style="text-align: center;">
 				            <h:outputFormat value="#{msg['app.implementedby']}" escape="false"/>

@@ -10,7 +10,7 @@
 	<packaging>war</packaging>
 
 	<properties>
-		<fox.version>6.0.0</fox.version>
+		<fox.version>1.26.0</fox.version>
 		<fest.assert.version>1.4</fest.assert.version>
 		<h2.version>1.3.162</h2.version>
         <camel.version>2.10.0</camel.version>
@@ -190,21 +190,10 @@
 
 
 	<repositories>
-    <!--
-     Change fox-version property and repository to adjust showcase to the community edition, see
-     https://app.camunda.com/confluence/display/foxUserGuide/Download+and+run+examples
-     for more details
-     <repository>
-      <id>camunda-fox-ce</id>
-      <url>https://app.camunda.com/nexus/content/repositories/fox-ce/</url>
-    </repository>
-    -->
         <repository>
-          <id>camunda-fox-ee</id>
-          <url>https://app.camunda.com/nexus/content/repositories/fox-ee/</url>
-          <!-- you will need credentials to access this repository! See https://app.camunda.com/confluence/display/foxUserGuide/Maven+configuration -->
+          <id>camunda-fox-ce</id>
+          <url>https://app.camunda.com/nexus/content/repositories/fox-ce/</url>
         </repository>
-	
 		<repository>
 			<id>jboss-public-repository</id>
 			<name>JBoss Repository</name>
