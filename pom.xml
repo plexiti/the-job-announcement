@@ -10,11 +10,18 @@
 	<packaging>war</packaging>
 
 	<properties>
+        <deployment.war.name>the-job-announcement</deployment.war.name>
+        <!-- Download camunda fox CE from here -->
+        <!-- https://app.camunda.com/confluence/display/foxUserGuide/Getting+Started -->
 		<fox.version>1.26.0</fox.version>
 		<fest.assert.version>1.4</fest.assert.version>
 		<h2.version>1.3.162</h2.version>
+
+        <!-- Please, note that we use a SNAPSHOT of Camel's Twitter component until Camel's 2.11.0 is released -->
+        <!-- containing the following feature we needed to implemented in order to support our app's requirements: -->
+        <!-- https://issues.apache.org/jira/browse/CAMEL-5479 -->
         <camel.version>2.10.0</camel.version>
-        <deployment.war.name>the-job-announcement</deployment.war.name>
+
         <!-- Avoid the message "[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!" -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- Avoid the message "[WARNING] Using platform encoding (UTF-8 actually) ... also for the failsafe plugin -->
@@ -69,7 +76,7 @@
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-twitter</artifactId>
-            <version>${camel.version}</version>
+            <version>2.11-SNAPSHOT</version>
         </dependency>
         <!-- JSR-303 (Bean Validation) Implementation -->
         <!-- Provides portable constraints such as @Email -->
@@ -215,6 +222,17 @@
                 <enabled>true</enabled>
             </releases>
         </repository>
+        <repository>
+              <id>apache.snapshots</id>
+              <name>Apache Development Snapshot Repository</name>
+              <url>https://repository.apache.org/content/repositories/snapshots/</url>
+              <releases>
+                  <enabled>false</enabled>
+              </releases>
+              <snapshots>
+                  <enabled>true</enabled>
+              </snapshots>
+          </repository>
     </repositories>
 
 	<build>
