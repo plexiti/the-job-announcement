@@ -126,6 +126,12 @@
 			<scope>test</scope>
 		</dependency>
         <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
             <artifactId>arquillian-junit-container</artifactId>
             <version>1.0.0.CR7</version>
@@ -145,12 +151,6 @@
             <version>7.1.0.Final</version>
             <scope>test</scope>
         </dependency>
-
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>${h2.version}</version>
-		</dependency>
 
 		<dependency>
 			<groupId>org.apache.commons</groupId>

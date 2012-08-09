@@ -2,6 +2,7 @@ package com.camunda.fox.showcase.jobannouncement.service.camel;
 
 import org.apache.camel.builder.RouteBuilder;
 
+import javax.inject.Named;
 import java.util.logging.Logger;
 
 /**
@@ -21,13 +22,15 @@ public class TwitterPostingCamelRoute extends RouteBuilder {
     public void configure() throws Exception {
 
         from("direct:tweets")
-            .log(">> Started")
-            // Set Body with text "Bean Injected"
-            .setBody().simple("Bean Injected")
-            // Lookup for bean injected by CDIcontainer
-            .beanRef("helloWorld", "sayHello")
-            // Display response received in log when calling HelloWorld
-            .log(">> Response : ${body}");
+            .inOut("twitter://timeline/user")
+            .to("log:com.camunda.fox.showcase.jobannouncement.service.camel?level=INFO&showAll=true&multiline=true")
+            /*
+             * Since we are using a 'direct' endpoint the calling method will receive back the body of the message,
+             * i.e. a twitter4j.Status object
+             */
 
+            //.transform().simple("${body.id}")
+            //.to("bean:jobAnnouncementService?method=updateTweetId(${header.jobAnnouncementId}, ${body.id})")
+            ;
     }
 }

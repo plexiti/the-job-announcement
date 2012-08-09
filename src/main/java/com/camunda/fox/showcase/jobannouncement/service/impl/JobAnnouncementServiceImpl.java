@@ -14,8 +14,11 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 import com.camunda.fox.showcase.jobannouncement.service.camel.CamelBasedService;
+import com.camunda.fox.showcase.jobannouncement.service.camel.ContextBootStrap;
 import org.activiti.engine.IdentityService;
 import org.activiti.engine.identity.User;
+import org.apache.camel.*;
+import org.apache.camel.component.cdi.CdiCamelContext;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
@@ -25,6 +28,7 @@ import com.camunda.fox.showcase.jobannouncement.model.JobAnnouncement;
 import com.camunda.fox.showcase.jobannouncement.service.JobAnnouncementService;
 import com.camunda.fox.showcase.jobannouncement.service.PostingService;
 import com.plexiti.activiti.service.ProcessAwareJpaEntityServiceImpl;
+import twitter4j.Status;
 
 @Stateless
 @Named("jobAnnouncementService")
@@ -33,9 +37,16 @@ public class JobAnnouncementServiceImpl extends ProcessAwareJpaEntityServiceImpl
 	private static final long serialVersionUID = -876313470772353619L;
 	
 	@Inject PostingService<FacebookPosting> facebookPostingService;
-	@Inject @CamelBasedService
-    PostingService<String> twitterPostingService;
 	@Inject PostingService<Email> mailingService;
+
+    /*
+     * TODO
+     * If we try to inject directly the CdiCamelContext instance we initalized in the ContextBootStrap class
+     * we will get a *new instance*, not the same one we initalized there!
+     * Provably we need to learn more about CDI to know how to do this properly.
+     */
+    @Inject
+    ContextBootStrap ctxBootStrap;
 
 	@SuppressWarnings("cdi-ambiguous-dependency")
 	@Inject IdentityService identityService;
@@ -78,10 +89,20 @@ public class JobAnnouncementServiceImpl extends ProcessAwareJpaEntityServiceImpl
 	@Override // #{jobAnnouncementService.postToTwitter(jobAnnouncementId)}
 	public void postToTwitter(Long jobAnnouncementId) {
 		JobAnnouncement announcement = find(jobAnnouncementId);
-		String twitterUrl = twitterPostingService.post(announcement.getTwitterMessageWithLink());
-		announcement.setTwitterUrl(twitterUrl);
-		log.info("Job Announcement #[" + announcement.getId() + "] posted to Twitter.");
-	}
+        String tweet = announcement.getTwitterMessageWithLink();
+        log.info("About to tweet [" + tweet + "].");
+
+        // send tweet to the twitter endpoint **SYNCHRONOUSLY** (because we use the 'direct:' endpoint)
+        CamelContext camelCtx = ctxBootStrap.getCamelContext();
+        ProducerTemplate producerTemplate = camelCtx.createProducerTemplate();
+        Status status = (Status) producerTemplate.sendBodyAndHeader("direct:tweets", ExchangePattern.InOut,
+                                                                     tweet,
+                                                                     "jobAnnouncementId", jobAnnouncementId);
+
+        String tweetUrl = "http://twitter.com/" + status.getUser().getScreenName() + "/status/" + status.getId();
+   		announcement.setTwitterUrl(tweetUrl);
+        log.info("Job Announcement #[" + announcement.getId() + "] posted to Twitter with id " + status.getId());
+    }
 
 	@Override // #{jobAnnouncementService.postToFacebook(jobAnnouncementId)}
 	public void postToFacebook(Long jobAnnouncementId) {

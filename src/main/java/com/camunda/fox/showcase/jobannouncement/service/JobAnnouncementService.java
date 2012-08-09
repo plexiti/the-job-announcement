@@ -19,5 +19,5 @@ public interface JobAnnouncementService extends ProcessAwareEntityService<JobAnn
 	
 	String findRequester(Long jobAnnouncementId); 
 	String findEditor(Long jobAnnouncementId); 
-		
+
 }

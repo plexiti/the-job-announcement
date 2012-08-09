@@ -1,8 +1,8 @@
 package com.camunda.fox.showcase.jobannouncement.service.camel;
 
+import org.apache.camel.CamelContext;
 import org.apache.camel.component.cdi.CdiCamelContext;
 import org.apache.camel.component.twitter.TwitterComponent;
-import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 @Startup
 public class ContextBootStrap {
 
-    org.slf4j.Logger logger = LoggerFactory.getLogger(ContextBootStrap.class);
+    Logger logger = Logger.getLogger(getClass().getName());
 
     /*
      * These are The Job Announcer's Twitter API configuration settings
@@ -32,6 +32,9 @@ public class ContextBootStrap {
 
     @Inject
     CdiCamelContext camelCtx;
+
+    @Inject
+    TwitterPostingCamelRoute tweetRoute;
 
     @PostConstruct
     public void init() throws Exception {
@@ -49,18 +52,22 @@ public class ContextBootStrap {
         /*
          * Add the Camel routes
          */
-        //camelCtx.addRoutes(tweetRoute);
+        camelCtx.addRoutes(tweetRoute);
 
         /*
          * Start Camel context
          */
         camelCtx.start();
 
-        logger.info(">> Came context started and routes started.");
+        logger.info(">> Camel context started and routes started.");
     }
 
     @PreDestroy
     public void stop() throws Exception {
        camelCtx.stop();
+    }
+
+    public CamelContext getCamelContext() {
+        return this.camelCtx;
     }
 }
