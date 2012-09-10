@@ -143,7 +143,7 @@ public class JobAnnouncementServiceImpl extends ProcessAwareJpaEntityServiceImpl
 			text.append("dear ").append(editor.getFirstName()).append(" ").append(editor.getLastName()).append(",").append(nl).append(nl);
 
 			text.append("Your job announcement #[").append(announcement.getId()).append("] to search for a '" + announcement.getJobTitle() + "' has just been posted!").append(nl).append(nl);
-			text.append("Website: http://the-job-announcement.com:8080/the-job-announcement/view.jsf?id=" + announcement.getId()).append(nl);
+			text.append("Website: http://the-job-announcement.com/view.jsf?id=" + announcement.getId()).append(nl);
 			if (announcement.getTwitterUrl() != null) {
 				text.append("Twitter: " + announcement.getTwitterUrl()).append(nl);
 			} else if (announcement.getTwitterMessage() != null) {

@@ -166,7 +166,7 @@ public class JobAnnouncement implements TaskAware, Serializable {
 
 	public String getWebsiteUrl() {
 		// TODO Construct correct URL here.
-		return "http://the-job-announcement.com:8080/the-job-announcement/view.jsf?id=" + id;
+		return "http://the-job-announcement.com/view.jsf?id=" + id;
 	}
 	
 	public String getTwitterMessageWithLink() {
