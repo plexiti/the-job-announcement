@@ -1,6 +1,6 @@
 # Introduction
 
-The Job Announcement is a web application we have built in order to showcase a business process-centric
+The Job Announcement is a web application built in order to showcase a business process-centric
 application based on the [Java EE 6](http://www.oracle.com/technetwork/java/javaee/overview/index.html) technology stack
 and the [camunda fox BPM Platform](http://www.camunda.com/fox) running on the [JBoss Application Server 7](http://www.jboss.org/jbossas/).
 
@@ -22,11 +22,15 @@ Two BPMN 2.0 business processes definitions implemented the abovementioned proce
 ## The Job Announcement: Publish Job Announcement
 ![The Job Announcement Publish job announcement BPMN 2.0 diagram][3]
 
-# Getting Started
+# "Playing" with the showcase
+
+An online version of the showcase can be found at [http://the-job-announcement.com/](http://the-job-announcement.com/)
+
+# Building the showcase yourself
 
 In order to be able to "play" with the showcase yourself you will need to do the following steps:
 
-1. Download the camunda fox Platform Community Edition (version 1.26.0 or higher) from [here](https://app.camunda.com/confluence/display/foxUserGuide/Getting+Started).
+1. Download the camunda fox Platform Community Edition (version 1.28.0 or higher) from [here](https://app.camunda.com/confluence/display/foxUserGuide/Getting+Started).
 1. Install it, start it with `<FOX_PLATFORM_HOME>/server/jboss-as-7.1.0.Final/bin$ ./standalone.sh`
 1. Make sure JBoss AS 7 is running by pointing your browser to `http://localhost:8080/`
 1. Make sure you have the following installed *and working*:
@@ -53,7 +57,7 @@ This application was developed by Martin Schimak and Rafael Cordones Marcos. Fur
 # Feedback and Future Work
 
 We see this project as a permanent work in progress, we already have several features in the pipeline which
-we intend to implement and publish. In the meantime send us your feedback to [martin@schimak.at](mailto:martin@schimak.at)
+we intend to implement and publish. In the meantime send us your feedback to [hello@plexiti.com](mailto:hello@plexiti.com)
 
 # License
 
