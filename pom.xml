@@ -20,7 +20,7 @@
         <!-- Please, note that we use a SNAPSHOT of Camel's Twitter component until Camel's 2.11.0 is released -->
         <!-- containing the following feature we needed to implemented in order to support our app's requirements: -->
         <!-- https://issues.apache.org/jira/browse/CAMEL-5479 -->
-        <camel.version>2.10.0</camel.version>
+        <camel.version>2.11-SNAPSHOT</camel.version>
 
         <!-- Avoid the message "[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!" -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
