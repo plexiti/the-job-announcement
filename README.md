@@ -43,7 +43,7 @@ In order to be able to "play" with the showcase yourself you will need to do the
 
 # Credits
 
-This application was developed by Martin Schimak and Rafael Cordones Marcos. Furthermore, these people, projects and tools helped us build this showcase:
+This application was developed by Martin Schimak and Rafael Cordones Marcos at [plexiti](http://plexiti.com/). Furthermore, these people, projects and tools helped us build this showcase:
 
 * [The Signavio Process Editor](http://www.signavio.com/en/products/overview.html) by [Signavio](http://www.signavio.com/)
 * [camunda fox showcases](https://bitbucket.org/camunda/fox-showcases/) from [camunda services GmbH](http://www.camunda.com/)
