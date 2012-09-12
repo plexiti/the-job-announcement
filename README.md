@@ -3,6 +3,7 @@
 The Job Announcement is a web application built in order to showcase a business process-centric
 application based on the [Java EE 6](http://www.oracle.com/technetwork/java/javaee/overview/index.html) technology stack
 and the [camunda fox BPM Platform](http://www.camunda.com/fox) running on the [JBoss Application Server 7](http://www.jboss.org/jbossas/).
+There is an online version of the showcase at [the-job-announcement.com](http://the-job-announcement.com).
 
 ![The Job Announcement Splash Screen][1]
 
