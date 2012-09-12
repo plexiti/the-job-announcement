@@ -3,7 +3,7 @@
 The Job Announcement is a web application built in order to showcase a business process-centric
 application based on the [Java EE 6](http://www.oracle.com/technetwork/java/javaee/overview/index.html) technology stack
 and the [camunda fox BPM Platform](http://www.camunda.com/fox) running on the [JBoss Application Server 7](http://www.jboss.org/jbossas/).
-There is an online version of the showcase at [the-job-announcement.com](http://the-job-announcement.com).
+An online version of the showcase can be found at [http://the-job-announcement.com/](http://the-job-announcement.com/).
 
 ![The Job Announcement Splash Screen][1]
 
@@ -23,9 +23,10 @@ Two BPMN 2.0 business processes definitions implemented the abovementioned proce
 ## The Job Announcement: Publish Job Announcement
 ![The Job Announcement Publish job announcement BPMN 2.0 diagram][3]
 
-# "Playing" with the showcase
+# Yes, we've got issues!
 
-An online version of the showcase can be found at [http://the-job-announcement.com/](http://the-job-announcement.com/)
+We welcome any feedback. You can send as an e-mail at [hello@plexiti.com](mailto:hello@plexiti.com) or use [Bitbucket's
+issue management system for this project](https://bitbucket.org/plexiti/the-job-announcement-fox/issues).
 
 # Building the showcase yourself
 
