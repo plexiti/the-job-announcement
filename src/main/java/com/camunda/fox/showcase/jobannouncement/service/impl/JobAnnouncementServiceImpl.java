@@ -156,7 +156,12 @@ public class JobAnnouncementServiceImpl extends ProcessAwareJpaEntityServiceImpl
 			}
 			text.append(nl).append("Have a nice day!").append(nl).append("The Job Announcer ;-)");
 			message.setMsg(text.toString());
-			mailingService.post(message);
+            /*
+             * Disabled actual e-mail sending for the time being due to privacy concerns.
+             * We need to make this configurable so people who trying the showcase are aware that
+             * an e-mail is being sent and have the possibility of trying this feature themselves.
+             */
+			// mailingService.post(message);
 		} catch (EmailException e) {
 		    log.warning("Failed to mail Notification with subject '" + message.getSubject() + "'.");
 			log.throwing(getClass().getName(), "notifyAboutPostings", e);
