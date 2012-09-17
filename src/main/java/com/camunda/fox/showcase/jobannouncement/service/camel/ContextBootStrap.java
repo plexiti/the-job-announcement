@@ -1,7 +1,7 @@
 package com.camunda.fox.showcase.jobannouncement.service.camel;
 
 import org.apache.camel.CamelContext;
-import org.apache.camel.component.cdi.CdiCamelContext;
+import org.apache.camel.cdi.CdiCamelContext;
 import org.apache.camel.component.twitter.TwitterComponent;
 
 import javax.annotation.PostConstruct;
