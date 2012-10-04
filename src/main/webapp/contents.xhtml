@@ -11,28 +11,27 @@
 	
 		<h1>#{msg['menu.contents']}</h1>
 
-        <p><h:outputFormat value="#{contents['introduction']}" escape="false"/></p>
+    <p><h:outputFormat value="#{contents['introduction']}" escape="false"/></p>
 
-        <div class="row">
-            <div class="span4">
-                <h:graphicImage url="#{users.getImage('gonzo')}" width="60" styleClass="user-intro"/>
-           		<p><h:outputFormat value="#{contents['gonzo.description']}" escape="false"/></p>
-            </div>
-            <div class="span4">
-                <h:graphicImage url="#{users.getImage('fozzie')}" width="60" styleClass="user-intro"/>
-           		<p><h:outputFormat value="#{contents['fozzie.description']}" escape="false"/></p>
-            </div>
-            <div class="span4">
-                <h:graphicImage url="#{users.getImage('kermit')}" width="60" styleClass="user-intro"/>
-           		<p><h:outputFormat value="#{contents['kermit.description']}" escape="false"/></p>
-            </div>
-        </div> <!--/row-->
-        <br/>
-        <p><h:outputFormat value="#{contents['indication']}" escape="false"/></p>
-        <br/>
+    <div class="row">
+        <div class="span4">
+            <h:graphicImage url="#{users.getImage('gonzo')}" width="60" styleClass="user-intro"/>
+          <p><h:outputFormat value="#{contents['gonzo.description']}" escape="false"/></p>
+        </div>
+        <div class="span4">
+            <h:graphicImage url="#{users.getImage('fozzie')}" width="60" styleClass="user-intro"/>
+          <p><h:outputFormat value="#{contents['fozzie.description']}" escape="false"/></p>
+        </div>
+        <div class="span4">
+            <h:graphicImage url="#{users.getImage('kermit')}" width="60" styleClass="user-intro"/>
+          <p><h:outputFormat value="#{contents['kermit.description']}" escape="false"/></p>
+        </div>
+    </div> <!--/row-->
+    <br/>
+
 		<h2>#{contents['process.announcement.title']}</h2>
-        <p><h:outputFormat value="#{contents['process.announcement.description']}" escape="false"/></p>
-        <br/>
+    <p><h:outputFormat value="#{contents['process.announcement.description']}" escape="false"/></p>
+    <br/>
 		<script type="text/javascript" src="https://editor.signavio.com/mashup/signavio.js"></script>
 		<script type="text/plain">
 		{
@@ -47,8 +46,8 @@
 		<a class="signavio-logo" href="http://www.signavio.com" rel="external"><img src="https://editor.signavio.com/mashup/img/signavio.png" alt="EPC BPMN tool jBPM" /></a>
 
 		<h2>#{contents['process.publish.title']}</h2>
-        <p><h:outputFormat value="#{contents['process.publish.description']}" escape="false"/></p>
-        <br/>
+    <p><h:outputFormat value="#{contents['process.publish.description']}" escape="false"/></p>
+    <br/>
 		<script type="text/javascript" src="https://editor.signavio.com/mashup/signavio.js"></script>
 		<script type="text/plain">
 		{
