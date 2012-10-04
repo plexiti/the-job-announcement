@@ -15,6 +15,18 @@
 			<base-name>IndexMessages</base-name>
 			<var>index</var>
 		</resource-bundle>
+        <resource-bundle>
+            <base-name>ContentsMessages</base-name>
+            <var>contents</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>BookMessages</base-name>
+            <var>book</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>CreditsMessages</base-name>
+            <var>credits</var>
+        </resource-bundle>
 		<locale-config>
 			<default-locale>en</default-locale>
 			<supported-locale>de</supported-locale>

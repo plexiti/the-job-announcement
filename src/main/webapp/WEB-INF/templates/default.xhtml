@@ -58,9 +58,10 @@
 						<h:commandLink action="#{jobAnnouncements.doMenu('index')}" class="brand" immediate="true">#{msg['app.name']}</h:commandLink>
 						<div class="nav-collapse">
 							<ul class="nav">
+                                <li id="book"><h:commandLink action="#{jobAnnouncements.doMenu('book')}" immediate="true">#{msg['menu.book']}</h:commandLink></li>
+                                <li id="contents"><h:commandLink action="#{jobAnnouncements.doMenu('contents')}" immediate="true">#{msg['menu.contents']}</h:commandLink></li>
 								<li id="start"><h:commandLink action="#{jobAnnouncements.doMenu('start')}" immediate="true">#{msg['menu.play']}!</h:commandLink></li>
- 							    <li id="contents"><h:commandLink action="#{jobAnnouncements.doMenu('contents')}" immediate="true">#{msg['menu.contents']}</h:commandLink></li>
-								<li id="book"><h:commandLink action="#{jobAnnouncements.doMenu('book')}" immediate="true">#{msg['menu.book']}</h:commandLink></li>
+                                <li id="credits"><h:commandLink action="#{jobAnnouncements.doMenu('credits')}" immediate="true">#{msg['menu.credits']}!</h:commandLink></li>
 							</ul>
 							<ul class="nav pull-right">
 								<li class="dropdown">

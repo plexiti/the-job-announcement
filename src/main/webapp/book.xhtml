@@ -11,13 +11,11 @@
 	
 		<h1>#{msg['menu.book']}</h1>
 		
-		<h:graphicImage url="http://files.hanser.de/hanser/pics/978-3-446-42986-4_2122714399-110.jpg" width="200" styleClass="camunda-book"/>
-		<p>The book. BPMN, Activiti, Fox, etc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a purus vitae odio volutpat accumsan. Pellentesque id volutpat metus. Fusce eget dui eu libero interdum pellentesque. In ac est nec orci tincidunt rutrum. Etiam ultricies, sem vel viverra aliquam, libero arcu dictum eros, suscipit gravida lorem sapien sit amet orci. Donec dui leo, feugiat sit amet faucibus eu, luctus in metus. Mauris viverra venenatis risus non rutrum. Quisque dignissim neque id enim commodo pharetra. Donec suscipit aliquam arcu, id sodales nunc lacinia non.</p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-		<h3 class="signavio-title"><a href="http://www.signavio.com">Stellenausschreibung - Ebene 1</a></h3>
-
+		<h:graphicImage url="http://files.hanser.de/hanser/pics/978-3-446-42986-4_2122714399-110.jpg" width="125" styleClass="camunda-book"/>
+        <p><h:outputFormat value="#{book['summary']}" escape="false"/></p>
+        <p><h:outputFormat value="#{book['introduction']}" escape="false"/></p>
+        <br/><br/>
+		<h2>#{book['process.level.1.title']}</h2>
 		<script type="text/javascript" src="https://editor.signavio.com/mashup/signavio.js"></script>
 		<script type="text/plain">
 		{
@@ -31,7 +29,7 @@
 		</script>
 		<a class="signavio-logo" href="http://www.signavio.com" rel="external"><img src="https://editor.signavio.com/mashup/img/signavio.png" alt="BPMN notation repository BPMN modeler" /></a>
 		
-		<h3 class="signavio-title"><a href="http://www.signavio.com">Stellenausschreibung - Ebene 2</a></h3>
+        <h2>#{book['process.level.2.title']}</h2>
 		<script type="text/javascript" src="https://editor.signavio.com/mashup/signavio.js"></script>
 		<script type="text/plain">
 		{
@@ -45,7 +43,7 @@
 		</script>
 		<a class="signavio-logo" href="http://www.signavio.com" rel="external"><img src="https://editor.signavio.com/mashup/img/signavio.png" alt="BPMN modeler BPM BPMN editor" /></a>
 		
-		<h3 class="signavio-title"><a href="http://www.signavio.com">Stellenausschreibung - Ebene 3</a></h3>
+        <h2>#{book['process.level.3.title']}</h2>
 		<script type="text/javascript" src="https://editor.signavio.com/mashup/signavio.js"></script>
 		<script type="text/plain">
 		{

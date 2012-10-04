@@ -7,14 +7,51 @@
 
 	<ui:param name="activeNavigationBarTab" value="index" />
 	<ui:define name="content">
-		<div class="marketing">
-			<h1>
-				<h:outputFormat value="#{index['showcase']}" escape="false">
-                	<f:param value="#{msg['app.name']}" />
-	            </h:outputFormat>
-			</h1>
+        <div class="row">
+            <div class="marketing">
+                <h1>
+                    <h:outputFormat value="#{index['showcase']}" escape="false">
+                        <f:param value="#{msg['app.name']}"/>
+                    </h:outputFormat>
+                </h1>
+                <p class="marketing-byline">
+                            <h:outputFormat value="#{index['byline']}" escape="false">
+                                <f:param value="#{msg['app.name']}" />
+                            </h:outputFormat>
+      			</p>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span1"></div>
+            <div class="span10">
+                <p><h:outputFormat value="#{index['intro.summary']}" escape="false"/></p>
+            </div>
+            <div class="span1"></div>
+        </div>
+        <br/><br/>
+        <div class="marketing">
 			<p class="marketing-byline">
-				<h:outputFormat value="#{index['byline']}" escape="false">
+				<h:outputFormat value="#{index['intro.steps.title']}" escape="false"/>
+			</p>
+			<div class="row">
+				<div class="span4">
+                    <h2><strong>1.</strong> #{index['intro.steps.1.title']}</h2>
+					<p><h:outputFormat value="#{index['intro.steps.1.text']}" escape="false"/></p>
+				</div>
+				<div class="span4">
+                    <h2><strong>2.</strong> #{index['intro.steps.2.title']}</h2>
+					<p><h:outputFormat value="#{index['intro.steps.2.text']}" escape="false"/></p>
+				</div>
+				<div class="span4">
+                    <h2><strong>3.</strong> #{index['intro.steps.3.title']}</h2>
+					<p><h:outputFormat value="#{index['intro.steps.3.text']}" escape="false"/></p>
+				</div>
+			</div>
+        </div> <!--/marketing -->
+        <br/><br/><br/>
+        <div class="marketing">
+			<p class="marketing-byline">
+				<h:outputFormat value="#{index['reasons']}" escape="false">
                 	<f:param value="#{msg['app.name']}" />
 	            </h:outputFormat>
 			</p>
@@ -34,8 +71,7 @@
 					<h2>#{index['growing.title']}</h2>
 					<p><h:outputFormat value="#{index['growing.text']}" escape="false"/></p>
 				</div>
-			</div>
-			<!--/row-->
+			</div> <!--/row-->
 			<div class="row">
 				<div class="span4">
 					<h:graphicImage url="resources/img/glyphicons/glyphicons_244_conversation.png" width="29" styleClass="bs-icon pull-left"/>

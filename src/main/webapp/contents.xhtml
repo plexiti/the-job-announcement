@@ -10,15 +10,29 @@
 	<ui:define name="content">	
 	
 		<h1>#{msg['menu.contents']}</h1>
-		
-		<h:graphicImage url="#{users.getImage('gonzo')}" width="100" styleClass="user-intro"/>
-		<p>Gonzo, the great manager. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		<h:graphicImage url="#{users.getImage('kermit')}" width="100" styleClass="user-intro"/>
-		<p>Kermit, the frog. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		<h:graphicImage url="#{users.getImage('fozzie')}" width="100" styleClass="user-intro"/>
-		<p>Fozzie the bear. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		
-		<h3 class="signavio-title"><a href="http://www.signavio.com">#{msg['app.name']}</a></h3>
+
+        <p><h:outputFormat value="#{contents['introduction']}" escape="false"/></p>
+
+        <div class="row">
+            <div class="span4">
+                <h:graphicImage url="#{users.getImage('gonzo')}" width="60" styleClass="user-intro"/>
+           		<p><h:outputFormat value="#{contents['gonzo.description']}" escape="false"/></p>
+            </div>
+            <div class="span4">
+                <h:graphicImage url="#{users.getImage('fozzie')}" width="60" styleClass="user-intro"/>
+           		<p><h:outputFormat value="#{contents['fozzie.description']}" escape="false"/></p>
+            </div>
+            <div class="span4">
+                <h:graphicImage url="#{users.getImage('kermit')}" width="60" styleClass="user-intro"/>
+           		<p><h:outputFormat value="#{contents['kermit.description']}" escape="false"/></p>
+            </div>
+        </div> <!--/row-->
+        <br/>
+        <p><h:outputFormat value="#{contents['indication']}" escape="false"/></p>
+        <br/>
+		<h2>#{contents['process.announcement.title']}</h2>
+        <p><h:outputFormat value="#{contents['process.announcement.description']}" escape="false"/></p>
+        <br/>
 		<script type="text/javascript" src="https://editor.signavio.com/mashup/signavio.js"></script>
 		<script type="text/plain">
 		{
@@ -32,7 +46,9 @@
 		</script>
 		<a class="signavio-logo" href="http://www.signavio.com" rel="external"><img src="https://editor.signavio.com/mashup/img/signavio.png" alt="EPC BPMN tool jBPM" /></a>
 
-		<h3 class="signavio-title"><a href="http://www.signavio.com">#{msg['app.name']}: #{msg['title.publish']}</a></h3>
+		<h2>#{contents['process.publish.title']}</h2>
+        <p><h:outputFormat value="#{contents['process.publish.description']}" escape="false"/></p>
+        <br/>
 		<script type="text/javascript" src="https://editor.signavio.com/mashup/signavio.js"></script>
 		<script type="text/plain">
 		{

@@ -6,11 +6,49 @@
 	template="/WEB-INF/templates/default.xhtml">
 		
 	<ui:param name="activeNavigationBarTab" value="credits"/>
-
-	<ui:define name="content">	
+	<ui:define name="content">
 	
 		<h1>#{msg['menu.credits']}</h1>
 
+        <p><h:outputFormat value="#{credits['introduction']}" escape="false"/></p>
+        <br/>
+        <div class="row-fluid">
+            <div class="span4">
+                <div class="thumbnail">
+                    <a href="http://www.plexiti.com"><img src="http://plexiti.com/assets/images/logo-name.png" alt="plexiti - pragmatic software productions"/></a>
+                </div>
+            </div>
+            <div class="span8">
+                <p><h:outputFormat value="#{credits['plexiti.description']}" escape="false"/></p>
+                <p><h:outputFormat value="#{credits['plexiti.website']}" escape="false"/></p>
+            </div>
+        </div>
+        <br/>
+        <div class="row-fluid">
+            <div class="span4">
+                <div class="thumbnail">
+                    <a href="http://www.camunda.com"><img src="http://plexiti.com/assets/images/camunda_logo_transparent_600.png" alt="camunda services gmbh"/></a>
+                </div>
+            </div>
+            <div class="span8">
+                <p><h:outputFormat value="#{credits['camunda.description']}" escape="false"/></p>
+                <p><h:outputFormat value="#{credits['camunda.website']}" escape="false"/></p>
+            </div>
+        </div>
+        <br/>
+        <div class="row-fluid">
+            <div class="span4">
+                <div class="thumbnail">
+                    <a href="http://www.signavio.com"><img src="http://www.signavio.com/images/press-material/logoclaim_m_rgb.jpg" alt="signavio"/></a>
+                </div>
+            </div>
+            <div class="span8">
+                <p><h:outputFormat value="#{credits['signavio.description']}" escape="false"/></p>
+                <p><h:outputFormat value="#{credits['signavio.website']}" escape="false"/></p>
+            </div>
+        </div>
+        <br/><br/>
+        <p><h:outputFormat value="#{credits['sourcecode']}" escape="false"/></p>
 	</ui:define>
 	
 </ui:composition>
