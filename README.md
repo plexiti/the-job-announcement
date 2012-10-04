@@ -65,6 +65,6 @@ we intend to implement and publish. In the meantime send us your feedback to [he
 
 This software is licensed under the terms you may find in the file named `LICENSE.txt` in the root directory.
 
-[1]: https://bitbucket.org/plexiti/the-job-announcement-fox/downloads/the-job-announcement-showcase-splash-screen.png
+[1]: https://bitbucket.org/plexiti/the-job-announcement-fox/downloads/the-job-announcement-showcase-splash-screen-v2.png
 [2]: https://bitbucket.org/plexiti/the-job-announcement-fox/downloads/Stellenausschreibung-Ebene-Engine.png
 [3]: https://bitbucket.org/plexiti/the-job-announcement-fox/downloads/Stellenausschreibung-Ebene-Durchfuehrung-Engine.png
