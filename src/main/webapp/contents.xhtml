@@ -29,25 +29,27 @@
     </div> <!--/row-->
     <br/>
 
-		<h2>#{contents['process.announcement.title']}</h2>
-    <p><h:outputFormat value="#{contents['process.announcement.description']}" escape="false"/></p>
-    <br/>
-		<script type="text/javascript" src="https://editor.signavio.com/mashup/signavio.js"></script>
-		<script type="text/plain">
-		{
-		    url: "https://editor.signavio.com/p/model/8c529b94361d42948dcd2c75c14b7c71",
-		    authToken: "8e2717b8c8a15f98c7b5aeebf73f65f8bcea1697ea37cba7ab3e8aff862da_986d86aa9d156c96bbaff1f5e7e2b37fa6a1e8d82aea4c9f891cf76ba2e_8413c77f6ac97aedb17fef0654ce256f7cd2325c55a64f366ca263ffab329",
-		    overflowX: "fit",
-		    overflowY: "fit",
-		    zoomSlider: true,
-		    linkSubProcesses: true
-		}
-		</script>
-		<a class="signavio-logo" href="http://www.signavio.com" rel="external"><img src="https://editor.signavio.com/mashup/img/signavio.png" alt="EPC BPMN tool jBPM" /></a>
-
-		<h2>#{contents['process.publish.title']}</h2>
-    <p><h:outputFormat value="#{contents['process.publish.description']}" escape="false"/></p>
-    <br/>
+    <div class="row">
+        <h2>#{contents['process.announcement.title']}</h2>
+        <p><h:outputFormat value="#{contents['process.announcement.description']}" escape="false"/></p>
+        <br/>
+            <script type="text/javascript" src="https://editor.signavio.com/mashup/signavio.js"></script>
+            <script type="text/plain">
+            {
+                url: "https://editor.signavio.com/p/model/8c529b94361d42948dcd2c75c14b7c71",
+                authToken: "8e2717b8c8a15f98c7b5aeebf73f65f8bcea1697ea37cba7ab3e8aff862da_986d86aa9d156c96bbaff1f5e7e2b37fa6a1e8d82aea4c9f891cf76ba2e_8413c77f6ac97aedb17fef0654ce256f7cd2325c55a64f366ca263ffab329",
+                overflowX: "fit",
+                overflowY: "fit",
+                zoomSlider: true,
+                linkSubProcesses: true
+            }
+            </script>
+            <a class="signavio-logo" href="http://www.signavio.com" rel="external"><img src="https://editor.signavio.com/mashup/img/signavio.png" alt="EPC BPMN tool jBPM" /></a>
+    </div> <!-- /row -->
+    <div class="row">
+        <h2>#{contents['process.publish.title']}</h2>
+        <p><h:outputFormat value="#{contents['process.publish.description']}" escape="false"/></p>
+        <br/>
 		<script type="text/javascript" src="https://editor.signavio.com/mashup/signavio.js"></script>
 		<script type="text/plain">
 		{
@@ -60,7 +62,7 @@
 		}
 		</script>
 		<a class="signavio-logo" href="http://www.signavio.com" rel="external"><img src="https://editor.signavio.com/mashup/img/signavio.png" alt="modeling BPMN modeler SaaS" /></a>
-
+    </div> <!-- /row -->
 	</ui:define>
 	
 </ui:composition>
