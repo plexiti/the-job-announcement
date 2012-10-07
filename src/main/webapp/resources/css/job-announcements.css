@@ -116,6 +116,15 @@ button.btn, input[type="submit"].btn {
 
 h1 {
 	margin-bottom: 20px;
+    font-weight: 300;
+}
+
+h2 {
+    font-weight: 300;
+}
+
+h3 {
+    font-weight: 300;
 }
 
 .alert-info {
@@ -139,13 +148,14 @@ h1 {
 	opacity: .8;
 }
 
-h1 {
+.marketing h1 {
 	margin: 36px 0 27px;
 	font-weight: 300;
-	font-size: 30px;
+	font-size: 40px;
+    text-align: center;
 }
 
-h2 {
+.marketing h2 {
 	background-color: transparent;
 	color: #333;
 	font-size: 22px;
@@ -153,11 +163,6 @@ h2 {
 	height: 36px;
 	line-height: 36px;
 	width: 370px;
-}
-
-.marketing h1 {
-	font-size: 40px;
-	text-align: center;
 }
 
 /* http://blog.kenneth.io/blog/2012/03/04/word-wrapping-hypernation-using-css/ */
