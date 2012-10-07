@@ -12,10 +12,12 @@
 		<h1>#{msg['menu.book']}</h1>
 		
 		<h:graphicImage url="http://files.hanser.de/hanser/pics/978-3-446-42986-4_2122714399-110.jpg" width="125" styleClass="camunda-book"/>
-        <p><h:outputFormat value="#{book['summary']}" escape="false"/></p>
         <p><h:outputFormat value="#{book['introduction']}" escape="false"/></p>
+        <p><h:outputFormat value="#{book['observation']}" escape="false"/></p>
+        <p><h:outputFormat value="#{book['credits']}" escape="false"/></p>
         <br/><br/>
 		<h2>#{book['process.level.1.title']}</h2>
+        <p><h:outputFormat value="#{book['process.level.1.description']}" escape="false"/></p>
 		<script type="text/javascript" src="https://editor.signavio.com/mashup/signavio.js"></script>
 		<script type="text/plain">
 		{
@@ -30,6 +32,7 @@
 		<a class="signavio-logo" href="http://www.signavio.com" rel="external"><img src="https://editor.signavio.com/mashup/img/signavio.png" alt="BPMN notation repository BPMN modeler" /></a>
 		
         <h2>#{book['process.level.2.title']}</h2>
+        <p><h:outputFormat value="#{book['process.level.2.description']}" escape="false"/></p>
 		<script type="text/javascript" src="https://editor.signavio.com/mashup/signavio.js"></script>
 		<script type="text/plain">
 		{
@@ -44,6 +47,7 @@
 		<a class="signavio-logo" href="http://www.signavio.com" rel="external"><img src="https://editor.signavio.com/mashup/img/signavio.png" alt="BPMN modeler BPM BPMN editor" /></a>
 		
         <h2>#{book['process.level.3.title']}</h2>
+        <p><h:outputFormat value="#{book['process.level.3.description']}" escape="false"/></p>
 		<script type="text/javascript" src="https://editor.signavio.com/mashup/signavio.js"></script>
 		<script type="text/plain">
 		{
