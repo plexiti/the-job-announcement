@@ -38,9 +38,10 @@
 }
 
 .camunda-book {
-	border-radius: 5px;
-	float: right;
-	margin-left: 10px;
+    border-radius: 5px;
+    float: left;
+    margin-right: 10px;
+    width: 75px;
 }
 
 hr {
