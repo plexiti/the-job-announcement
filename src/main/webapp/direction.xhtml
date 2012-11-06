@@ -4,8 +4,10 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	template="/WEB-INF/templates/default.xhtml">
-		
-	<ui:param name="activeNavigationBarTab" value="direction"/>
+
+    <ui:define name="title">#{msg['menu.direction']}</ui:define>
+
+    <ui:param name="activeNavigationBarTab" value="direction"/>
 
 	<ui:define name="content">	
 	

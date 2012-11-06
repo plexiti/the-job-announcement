@@ -6,7 +6,9 @@
 	xmlns:job="http://java.sun.com/jsf/composite/components/job"
 	template="/WEB-INF/templates/external.xhtml">
 
-	<ui:define name="content">	
+    <ui:define name="title">#{msg['title.view']}</ui:define>
+
+    <ui:define name="content">
 		<h1>#{msg['title.view']}</h1>
 		<br/>
 		<job:post announcement="#{jobAnnouncement}"/>

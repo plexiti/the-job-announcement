@@ -6,9 +6,11 @@
 	xmlns:job="http://java.sun.com/jsf/composite/components/job"
     xmlns:announcement="http://java.sun.com/jsf/composite/components/announcement"
 	template="/WEB-INF/templates/default.xhtml">
-		
+
+    <ui:define name="title">#{msg['title.correct']}</ui:define>
+
 <ui:param name="activeNavigationBarTab" value="start"/>
-<ui:define name="content">	
+<ui:define name="content">
 
     <announcement:help id="help" title="Help">
     	<p>
