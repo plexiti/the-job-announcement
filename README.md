@@ -32,7 +32,7 @@ issue management system for this project](https://bitbucket.org/plexiti/the-job-
 
 In order to be able to "play" with the showcase yourself you will need to do the following steps:
 
-1. Download the camunda fox Platform Community Edition (version 1.28.0 or higher) from [here](https://app.camunda.com/confluence/display/foxUserGuide/Getting+Started).
+1. Download the camunda fox Platform Community Edition (version 1.29.0) from [here](https://app.camunda.com/confluence/display/foxUserGuide/Getting+Started).
 1. Install it, start it with `<FOX_PLATFORM_HOME>/server/jboss-as-7.1.0.Final/bin$ ./standalone.sh`
 1. Make sure JBoss AS 7 is running by pointing your browser to `http://localhost:8080/`
 1. Make sure you have the following installed *and working*:

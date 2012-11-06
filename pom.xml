@@ -13,7 +13,7 @@
         <deployment.war.name>the-job-announcement</deployment.war.name>
         <!-- Download camunda fox CE from here -->
         <!-- https://app.camunda.com/confluence/display/foxUserGuide/Getting+Started -->
-		<fox.version>1.28.0</fox.version>
+		<fox.version>1.29.0</fox.version>
         <jboss.as.version>7.1.0.Final</jboss.as.version>
 		<fest.assert.version>1.4</fest.assert.version>
 		<h2.version>1.3.162</h2.version>
