@@ -9,7 +9,7 @@
     <property name="jobExecutorActivate" value="true" />
 
     <property name="expressionManager">
-    	<bean class="de.nilspreusker.test.mock.MockExpressionManager"/>
+    	<bean class="org.activiti.engine.test.mock.MockExpressionManager"/>
     </property>
     
   </bean>
