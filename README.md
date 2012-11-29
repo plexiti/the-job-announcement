@@ -25,8 +25,8 @@ Two BPMN 2.0 business processes definitions implemented the abovementioned proce
 
 # Yes, we've got issues!
 
-We welcome any feedback. You can send as an e-mail at [hello@plexiti.com](mailto:hello@plexiti.com) or use [Bitbucket's
-issue management system for this project](https://bitbucket.org/plexiti/the-job-announcement-fox/issues).
+We welcome any feedback. You can send as an e-mail at [hello@plexiti.com](mailto:hello@plexiti.com) or use [GitHub's
+issue management system for this project](https://github.com/plexiti/the-job-announcement-fox/issues).
 
 # Building the showcase yourself
 
@@ -39,7 +39,7 @@ In order to be able to "play" with the showcase yourself you will need to do the
     * [Java Platform (*JDK*) 1.6.x](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
     * [Maven](http://maven.apache.org/) 3.0.x
     * [Git](http://git-scm.com/) 1.7.x
-1. Clone this repository with `git clone git@bitbucket.org:plexiti/the-job-announcement-fox.git`
+1. Clone this repository with `git clone git@github.com:plexiti/the-job-announcement-fox.git`
 1. Build the application with `mvn package` and deploy it with `mvn jboss-as:deploy`
 1. Point your browser to `http://localhost:8080/the-job-announcement/` and enjoy!
 
@@ -65,6 +65,6 @@ we intend to implement and publish. In the meantime send us your feedback to [he
 
 This software is licensed under the terms you may find in the file named `LICENSE.txt` in the root directory.
 
-[1]: https://bitbucket.org/plexiti/the-job-announcement-fox/downloads/the-job-announcement-showcase-splash-screen-v3.png
-[2]: https://bitbucket.org/plexiti/the-job-announcement-fox/downloads/Stellenausschreibung-Ebene-Engine.png
-[3]: https://bitbucket.org/plexiti/the-job-announcement-fox/downloads/Stellenausschreibung-Ebene-Durchfuehrung-Engine.png
+[1]: https://github.com/plexiti/the-job-announcement-fox/downloads/the-job-announcement-showcase-splash-screen-v3.png
+[2]: https://github.com/plexiti/the-job-announcement-fox/downloads/Stellenausschreibung-Ebene-Engine.png
+[3]: https://github.com/plexiti/the-job-announcement-fox/downloads/Stellenausschreibung-Ebene-Durchfuehrung-Engine.png
