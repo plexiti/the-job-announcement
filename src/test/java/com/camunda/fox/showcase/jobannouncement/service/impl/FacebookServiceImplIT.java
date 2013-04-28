@@ -1,6 +1,6 @@
 package com.camunda.fox.showcase.jobannouncement.service.impl;
 
-import static org.fest.assertions.Assertions.*;
+import static org.camunda.bpm.engine.test.fluent.FluentProcessEngineTests.*;
 
 import javax.persistence.EntityManager;
 

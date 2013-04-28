@@ -34,8 +34,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.*;
-
-import static org.fest.assertions.Assertions.assertThat;
+import static org.camunda.bpm.engine.test.fluent.FluentProcessEngineTests.*;
 
 import java.io.File;
 import java.util.HashMap;

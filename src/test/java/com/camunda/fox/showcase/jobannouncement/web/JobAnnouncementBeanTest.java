@@ -1,6 +1,6 @@
 package com.camunda.fox.showcase.jobannouncement.web;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.camunda.bpm.engine.test.fluent.FluentProcessEngineTests.*;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;

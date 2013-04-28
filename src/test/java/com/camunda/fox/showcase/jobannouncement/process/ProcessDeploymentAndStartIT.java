@@ -13,11 +13,11 @@ import org.jboss.shrinkwrap.resolver.api.DependencyResolvers;
 import org.jboss.shrinkwrap.resolver.api.maven.MavenDependencyResolver;
 
 import javax.inject.Inject;
-import static org.fest.assertions.Assertions.assertThat;
 import java.util.HashMap;
 import java.util.List;
 
-//import static org.junit.Assert.assertEquals;
+import static com.camunda.fox.showcase.jobannouncement.process.ProcessConstants.*;
+import static org.camunda.bpm.engine.test.fluent.FluentProcessEngineTests.*;
 
 @RunWith(Arquillian.class)
 public class ProcessDeploymentAndStartIT {
