@@ -5,7 +5,7 @@ import static org.mockito.Mockito.*;
 
 import static com.plexiti.activiti.test.ActivitiFestConditions.*;
 
-import org.activiti.engine.test.Deployment;
+import org.camunda.bpm.engine.test.Deployment;
 import org.junit.Test;
 import org.mockito.Mock;
 

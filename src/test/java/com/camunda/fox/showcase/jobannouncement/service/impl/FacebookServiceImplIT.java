@@ -4,9 +4,9 @@ import static org.fest.assertions.Assertions.*;
 
 import javax.persistence.EntityManager;
 
-import org.activiti.engine.IdentityService;
-import org.activiti.engine.identity.User;
-import org.activiti.engine.identity.UserQuery;
+import org.camunda.bpm.engine.IdentityService;
+import org.camunda.bpm.engine.identity.User;
+import org.camunda.bpm.engine.identity.UserQuery;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,6 +1,6 @@
 package com.plexiti.activiti.model;
 
-import org.activiti.engine.task.Task;
+import org.camunda.bpm.engine.task.Task;
 
 public interface TaskAware {
 	

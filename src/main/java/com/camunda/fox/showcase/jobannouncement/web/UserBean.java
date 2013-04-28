@@ -12,7 +12,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 
-import org.activiti.engine.identity.User;
+import org.camunda.bpm.engine.identity.User;
 
 import com.plexiti.helper.Servlets;
 

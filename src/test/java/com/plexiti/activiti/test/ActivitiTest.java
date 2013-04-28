@@ -4,7 +4,7 @@ import static org.fest.assertions.Assertions.assertThat;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.activiti.engine.test.ActivitiRule;
+import org.camunda.bpm.engine.test.ProcessEngineRule;
 import org.junit.Rule;
 
 public abstract class ActivitiTest {
@@ -12,7 +12,7 @@ public abstract class ActivitiTest {
 	private Map<String, TestProcessInstance> processes = new HashMap<String, TestProcessInstance>();
 
 	@Rule
-	public ActivitiRule activitiRule = new ActivitiRule();
+	public ProcessEngineRule activitiRule = new ProcessEngineRule();
 	
 	{
 		ActivitiRuleHelper.set(activitiRule);

@@ -2,9 +2,9 @@ package com.plexiti.activiti.test;
 
 import static org.fest.assertions.Assertions.assertThat;
 
-import org.activiti.engine.repository.DiagramLayout;
-import org.activiti.engine.runtime.Execution;
-import org.activiti.engine.task.Task;
+import org.camunda.bpm.engine.repository.DiagramLayout;
+import org.camunda.bpm.engine.runtime.Execution;
+import org.camunda.bpm.engine.task.Task;
 import org.fest.assertions.Condition;
 
 public class ActivitiFestConditions {

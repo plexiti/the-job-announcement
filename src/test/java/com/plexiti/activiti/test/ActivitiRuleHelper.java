@@ -1,16 +1,16 @@
 package com.plexiti.activiti.test;
 
-import org.activiti.engine.test.ActivitiRule;
+import org.camunda.bpm.engine.test.ProcessEngineRule;
 
 public class ActivitiRuleHelper {
 	
-	private static ThreadLocal<ActivitiRule> activitiRule = new ThreadLocal<ActivitiRule>();
+	private static ThreadLocal<ProcessEngineRule> activitiRule = new ThreadLocal<ProcessEngineRule>();
 	
-	public static void set(ActivitiRule activitiRule) {
+	public static void set(ProcessEngineRule activitiRule) {
 		ActivitiRuleHelper.activitiRule.set(activitiRule);
 	};
 
-	public static ActivitiRule get() {
+	public static ProcessEngineRule get() {
 		return ActivitiRuleHelper.activitiRule.get();
 	};
 

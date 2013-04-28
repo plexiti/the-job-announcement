@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 
 import org.mockito.Mock;
 
-import org.activiti.engine.test.mock.Mocks;
+import org.camunda.bpm.engine.test.mock.Mocks;
 
 public class Mockitos {
 
