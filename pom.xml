@@ -2,9 +2,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	
-	<name>camunda fox Job Announcement Showcase</name>
+	<name>camunda BPM Job Announcement Showcase</name>
 	<groupId>com.plexiti.showcases</groupId>
-	<artifactId>the-job-announcement-fox</artifactId>
+	<artifactId>the-job-announcement</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	
 	<packaging>war</packaging>
