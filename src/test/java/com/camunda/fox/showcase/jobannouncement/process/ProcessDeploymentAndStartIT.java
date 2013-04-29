@@ -1,11 +1,12 @@
 package com.camunda.fox.showcase.jobannouncement.process;
 
 import org.camunda.bpm.engine.RuntimeService;
-import org.camunda.bpm.engine.runtime.ProcessInstance;
+import org.camunda.bpm.engine.test.fluent.FluentProcessEngineTestRule;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -13,11 +14,9 @@ import org.jboss.shrinkwrap.resolver.api.DependencyResolvers;
 import org.jboss.shrinkwrap.resolver.api.maven.MavenDependencyResolver;
 
 import javax.inject.Inject;
-import java.util.HashMap;
-import java.util.List;
 
-import static com.camunda.fox.showcase.jobannouncement.process.ProcessConstants.*;
 import static org.camunda.bpm.engine.test.fluent.FluentProcessEngineTests.*;
+import static com.camunda.fox.showcase.jobannouncement.process.ProcessConstants.*;
 
 @RunWith(Arquillian.class)
 public class ProcessDeploymentAndStartIT {
@@ -28,17 +27,22 @@ public class ProcessDeploymentAndStartIT {
                                                               .loadMetadataFromPom("pom.xml");
 
         return ShrinkWrap.create(WebArchive.class, "process-smoke-test.war")
-                .addAsLibraries(resolver.artifact("com.camunda.fox.platform:fox-platform-client").resolveAsFiles())
+                .addAsLibraries(resolver.artifact("org.camunda.bpm:camunda-engine-cdi").resolveAsFiles())
+               .addAsLibraries(resolver.artifact("org.camunda.bpm.javaee:camunda-ejb-client").resolveAsFiles())
 
                 // prepare as process application archive for fox platform
                 .addAsWebResource("META-INF/processes.xml", "WEB-INF/classes/META-INF/processes.xml")
                 .addAsResource("com/camunda/fox/showcase/jobannouncement/process/job-announcement.bpmn")
                 .addAsResource("com/camunda/fox/showcase/jobannouncement/process/job-announcement-publication.bpmn")
 
-                // add fluent assertions dependency
-                .addAsLibraries(resolver.artifact("org.easytesting:fest-assert").resolveAsFiles())
+                // add camunda BPM fluent testing dependency
+                .addAsLibraries(resolver.artifact("org.camunda.bpm.incubation:camunda-bpm-fluent-engine-api").resolveAsFiles())
+                .addAsLibraries(resolver.artifact("org.camunda.bpm.incubation:camunda-bpm-fluent-assertions").resolveAsFiles())
                 ;
     }
+
+    @Rule
+    public FluentProcessEngineTestRule bpmnFluentTestRule = new FluentProcessEngineTestRule(this);
 
     @Inject
     @SuppressWarnings("cdi-ambiguous-dependency")
@@ -46,16 +50,10 @@ public class ProcessDeploymentAndStartIT {
 
     @Test
     public void testDeploymentAndStartInstance() throws InterruptedException {
-        HashMap<String, Object> variables = new HashMap<String, Object>();
+      newProcessInstance(JOBANNOUNCEMENT_PROCESS).start();
+      assertThat(processInstance()).isStarted();
+      System.out.println("Started process instance with id " + processInstance().getId());
 
-        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("job-announcement", variables);
-        String id = processInstance.getId();
-        assertThat(processInstance).isNotNull();
-        System.out.println("Started process instance id " + id);
-
-        List<String> activityIds = runtimeService.getActiveActivityIds(id);
-
-        assertThat(activityIds.size()).isEqualTo(1);
-        assertThat("edit").isIn(activityIds);
+      assertThat(processInstance()).isWaitingAt(TASK_DESCRIBE_POSITION);
     }
 }
