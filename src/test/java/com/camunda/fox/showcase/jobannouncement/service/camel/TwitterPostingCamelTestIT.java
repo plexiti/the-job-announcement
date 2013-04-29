@@ -14,15 +14,11 @@ import com.plexiti.helper.Objects;
 import com.plexiti.helper.Strings;
 import com.plexiti.persistence.service.EntityService;
 import com.plexiti.persistence.service.JpaEntityServiceImpl;
-import org.camunda.bpm.engine.RuntimeService;
-import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ArchivePaths;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
-import org.jboss.shrinkwrap.api.asset.FileAsset;
-import org.jboss.shrinkwrap.api.exporter.ExplodedExporter;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -36,10 +32,6 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.*;
 import static org.camunda.bpm.engine.test.fluent.FluentProcessEngineTests.*;
 
-import java.io.File;
-import java.util.HashMap;
-import java.util.List;
-
 @RunWith(Arquillian.class)
 public class TwitterPostingCamelTestIT {
 
@@ -49,12 +41,17 @@ public class TwitterPostingCamelTestIT {
                                                               .loadMetadataFromPom("pom.xml");
 
         WebArchive war = ShrinkWrap.create(WebArchive.class, "camel-twitter-posting-test.war")
-                .addAsLibraries(resolver.artifact("com.camunda.fox.platform:fox-platform-client").resolveAsFiles())
+                .addAsLibraries(resolver.artifact("org.camunda.bpm:camunda-engine-cdi").resolveAsFiles())
+                .addAsLibraries(resolver.artifact("org.camunda.bpm.javaee:camunda-ejb-client").resolveAsFiles())
                 .addAsLibraries(resolver.artifact("org.apache.camel:camel-core").resolveAsFiles())
                 .addAsLibraries(resolver.artifact("org.apache.camel:camel-cdi").resolveAsFiles())
                 .addAsLibraries(resolver.artifact("org.apache.camel:camel-twitter").resolveAsFiles())
                 .addAsLibraries(resolver.artifact("org.apache.commons:commons-email").resolveAsFiles())
                 .addAsLibraries(resolver.artifact("com.restfb:restfb").resolveAsFiles())
+
+                // add camunda BPM fluent testing dependency
+                .addAsLibraries(resolver.artifact("org.camunda.bpm.incubation:camunda-bpm-fluent-engine-api").resolveAsFiles())
+                .addAsLibraries(resolver.artifact("org.camunda.bpm.incubation:camunda-bpm-fluent-assertions").resolveAsFiles())
 
                 .addAsWebInfResource(EmptyAsset.INSTANCE, ArchivePaths.create("beans.xml"))
                 .addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
@@ -78,9 +75,6 @@ public class TwitterPostingCamelTestIT {
                 .addClass(FacebookPosting.class)
                 .addClass(Strings.class)
                 .addClass(Objects.class)
-
-                // add fluent assertions dependency
-                .addAsLibraries(resolver.artifact("org.easytesting:fest-assert").resolveAsFiles())
                 ;
 
         /*
@@ -112,10 +106,10 @@ public class TwitterPostingCamelTestIT {
 
         JobAnnouncement announcement = new JobAnnouncement();
         //announcement.setId(1L);
-   		announcement.setNeed("A good software developer!");
-   		announcement.setRequester("gonzo");
-   		announcement.setTwitterMessage("Wir suchen ein Softwareentwickler!");
-   		announcement.setJobTitle("Software Developer");
+   		  announcement.setNeed("A good software developer!");
+   		  announcement.setRequester("gonzo");
+   		  announcement.setTwitterMessage("Wir suchen ein Softwareentwickler!");
+   		  announcement.setJobTitle("Software Developer");
 
         jobAnnouncementService.persist(announcement);
         Long announcementId = announcement.getId();
