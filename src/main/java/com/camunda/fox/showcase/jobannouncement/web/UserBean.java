@@ -2,6 +2,8 @@ package com.camunda.fox.showcase.jobannouncement.web;
 
 import static com.camunda.fox.showcase.jobannouncement.process.ProcessConstants.*;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.List;
@@ -9,9 +11,16 @@ import java.util.TimeZone;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.io.IOUtils;
+import org.camunda.bpm.engine.IdentityService;
+import org.camunda.bpm.engine.identity.Group;
+import org.camunda.bpm.engine.identity.Picture;
 import org.camunda.bpm.engine.identity.User;
 
 import com.plexiti.helper.Servlets;
@@ -39,6 +48,15 @@ public class UserBean extends AbstractBean implements Serializable {
 
 	@PostConstruct
 	public void init() {
+    /*
+     * If the users kermit, gonzo and fozzie do not exsit, we create them.
+     */
+    createGroupIfNotExists(identityService, ROLE_MANAGER);
+    createGroupIfNotExists(identityService, ROLE_STAFF);
+    createUserIfNotExists(identityService, "kermit", "Kermit", "The Frog", "/resources/img/users/kermit.png", new String[] { ROLE_STAFF, ROLE_MANAGER } );
+    createUserIfNotExists(identityService, "fozzie", "Fozzie", "The Bear", "/resources/img/users/fozzie.png", new String[] { ROLE_STAFF } );
+    createUserIfNotExists(identityService, "gonzo", "Gonzo", "The Great", "/resources/img/users/gonzo.png", new String[] { ROLE_STAFF, ROLE_MANAGER } );
+
 		manager = identityService.createGroupQuery().groupMember(loggedInUser).groupId(ROLE_MANAGER).count() > 0;
 		usersList = identityService.createUserQuery().list();
 		loggedInUserDetails = identityService.createUserQuery().userId(loggedInUser).singleResult();
@@ -50,7 +68,62 @@ public class UserBean extends AbstractBean implements Serializable {
 		}
 	}
 
-	public void doLogin(String loggedInUser) {
+  private void createGroupIfNotExists(IdentityService identityService, String groupId) {
+    /*
+     * Check if needed group exists and create it otherwise
+     */
+    Group group = identityService.createGroupQuery().groupId(groupId).singleResult();
+    if (group == null) {
+      log.info("Group '" + groupId + "' does not exist.");
+      group = identityService.newGroup(groupId);
+      identityService.saveGroup(group);
+      log.info("New group '" + groupId + "' created.");
+    }
+  }
+
+  private void createUserIfNotExists(IdentityService identityService,
+                                     String userId,
+                                     String firstName,
+                                     String lastName,
+                                     String imagePath,
+                                     String[] groups) {
+    /*
+     * Check if needed user exists and create it otherwise
+     */
+    User user = identityService.createUserQuery().userId(userId).singleResult();
+    if (user == null) {
+      log.info("User '" + userId + "' does not exist.");
+      user = identityService.newUser(userId);
+      user.setFirstName(firstName);
+      user.setLastName(lastName);
+      identityService.saveUser(user);
+      identityService.setUserPicture(userId, pictureForUser(imagePath));
+      log.info("New user '" + userId + "' created.");
+
+      /*
+       * Add user to groups
+       */
+      for (String groupId: groups) {
+        identityService.createMembership(userId, groupId);
+      }
+    }
+  }
+
+  private Picture pictureForUser(String picturePath) {
+    Picture picture = null;
+    try {
+      InputStream is = FacesContext.getCurrentInstance().getExternalContext().getResourceAsStream(picturePath);
+      log.info("Loading user picture from '" + picturePath + "'");
+      byte[] imgData = IOUtils.toByteArray(is);
+      picture = new Picture(imgData, "image/png");
+    } catch (IOException e) {
+      log.severe("Unable to load picture at URL '" + picturePath + "'");
+    }
+
+    return picture;
+  }
+
+  public void doLogin(String loggedInUser) {
 		this.loggedInUser = loggedInUser;
 		init();
 	}
