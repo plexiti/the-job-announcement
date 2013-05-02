@@ -1,12 +1,12 @@
 package com.camunda.fox.showcase.jobannouncement.web;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.camunda.bpm.engine.test.fluent.FluentProcessEngineTests.*;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
-import org.activiti.cdi.BusinessProcess;
+import org.camunda.bpm.engine.cdi.BusinessProcess;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

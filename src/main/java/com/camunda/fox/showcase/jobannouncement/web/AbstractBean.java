@@ -7,10 +7,10 @@ import javax.enterprise.context.Conversation;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-import org.activiti.cdi.BusinessProcess;
-import org.activiti.engine.IdentityService;
-import org.activiti.engine.RuntimeService;
-import org.activiti.engine.TaskService;
+import org.camunda.bpm.engine.cdi.BusinessProcess;
+import org.camunda.bpm.engine.IdentityService;
+import org.camunda.bpm.engine.RuntimeService;
+import org.camunda.bpm.engine.TaskService;
 
 public abstract class AbstractBean {
 
