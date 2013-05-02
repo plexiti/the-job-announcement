@@ -14,8 +14,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 import com.camunda.fox.showcase.jobannouncement.service.camel.ContextBootStrap;
-import org.activiti.engine.IdentityService;
-import org.activiti.engine.identity.User;
+import org.camunda.bpm.engine.IdentityService;
+import org.camunda.bpm.engine.identity.User;
 import org.apache.camel.*;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.EmailException;

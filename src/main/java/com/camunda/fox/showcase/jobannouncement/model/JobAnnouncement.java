@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 
-import org.activiti.engine.task.Task;
+import org.camunda.bpm.engine.task.Task;
 import org.hibernate.validator.constraints.NotBlank;
 
 import com.plexiti.activiti.model.TaskAware;

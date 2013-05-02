@@ -7,12 +7,12 @@ import java.util.Stack;
 
 import javax.inject.Inject;
 
-import org.activiti.cdi.BusinessProcess;
-import org.activiti.engine.RuntimeService;
-import org.activiti.engine.TaskService;
-import org.activiti.engine.runtime.Execution;
-import org.activiti.engine.runtime.ProcessInstance;
-import org.activiti.engine.task.Task;
+import org.camunda.bpm.engine.cdi.BusinessProcess;
+import org.camunda.bpm.engine.RuntimeService;
+import org.camunda.bpm.engine.TaskService;
+import org.camunda.bpm.engine.runtime.Execution;
+import org.camunda.bpm.engine.runtime.ProcessInstance;
+import org.camunda.bpm.engine.task.Task;
 
 import com.plexiti.activiti.model.TaskAware;
 import com.plexiti.helper.Entities;
