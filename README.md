@@ -26,7 +26,7 @@ Two BPMN 2.0 business processes definitions implemented the abovementioned proce
 # Yes, we've Got Issues!
 
 We welcome any feedback. You can send as an e-mail at [hello@plexiti.com](mailto:hello@plexiti.com) or use [GitHub's
-issue management system for this project](https://github.com/plexiti/the-job-announcement-fox/issues).
+issue management system for this project](https://github.com/plexiti/the-job-announcement/issues).
 
 # Building the Showcase Yourself
 
