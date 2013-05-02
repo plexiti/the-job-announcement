@@ -2,25 +2,23 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	
-	<name>camunda fox Job Announcement Showcase</name>
+	<name>camunda BPM Job Announcement Showcase</name>
 	<groupId>com.plexiti.showcases</groupId>
-	<artifactId>the-job-announcement-fox</artifactId>
+	<artifactId>the-job-announcement</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	
 	<packaging>war</packaging>
 
 	<properties>
         <deployment.war.name>the-job-announcement</deployment.war.name>
-        <!-- Download camunda fox CE from here -->
-        <!-- https://app.camunda.com/confluence/display/foxUserGuide/Getting+Started -->
-		<fox.version>1.29.0</fox.version>
-        <jboss.as.version>7.1.0.Final</jboss.as.version>
+        <!-- Download camunda BPM for JBoss AS 7 from here: http://camunda.org/download/ -->
+        <camunda-bpm.version>7.0.0-alpha2</camunda-bpm.version>
+        <jboss.as.version>7.1.3.Final</jboss.as.version>
 		<fest.assert.version>1.4</fest.assert.version>
 		<h2.version>1.3.162</h2.version>
 
-        <!-- Please, note that we need Camel's Twitter component in release 2.11.0  -->
-        <!-- containing the following feature we needed to implemented in order to support our app's requirements: -->
-        <!-- https://issues.apache.org/jira/browse/CAMEL-5479 -->
+        <!-- We need at least Camel's Twitter component in release 2.11.0 since it contains the following feature -->
+        <!-- we needed to support our app's requirements: https://issues.apache.org/jira/browse/CAMEL-5479 -->
         <camel.version>2.11.0</camel.version>
 
         <!-- Avoid the message "[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!" -->
@@ -53,17 +51,37 @@
     </dependencyManagement>
 
 	<dependencies>
-		<dependency>
-			<groupId>com.camunda.fox.platform</groupId>
-			<artifactId>fox-platform-client</artifactId>
-			<version>${fox.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.camunda.fox.engine</groupId>
-			<artifactId>fox-engine</artifactId>
-			<version>${fox.version}</version>
-			<scope>provided</scope>
-		</dependency>
+        <!-- camunda BPM platform -->
+        <dependency>
+            <groupId>org.camunda.bpm</groupId>
+            <artifactId>camunda-engine</artifactId>
+            <version>${camunda-bpm.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.camunda.bpm.javaee</groupId>
+            <artifactId>camunda-ejb-client</artifactId>
+            <version>${camunda-bpm.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.camunda.bpm</groupId>
+            <artifactId>camunda-engine-cdi</artifactId>
+            <version>${camunda-bpm.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.camunda.bpm.incubation</groupId>
+            <artifactId>camunda-bpm-fluent-engine-api</artifactId>
+            <version>0.4-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.camunda.bpm.incubation</groupId>
+            <artifactId>camunda-bpm-fluent-assertions</artifactId>
+            <version>0.4-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Apache Camel -->
         <dependency>
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-core</artifactId>
@@ -79,6 +97,7 @@
             <artifactId>camel-twitter</artifactId>
             <version>${camel.version}</version>
         </dependency>
+
         <!-- JSR-303 (Bean Validation) Implementation -->
         <!-- Provides portable constraints such as @Email -->
         <!-- Hibernate Validator is shipped in JBoss AS 7 -->
@@ -111,19 +130,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.8.2</version>
-			<scope>test</scope>
-		</dependency>
-   		<dependency>
-   			<groupId>org.easytesting</groupId>
-   			<artifactId>fest-assert</artifactId>
-   			<version>${fest.assert.version}</version>
-   			<scope>test</scope>
-   		</dependency>
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-all</artifactId>
-			<version>1.9.0</version>
+			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
         <dependency>
@@ -135,6 +142,7 @@
         <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
             <artifactId>arquillian-junit-container</artifactId>
+            <version>1.0.3.Final</version>
             <scope>test</scope>
         </dependency>
         <!--<dependency>-->
@@ -148,7 +156,7 @@
         <dependency>
             <groupId>org.jboss.as</groupId>
             <artifactId>jboss-as-arquillian-container-remote</artifactId>
-            <version>7.1.0.Final</version>
+            <version>7.1.3.Final</version>
             <scope>test</scope>
         </dependency>
 
@@ -198,8 +206,9 @@
 
 	<repositories>
         <repository>
-          <id>camunda-fox-ce</id>
-          <url>https://app.camunda.com/nexus/content/repositories/fox-ce/</url>
+            <id>camunda-bpm-nexus</id>
+            <name>camunda-bpm-nexus</name>
+            <url>https://app.camunda.com/nexus/content/groups/public</url>
         </repository>
 		<repository>
 			<id>jboss-public-repository</id>
@@ -259,7 +268,7 @@
             <plugin>
                 <groupId>org.jboss.as.plugins</groupId>
                 <artifactId>jboss-as-maven-plugin</artifactId>
-                <version>${jboss.as.version}</version>
+                <version>7.4.Final</version>
             </plugin>
 		</plugins>
 	</build>

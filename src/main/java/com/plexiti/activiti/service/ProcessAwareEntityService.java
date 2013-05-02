@@ -2,8 +2,8 @@ package com.plexiti.activiti.service;
 
 import java.util.List;
 
-import org.activiti.cdi.BusinessProcess;
-import org.activiti.engine.task.Task;
+import org.camunda.bpm.engine.cdi.BusinessProcess;
+import org.camunda.bpm.engine.task.Task;
 
 import com.plexiti.activiti.model.TaskAware;
 import com.plexiti.persistence.service.EntityService;

@@ -5,7 +5,7 @@ import java.io.InputStream;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.activiti.engine.IdentityService;
+import org.camunda.bpm.engine.IdentityService;
 
 import com.camunda.fox.showcase.jobannouncement.service.UserImageService;
 
