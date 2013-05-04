@@ -70,7 +70,7 @@
         <h:commandButton id="cancel" value="#{msg['button.cancel']}" action="#{jobAnnouncements.doCancel}" class="btn" immediate="true"/>
         <h:commandButton action="#{jobAnnouncements.doSave}" value="#{msg['button.save']}" type="submit" class="btn btn-success"/>
         <h:commandButton action="#{jobAnnouncements.doRequestReview}" value="#{msg['button.edit.next']}" type="submit" class="btn btn-primary">
-            <f:param name="validationGroups" value="com.camunda.fox.showcase.jobannouncement.model.JobAnnouncement$Edit"/>
+            <f:param name="validationGroups" value="com.plexiti.camunda.bpm.showcase.jobannouncement.model.JobAnnouncement$Edit"/>
         </h:commandButton>
       </div>
     </fieldset>
