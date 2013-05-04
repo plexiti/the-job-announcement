@@ -1,4 +1,4 @@
-package com.plexiti.activiti.service;
+package com.plexiti.camunda.bpm.service;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -14,7 +14,7 @@ import org.camunda.bpm.engine.runtime.Execution;
 import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.camunda.bpm.engine.task.Task;
 
-import com.plexiti.activiti.model.TaskAware;
+import com.plexiti.camunda.bpm.model.TaskAware;
 import com.plexiti.helper.Entities;
 import com.plexiti.persistence.service.JpaEntityServiceImpl;
 

@@ -25,7 +25,7 @@ import com.camunda.fox.showcase.jobannouncement.model.FacebookPosting;
 import com.camunda.fox.showcase.jobannouncement.model.JobAnnouncement;
 import com.camunda.fox.showcase.jobannouncement.service.JobAnnouncementService;
 import com.camunda.fox.showcase.jobannouncement.service.PostingService;
-import com.plexiti.activiti.service.ProcessAwareJpaEntityServiceImpl;
+import com.plexiti.camunda.bpm.service.ProcessAwareJpaEntityServiceImpl;
 import twitter4j.Status;
 
 @Stateless

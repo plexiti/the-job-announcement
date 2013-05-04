@@ -3,7 +3,7 @@ package com.camunda.fox.showcase.jobannouncement.service;
 import java.util.List;
 
 import com.camunda.fox.showcase.jobannouncement.model.JobAnnouncement;
-import com.plexiti.activiti.service.ProcessAwareEntityService;
+import com.plexiti.camunda.bpm.service.ProcessAwareEntityService;
 
 
 public interface JobAnnouncementService extends ProcessAwareEntityService<JobAnnouncement> {

@@ -1,4 +1,4 @@
-package com.plexiti.activiti.model;
+package com.plexiti.camunda.bpm.model;
 
 import org.camunda.bpm.engine.task.Task;
 

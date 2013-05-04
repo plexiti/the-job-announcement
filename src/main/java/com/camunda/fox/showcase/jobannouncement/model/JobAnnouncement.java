@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 import org.camunda.bpm.engine.task.Task;
 import org.hibernate.validator.constraints.NotBlank;
 
-import com.plexiti.activiti.model.TaskAware;
+import com.plexiti.camunda.bpm.model.TaskAware;
 import com.plexiti.helper.Strings;
 
 @Entity
