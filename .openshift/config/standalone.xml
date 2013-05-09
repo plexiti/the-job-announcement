@@ -32,6 +32,7 @@
 		<extension module="org.jboss.as.web" />
 		<extension module="org.jboss.as.webservices" />
 		<extension module="org.jboss.as.weld" />
+        <extension module="org.camunda.bpm.jboss.camunda-jboss-subsystem"/>
 	</extensions>
 	
 	<system-properties>
@@ -137,6 +138,14 @@
 						<allow-multiple-users/>
 					</pool>
 				</datasource>
+                <datasource jta="true" jndi-name="java:jboss/datasources/ProcessEngine" pool-name="ProcessEngine" enabled="true" use-java-context="true" use-ccm="true">
+                    <connection-url>jdbc:h2:./camunda-h2-dbs/process-engine;DB_CLOSE_DELAY=-1;MVCC=TRUE;DB_CLOSE_ON_EXIT=FALSE</connection-url>
+                    <driver>h2</driver>
+                    <security>
+                        <user-name>sa</user-name>
+                        <password>sa</password>
+                    </security>
+                </datasource>
 				<drivers>
 					<driver name="h2" module="com.h2database.h2">
 						<xa-datasource-class>org.h2.jdbcx.JdbcDataSource
@@ -478,8 +487,15 @@
                 </security-domain>
             </security-domains>
         </subsystem>
-		<subsystem xmlns="urn:jboss:domain:threads:1.1" />
-		<subsystem xmlns="urn:jboss:domain:transactions:1.2">
+        <subsystem xmlns="urn:jboss:domain:threads:1.1">
+            <bounded-queue-thread-pool name="job-executor-tp" allow-core-timeout="true">
+                <core-threads count="3"/>
+                <queue-length count="3"/>
+                <max-threads count="10"/>
+                <keepalive-time time="10" unit="seconds"/>
+            </bounded-queue-thread-pool>
+        </subsystem>
+        <subsystem xmlns="urn:jboss:domain:transactions:1.2">
 			<core-environment>
 				<process-id>
 					<uuid />
@@ -512,7 +528,50 @@
 			</endpoint-config>
 		</subsystem>
 		<subsystem xmlns="urn:jboss:domain:weld:1.0" />
-	</profile>
+        <subsystem xmlns="urn:org.camunda.bpm.jboss:1.1">
+            <process-engines>
+                <process-engine name="default" default="true">
+                    <datasource>
+                        java:jboss/datasources/ProcessEngine
+                    </datasource>
+                    <history-level>
+                        full
+                    </history-level>
+                    <properties>
+                        <property name="jobExecutorAcquisitionName">
+                            default
+                        </property>
+                        <property name="isAutoSchemaUpdate">
+                            true
+                        </property>
+                    </properties>
+                </process-engine>
+            </process-engines>
+            <job-executor>
+                <thread-pool-name>
+                    job-executor-tp
+                </thread-pool-name>
+                <job-acquisitions>
+                    <job-acquisition name="default">
+                        <acquisition-strategy>
+                            SEQUENTIAL
+                        </acquisition-strategy>
+                        <properties>
+                            <property name="lockTimeInMillis">
+                                300000
+                            </property>
+                            <property name="waitTimeInMillis">
+                                5000
+                            </property>
+                            <property name="maxJobsPerAcquisition">
+                                3
+                            </property>
+                        </properties>
+                    </job-acquisition>
+                </job-acquisitions>
+            </job-executor>
+        </subsystem>
+    </profile>
 
 	<interfaces>
 		<interface name="management">
