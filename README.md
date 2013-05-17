@@ -32,7 +32,7 @@ issue management system for this project](https://github.com/plexiti/the-job-ann
 
 In order to be able to "play" with the showcase yourself you will need to do the following steps:
 
-1. Download the camunda BPM Platform for JBoss AS 7 from [here](http://camunda.org/download/).
+1. Download the camunda BPM Platform for JBoss AS 7 **7.0.0-alpha3 or higher** from [here](http://camunda.org/download/).
 1. Install it, start it with `<CAMUNDA_BPM_PLATFORM_HOME>/server/jboss-as-7.1.3.Final/bin$ ./standalone.sh`
 1. Make sure JBoss AS 7 is running by pointing your browser to `http://localhost:8080/`
 1. Make sure you have the following installed *and working*:
